@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>PicGIMX</name>
+            <creation-uuid>8385981e-a08f-47e3-b7a7-29ca9ab581d8</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <c-extensions>c</c-extensions>
+            <cpp-extensions/>
+            <header-extensions>h</header-extensions>
+            <asminc-extensions/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>../PicGIMX_Sources</sourceRootElem>
+                <sourceRootElem>../PicGIMX_Sources/PicGIMX/include</sourceRootElem>
+                <sourceRootElem>../PicGIMX_Sources/PicGIMX/src</sourceRootElem>
+                <sourceRootElem>../PicGIMX_Sources/PicGIMX/lkr</sourceRootElem>
+                <sourceRootElem>../PicGIMX_Sources/PicGIMX/include/pgim_mcu</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>
