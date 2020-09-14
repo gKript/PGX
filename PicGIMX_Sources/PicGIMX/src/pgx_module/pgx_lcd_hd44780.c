@@ -6,10 +6,6 @@
 #endif
 
 #if ( PGIMX_LCD_HD44780 == PGX_ENABLE )
-
-	#if ( PGX_PROJECT_STATE == PGX_DEBUG )
-		#warning PicGIMX: This file is compiling...
-	#endif
 	
     //#if ( )
         //global variable

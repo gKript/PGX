@@ -1,7 +1,10 @@
 //
 #ifndef _PGIMX_VERSION_H_
 	#define _PGIMX_VERSION_H_
-	//------------------------------------------------------------------------
+
+    //========================================================================
+    //  P G X   P R O J E C T   V E R S I O N
+    //========================================================================
 	#define PGX_VERSION_STATE               "rel"       					//!< \b "rel" for release or \b "dev" for devel
 	//------------------------------------------------------------------------
 	#define	PGX_MAJOR						0								//!<	Major version of PicGIM
@@ -10,7 +13,8 @@
 	//------------------------------------------------------------------------
 	#define PGX_VERSION						"0.1-004" 						//!<	String for the current version of Gim	*/
 	#define	PGX_MILESTONE					"0.1"							//!<	Relative Milestone
-	//------------------------------------------------------------------------
+    //========================================================================
+
 #endif /* _PGIMX_VERSION_H_ */
 
 
@@ -1170,7 +1174,6 @@
 			to permit their use in free software.
 			</p>
 		\endhtmlonly
-
  */ 
 
 

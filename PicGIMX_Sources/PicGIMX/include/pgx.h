@@ -1,16 +1,21 @@
 //
 #ifndef _PGIMX_INCLUDES_H_
 	#define _PGIMX_INCLUDES_H_
+    /*!
+		\brief		To correct initialize PGX environment
+	*/
+	void pgx_initialize( void );
+    
 	//-------------------------------------------------------------------------------
-	//    E N V I R O N M E N T       I N C L U S I O N S
+	//    I N C L U S I O N S :     E N V I R O N M E N T
 	//-------------------------------------------------------------------------------
 	#include <xc.h>
 	//-------------------------------------------------------------------------------
-	//    S T A N D A R D       I N C L U S I O N S
+	//    I N C L U S I O N S :     S T A N D A R D
 	//-------------------------------------------------------------------------------
     #include <stdio.h>
 	//-------------------------------------------------------------------------------
-	//    P I C G I M X      C O R E       I N C L U S I O N S
+	//    I N C L U S I O N S :     P I C G I M X
 	//-------------------------------------------------------------------------------
 	#include "pgx_custom_type.h"
 	#include "pgx_version.h"
@@ -23,15 +28,8 @@
 	#include "pgx_selective_compiling_setup.h"
 	#include "pgx_selective_compiling.h"
     #include "pgx_pin_mapping.h"
-	
-	/*!
-		\brief		To correct initialize the PGX environment
-	*/
-	void pgx_initialize( void );
-    
-    
 	//-------------------------------------------------------------------------------
-	//    P I C G I M X      I N C L U S I O N S
+	//    I N C L U S I O N S :     M O D U L E S
 	//-------------------------------------------------------------------------------
 	// //---[ Board A ]---
 	// #if ( PGX_BOARD != PGX_BOARD_USER_DEFINED )
@@ -65,16 +63,13 @@
 			// PGX_ADC,
 			// PGX_BUZZER,
 			// PGX_DELAY,
-			// //PGX_CONSTANTS,
 			// PGX_EE,
 			// PGX_ENCODER,
 			// PGX_EXT_MEM,
 			// PGX_EZFUSE,
 			// PGX_FONT,
 			// PGX_INTERRUTPS,
-			// PGX_LCD_9340,
 			// PGX_LCD_HD44780,
-			// PGX_LCD_5110,
 			// PGX_LCD_PCD8544,
 			// PGX_PWM,
 			// PGX_SERIAL,

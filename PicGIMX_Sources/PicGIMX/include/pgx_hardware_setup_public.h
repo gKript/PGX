@@ -50,19 +50,18 @@
 #ifndef _PGIMX_HARDWARE_SETUP_PUBLIC_H_
 	#define	_PGIMX_HARDWARE_SETUP_PUBLIC_H_
 
-	//------------------------------------------------------------------------------
+	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   L E D - E R R O R
-	//------------------------------------------------------------------------------
+	//========================================================================
 	#if ( ( PGX_ERROR == PGX_ENABLE ) && ( PGX_ERROR_LED_PRESENT == PGX_YES ) )
 		// LAT
 		#define	PGX_ERROR_LED						L_B0				//!< Must be: <pin-lat-name>
 		// TRIS
 		#define	PGX_ERROR_LED_TRIS					T_B0				//!< Must be: <pin-tris-name>
 	#endif
-
-	//------------------------------------------------------------------------------
+	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   L C D - H D 4 4 7 8 0
-	//------------------------------------------------------------------------------
+	//========================================================================
 	#if ( PGIMX_LCD_HD44780 == PGX_ENABLE )
 		// LAT
 		#define PGX_LCD_HD44780_RS					L_D4				//!< Must be: <pin-lat-name>
@@ -109,10 +108,9 @@
 		#define PGX_LCD_HD44780_DATA_2_PORT			P_D2				//!< Must be: <pin-port-name> || PGX_MISSING if not used. (lcd DB4)
 		#define PGX_LCD_HD44780_DATA_3_PORT			P_D3				//!< Must be: <pin-port-name> || PGX_MISSING if not used. (lcd DB4)
 	#endif
-
-	//------------------------------------------------------------------------------
+    //========================================================================
 	//		H A R D W A R E   C O N F I G   |	L C D - P C D 8 5 4 4
-	//------------------------------------------------------------------------------
+	//========================================================================
 	#if ( PGIMX_LCD_PCD8544 == PGX_ENABLE )
 		#define	PGX_LCD_PCD8544_VIDEO_MEMORY		PGX_NO
 		// LAT
@@ -128,20 +126,18 @@
 		#define PGX_LCD_PCD8544_RST_TRIS			T_C1
 		#define PGX_LCD_PCD8544_CE_TRIS				T_C2
 	#endif
-
-	//------------------------------------------------------------------------------
+	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   B U Z Z E R
-	//------------------------------------------------------------------------------
+	//========================================================================
 	#if ( PGIMX_BUZZER == PGX_ENABLE )
 		// LAT
 		#define	PGX_BUZZER_PIN						L_C2				//!< Must be: <pin-lat-name>
 		//TRIS
 		#define	PGX_BUZZER_PIN_TRIS					T_C2				//!< Must be: <pin-tris-name>
 	#endif
-	
-	//------------------------------------------------------------------------------
+	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   E N C O D E R
-	//------------------------------------------------------------------------------
+	//========================================================================
 	#if ( PGIMX_ENCODER == PGX_ENABLE )
 		// PORT
 		#define	PGX_ENCODER_STEP					P_B0				//!< Must be: <pin-port-name>
@@ -152,30 +148,27 @@
 		#define	PGX_ENCODER_DIR_TRIS				T_B5				//!< Must be: <pin-tris-name>
 		#define	PGX_ENCODER_SW_TRIS					T_B6				//!< Must be: <pin-tris-name>
 	#endif
-
-	//------------------------------------------------------------------------------
+	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   E X T E R N A L   M E M O R Y
-	//------------------------------------------------------------------------------
+	//========================================================================
 	#if ( PGIMX_EXTERNAL_MEMORY == PGX_ENABLE )
 		// LAT
 		#define	PGX_EXTERNAL_MEMORY_CS				L_B3				//!< Must be: <pin-lat-name>
 		// TRIS
 		#define	PGX_EXTERNAL_MEMORY_CS_TRIS			T_B3				//!< Must be: <pin-tris-name>
 	#endif
-
-	//------------------------------------------------------------------------------
+	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   R T C   D S 1 3 0 2
-	//------------------------------------------------------------------------------
+	//========================================================================
 	#if ( PGIMX_RTC_DS1302 == PGX_ENABLE )
 		// LAT
 		#define	PGX_RTC_DS1302_CS 					L_B0				//!< Must be: <pin-lat-name>
 		// TRIS
 		#define PGX_RTC_DS1302_CS_TRIS				T_B0				//!< Must be: <pin-tris-name>
 	#endif
-
-	//------------------------------------------------------------------------------
+	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   3 W I R E
-	//------------------------------------------------------------------------------
+	//========================================================================
 	#if ( PGIMX_3WIRE == PGX_ENABLE )
 		// LAT
 		#define PGX_3WIRE_IO						L_B1				//!< Must be: <pin-lat-name>
@@ -186,10 +179,9 @@
 		// PORT
 		#define PGX_3WIRE_IO_PORT					P_B1				//!< Must be: <pin-port-name>
 	#endif
-	
-	//------------------------------------------------------------------------------
+	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   A M G 8 8 X X
-	//------------------------------------------------------------------------------
+	//========================================================================
 	#if ( PGIMX_AMG88XX == PGX_ENABLE )
 		// TRIS
 		#define PGX_AMG88XX_IRQ_DEVICE1_TRIS		PGX_MISSING			//!< Must be: <pin-tris-name> || PGX_MISSING if not used.
@@ -198,10 +190,9 @@
 		#define PGX_AMG88XX_IRQ_DEVICE1				PGX_MISSING			//!< Must be: <pin-port-name> || PGX_MISSING if not used.
 		#define PGX_AMG88XX_IRQ_DEVICE2				PGX_MISSING			//!< Must be: <pin-port-name> || PGX_MISSING if not used.
 	#endif
-
-	//------------------------------------------------------------------------------
+	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   A D 9 8 5 1
-	//------------------------------------------------------------------------------
+	//========================================================================
 	#if ( PGIMX_DDS_AD9851 == PGX_ENABLE )
 		// TRIS
 		#define PGX_DDS_AD9851_SERIAL_DATA_TRIS		T_D7				//!< Must be: <pin-tris-name> || PGX_MISSING if not used.	//Used in serial data mode to control AD9851 pin#25 "D7"
@@ -216,7 +207,8 @@
 		#define PGX_DDS_AD9851_RESET				L_B3				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
 		#define PGX_DDS_AD9851_DATABUS				PGX_MISSING			//!< Must be: <port-lat-name> || PGX_MISSING if not used.	//Used in parallel data mode.
 	#endif
-	
+    //========================================================================
+
 #endif /* _PGIMX_HARDWARE_SETUP_PUBLIC_H_ */
 
 

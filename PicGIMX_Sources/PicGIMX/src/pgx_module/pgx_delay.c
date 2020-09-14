@@ -27,6 +27,8 @@
 		}
         return;
 	}
+    //---[ END Delay us ]---
+    
     //---[ Delay s ]---
 	#if ( PGX_DELAY_SEC == PGX_INCLUDE )
 		void pgx_delay_sec( _pgx_Uint16 sec ) {

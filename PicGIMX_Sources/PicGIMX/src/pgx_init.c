@@ -9,10 +9,9 @@
 void pgx_initialize( void ) {
 	//------------------------------------------------------------------------
 	#if ( PGX_POWER_GOOD_DELAY > 0 )
-        _pgx_Uint16 t_pg_power_good_delay;
-		t_pg_power_good_delay = PGX_POWER_GOOD_DELAY;
-                
-        pgx_delay_msec( t_pg_power_good_delay );
+        _pgx_Uint16 pg_power_good_delay_value;
+		pg_power_good_delay_value = PGX_POWER_GOOD_DELAY;
+        pgx_delay_msec( pg_power_good_delay_value );
 	#endif
 	//------------------------------------------------------------------------
 	// #if ( PGX_BOARD == PGX_BOARD_A )

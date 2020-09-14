@@ -55,7 +55,7 @@ void main( void ) {
     pgx_loop {
         pgx_lcd_hd44780_clear( 0 );
         pgx_lcd_hd44780_print_speed( 70 );
-        pgx_lcd_hd44780_write_p_string_rom( 0 , 0 , 0 , "PGX - SpeedPrint" );
+        pgx_lcd_hd44780_write_p_string_rom( 0 , 0 , 0 , "PGX 3 SpeedPrint" );
         pgx_lcd_hd44780_write_p_string_rom( 0 , 1 , 0 , "  Control Demo  " );
         pgx_delay_sec( 1 );
 	}
