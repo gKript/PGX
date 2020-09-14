@@ -26,6 +26,7 @@
       <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_selective_compiling.h</itemPath>
       <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_selective_compiling_setup.h</itemPath>
       <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_hardware_setup_public.h</itemPath>
+      <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_pin_mapping.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -65,7 +66,7 @@
         <targetDevice>PIC18F4620</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>3</platform>

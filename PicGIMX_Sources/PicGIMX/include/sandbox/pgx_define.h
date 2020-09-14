@@ -6,16 +6,16 @@
 	//------------------------------------------------------------------------
 	#define	PGX_LOOP( a )					while( a )						/*!	A conditional Loop */
 	#define	PGX_INFINITE_LOOP				while( 1 )						/*!	A forever loop	*/
-	#define	PGX_HALT						while( 1 )						/*!	A forever loop	*/
-	#define pgx_loop						while( 1 )						/*!	A forever loop	*/
+	#define	PGX_HALT							while( 1 )						/*!	A forever loop	*/
+	#define pgx_loop							while( 1 )						/*!	A forever loop	*/
 	//------------------------------------------------------------------------
 	#define	PGX_FOREVER						1								/*!	An argument for \ref PGX_LOOP()	*/
 	//------------------------------------------------------------------------
 	#define	PGX_OK							1								/*!	An alternative way to say "logic value 1"	*/
 	#define	PGX_NOK							0								/*!	An alternative way to say "logic value 0"	*/
 	//------------------------------------------------------------------------
-	#define	PGX_DONE						1								/*!	An alternative way to say "logic value 1"	*/
-	#define	PGX_NOT_DONE					0								/*!	An alternative way to say "logic value 0"	*/
+	#define	PGX_DONE							1								/*!	An alternative way to say "logic value 1"	*/
+	#define	PGX_NOT_DONE						0								/*!	An alternative way to say "logic value 0"	*/
 	//------------------------------------------------------------------------
 	#define	PGX_YES							1								/*!	An alternative way to say "logic value 1"	*/
 	#define	PGX_NO							0								/*!	An alternative way to say "logic value 0"	*/
@@ -27,17 +27,17 @@
 	#define	PGX_OUT							0								/*!	To program a PIN in OUTPUT	*/
 	//------------------------------------------------------------------------
 	#define	PGX_8BIT_IN						0xFF							/*!	To program an entire PORT in INPUT	*/
-	#define	PGX_8BIT_OUT					0x00							/*!	To program an entire PORT in OUTPUT	*/
+	#define	PGX_8BIT_OUT						0x00							/*!	To program an entire PORT in OUTPUT	*/
 	//------------------------------------------------------------------------
 	#define	PGX_LOW							0								/*!	An alternative way to say "logic value 0"	*/
-	#define	PGX_HIGH						1								/*!	An alternative way to say "logic value 1"	*/
-	#define	PGX_TRISTATE					2								/*!	Tristate when available	*/
+	#define	PGX_HIGH							1								/*!	An alternative way to say "logic value 1"	*/
+	#define	PGX_TRISTATE						2								/*!	Tristate when available	*/
 	//------------------------------------------------------------------------
 	#define	PGX_SET							1								/*!	An alternative way to say "logic value 1"	*/
 	#define	PGX_CLEAR						0								/*!	An alternative way to say "logic value 0"	*/
 	//------------------------------------------------------------------------
 	#define	PGX_START						1								/*!	An alternative way to say "logic value 1"	*/
-	#define	PGX_STOP						0								/*!	An alternative way to say "logic value 0"	*/
+	#define	PGX_STOP							0								/*!	An alternative way to say "logic value 0"	*/
 	//------------------------------------------------------------------------
 	#define	PGX_ENABLE						1								/*!	An alternative way to say "logic value 1"	*/
 	#define	PGX_DISABLE						0								/*!	An alternative way to say "logic value 0"	*/
@@ -48,22 +48,22 @@
 	#define	PGX_MASTER						1								/*!	An alternative way to say "logic value 1"	*/
 	#define	PGX_SLAVE						2								/*!	An alternative way to say "logic value 0"	*/
 	//------------------------------------------------------------------------
-	#define	PGX_BUSY						1								/*!	An alternative way to say "logic value 1"	*/
+	#define	PGX_BUSY							1								/*!	An alternative way to say "logic value 1"	*/
 	#define	PGX_READY						0								/*!	An alternative way to say "logic value 0"	*/
 	//------------------------------------------------------------------------
-	#define	PGX_BLOCKING					1								/*!	An alternative way to say "logic value 1"	*/
-	#define	PGX_NOT_BLOCKING				0								/*!	An alternative way to say "logic value 0"	*/
+	#define	PGX_BLOCKING						1								/*!	An alternative way to say "logic value 1"	*/
+	#define	PGX_NOT_BLOCKING					0								/*!	An alternative way to say "logic value 0"	*/
 	//------------------------------------------------------------------------
 	#define	PGX_VERIFY						1								/*!	An alternative way to say "logic value 1"	*/
 	#define	PGX_NOT_VERIFY					0								/*!	An alternative way to say "logic value 0"	*/
 	//------------------------------------------------------------------------
-	#define PGX_TRUE						1								/*!	An alternative way to say "logic value 1"	*/
+	#define PGX_TRUE							1								/*!	An alternative way to say "logic value 1"	*/
 	#define PGX_FALSE						0								/*!	An alternative way to say "logic value 0"	*/
 	//------------------------------------------------------------------------
-	#define	PGX_POSITIVE					1								/*!	Positive logic	*/
-	#define	PGX_NEGATIVE					-1								/*!	Negative logic	*/
+	#define	PGX_POSITIVE						1								/*!	Positive logic	*/
+	#define	PGX_NEGATIVE						-1								/*!	Negative logic	*/
 	//------------------------------------------------------------------------
-	#define PGX_READ						1								/*!	An alternative way to say "logic value 1"	*/
+	#define PGX_READ							1								/*!	An alternative way to say "logic value 1"	*/
 	#define PGX_WRITE						0								/*!	An alternative way to say "logic value 0"	*/
 	//------------------------------------------------------------------------
 	#define PGX_FORWARD						0								/*!	An alternative way to say "logic value 0"	*/
@@ -72,8 +72,8 @@
 	//	M O D U L E S   D E F I N E S
 	//------------------------------------------------------------------------
 	#define	PGX_SEC							1								/*!	A time unit : Second	*/
-	#define	PGX_MSEC						2								/*!	A time unit : Millisecond	*/
-	#define	PGX_USEC						3								/*!	A time unit : Microsecond	*/
+	#define	PGX_MSEC							2								/*!	A time unit : Millisecond	*/
+	#define	PGX_USEC							3								/*!	A time unit : Microsecond	*/
 	//------------------------------------------------------------------------
 	#define	PGX_HZ							4								/*!	A frequency unit : Hertz	*/
 	#define	PGX_KHZ							5								/*!	A frequency unit : Kilohertz	*/
@@ -82,9 +82,9 @@
 	#define PGX_RELEASE						0								/*!	The state of a project : Debug	*/
 	#define PGX_DEBUG						1								/*!	The state of a project : release	*/
 	//------------------------------------------------------------------------
-	#define PGX_NONE						0								/*!	An alternative way to say "logic value 0"	*/
-	#define PGX_STANDARD					1								/*!	A module state : Standard	*/
-	#define PGX_ENHANCED					2								/*!	A module state : Enhanced	*/
+	#define PGX_NONE							0								/*!	An alternative way to say "logic value 0"	*/
+	#define PGX_STANDARD						1								/*!	A module state : Standard	*/
+	#define PGX_ENHANCED						2								/*!	A module state : Enhanced	*/
 	//------------------------------------------------------------------------
 	#define PGX_MANUAL						0								/*!	A Serial module mode : Manual	*/
 	#define PGX_SEMI_AUTOMATIC				1								/*!	A Serial module mode : SemiAutomatic	*/
@@ -106,14 +106,14 @@
 //	#define PGX_DEBUG_LCD_PCD8544			2
 	//------------------------------------------------------------------------
 	#define PGX_COMMAND						0								/*!	The byte is a Command */
-	#define PGX_DATA						1								/*!	The byte is a Data */
+	#define PGX_DATA							1								/*!	The byte is a Data */
 	//------------------------------------------------------------------------
 	#define PGX_MISSING						-100							/*!	An error state : Missing */
 	//------------------------------------------------------------------------
-	#define PGX_CONTROLLER_0				0								/*!	This is the controller 0 */
-	#define PGX_CONTROLLER_1				1								/*!	This is the controller 1 */
-	#define PGX_CONTROLLER_2				2								/*!	This is the controller 2 */
-	#define PGX_CONTROLLER_3				3								/*!	This is the controller 3 */
+	#define PGX_CONTROLLER_0					0								/*!	This is the controller 0 */
+	#define PGX_CONTROLLER_1					1								/*!	This is the controller 1 */
+	#define PGX_CONTROLLER_2					2								/*!	This is the controller 2 */
+	#define PGX_CONTROLLER_3					3								/*!	This is the controller 3 */
 	//------------------------------------------------------------------------
 	#define	PGX_LINE_0						0								/*!	This is the line 0 */
 	#define	PGX_LINE_1						1								/*!	This is the line 1 */

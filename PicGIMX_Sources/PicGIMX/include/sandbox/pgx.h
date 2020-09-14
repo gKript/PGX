@@ -21,9 +21,8 @@
 	#include "pgx_hardware_setup.h"
 	#include "pgx_module_setup.h"
 	#include "pgx_hardware_setup_public.h"
-	#include "pgx_selective_compiling_setup.h"
-	#include "pgx_selective_compiling.h"
-    #include "pgx_pin_mapping.h"
+	#include "pgx_selective_compiling_setup.h"	//load second last
+	#include "pgx_selective_compiling.h"		//load last
 	
 	/*!
 		\brief		To correct initialize the PicGIMX library

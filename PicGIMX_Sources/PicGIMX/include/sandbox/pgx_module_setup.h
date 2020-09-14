@@ -55,8 +55,19 @@
 	#include "pgx_project_setup_public.h"
 	#include "pgx_ezfuse.h"
 	#include "pgx_module_setup_public.h"
-	#include "pgx_timer_setup_public.h"
-    #include "pgx_hardware_setup.h"
+//     #include "pgim_font_setup_public.h"
+//	 #include "pgim_event_setup_public.h"
+	 #include "pgx_timer_setup_public.h"
+//	 #include "pgim_pwm_setup_public.h"
+//	 #include "pgim_serial_setup_public.h"
+//	 #include "pgim_external_memory_setup_public.h"
+//	 #include "pgim_amg88xx_setup_public.h"
+//	 #include "pgim_sensor_setup_public.h"
+//	 #include "pgim_gcp_setup_public.h"
+//	 #include "pgim_ssp_setup_public.h"
+//	 #include "pgim_prs_setup_public.h"
+//	 #include "pgim_dds_ad9851_setup_public.h"
+     #include "pgx_hardware_setup.h"
 	//========================================================================
 	//	M O D U L E   I N C L U S I O N
 	//========================================================================

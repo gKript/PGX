@@ -6,9 +6,9 @@
 	//------------------------------------------------------------------------
 	#define	PGX_MAJOR						0								//!<	Major version of PicGIM
 	#define	PGX_MINOR						1								//!<	Minor version of PicGIM
-	#define PGX_SUBMINOR					004								//!<	Subminor version of PicGIM
+	#define PGX_SUBMINOR						0								//!<	Subminor version of PicGIM
 	//------------------------------------------------------------------------
-	#define PGX_VERSION						"0.1-004" 						//!<	String for the current version of Gim	*/
+	#define PGX_VERSION						"0.1-0" 						//!<	String for the current version of Gim	*/
 	#define	PGX_MILESTONE					"0.1"							//!<	Relative Milestone
 	//------------------------------------------------------------------------
 #endif
