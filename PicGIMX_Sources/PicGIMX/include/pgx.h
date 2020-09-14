@@ -14,7 +14,6 @@
 	//-------------------------------------------------------------------------------
 	#include "pgx_custom_type.h"
 	#include "pgx_version.h"
-	//#include <pic18f4620.h>
 	#include "pgx_define.h"
 	#include "pgx_project_setup_public.h"
 	#include "pgx_ezfuse.h"
@@ -26,7 +25,7 @@
     #include "pgx_pin_mapping.h"
 	
 	/*!
-		\brief		To correct initialize the PicGIMX library
+		\brief		To correct initialize the PGX environment
 	*/
 	void pgx_initialize( void );
     
@@ -39,13 +38,13 @@
 		// #if ( PGX_BOARD == PGX_BOARD_A )
 			// #include "pgim_board_setup_a.h"
 			// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-				// #warning	PicGIM >>> Board A >>> Defined
+				// #warning	PGX >>> Board A >>> Defined
 			// #endif
 		// #endif
 		// #if ( PGX_BOARD == PGX_BOARD_EXPERIENCE )
 			// #include "pgim_board_setup_experience.h"
 			// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-				// #warning	PicGIM >>> Experience Board >>> Defined
+				// #warning	PGX >>> Experience Board >>> Defined
 			// #endif
 		// #endif
 	// #endif
@@ -94,7 +93,7 @@
 // */
 		// #include "pgim_error.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> ERROR module >>> Loaded
+			// #warning	PGX >>> ERROR module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END Error ]---
@@ -112,7 +111,7 @@
         // #define	_XTAL_FREQ              PGX_CLOCK
 		// #include "pgim_caldelay.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> DELAY module >>> Loaded
+			// #warning	PGX >>> DELAY module >>> Loaded
 		// #endif
 	// #else
 		// #if defined( __18CXX )
@@ -134,7 +133,7 @@
 	
 		// #include "pgim_buzzer.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> BUZZER module >>> Loaded
+			// #warning	PGX >>> BUZZER module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END Buzzer ]---
@@ -194,15 +193,15 @@
 		// #include "pgim_event.h"
 // //		#include "pgim_interrupt_callbacks.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> IRQ module >>> INTERRUPTS handle module loaded
+			// #warning	PGX >>> IRQ module >>> INTERRUPTS handle module loaded
 			// #if ( PGX_SUGGESTION == PGX_ENABLE )
-				// #warning PicGIM >>> Note >>> Hint >>> See the documentation to know how initialize interrupts you want to manage.
+				// #warning PGX >>> Note >>> Hint >>> See the documentation to know how initialize interrupts you want to manage.
 			// #endif
 		// #endif
 	// #else
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE ) && ( PGX_SUGGESTION == PGX_ENABLE )
-			// #warning	PicGIM >>> Note >>> INTERRUPTS disabled
-			// #warning    PicGIM >>> Note >>> Hint >>> Keep in mind that PicGim offers a very simple way to use them. See the documentation.
+			// #warning	PGX >>> Note >>> INTERRUPTS disabled
+			// #warning    PGX >>> Note >>> Hint >>> Keep in mind that PicGim offers a very simple way to use them. See the documentation.
 		// #endif
 	// #endif
 	// //---[ END Interrupts ]---
@@ -221,7 +220,7 @@
 	// #if ( PGIMX_AD_CONVERTER == PGX_ENABLE )
 		// #include "pgim_adc.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> ADC module >>> Loaded
+			// #warning	PGX >>> ADC module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END AD-Converter ]---
@@ -240,7 +239,7 @@
 		// #include <spi.h>
 		// #include "pgim_spi.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> SPI module >>> Loaded
+			// #warning	PGX >>> SPI module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END Spi ]---
@@ -259,7 +258,7 @@
 		// #include <i2c.h>
 		// #include "pgim_i2c.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> I2C module >>> Loaded
+			// #warning	PGX >>> I2C module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END I2C ]---
@@ -277,13 +276,13 @@
 	// #if ( PGIMX_EE == PGX_ENABLE )
 		// #include "pgim_ee.h"
 		// #if defined( __18F97J60 )
-			// #warning	PicGIM >>> ERROR !!! >>> Core >>> You have requested the EE module but this MCU [ 18F97J60 ] have not the EEPROM on board. Please disable the module EE in "pgim_module_setup_public.h"
+			// #warning	PGX >>> ERROR !!! >>> Core >>> You have requested the EE module but this MCU [ 18F97J60 ] have not the EEPROM on board. Please disable the module EE in "pgim_module_setup_public.h"
 			// #ifndef		PGX_EXIT_ON_ERROR
 				// #define		PGX_EXIT_ON_ERROR
 			// #endif
 		// #else
 			// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-				// #warning	PicGIM >>> EE module >>> Loaded
+				// #warning	PGX >>> EE module >>> Loaded
 			// #endif
 		// #endif
 	// #endif
@@ -300,21 +299,21 @@
 	 #endif
 	 //--------------------------------------------------
 	 #if ( PGIMX_TIMER == PGX_ENABLE )
- //		#include <plib/timers.h>         //kmod
+    	//#include <plib/timers.h>
 		 #include "pgx_timer.h"
 		 #if ( PGX_TIMER_0 != PGX_DISABLE )
 			 #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-				 #warning	PicGIM >>> TIMER 0 module >>> Loaded
+				 #warning	PGX >>> TIMER 0 module >>> Loaded
 			 #endif
 		 #endif
 		 #if ( PGX_TIMER_1 != PGX_DISABLE )
 			 #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-				 #warning	PicGIM >>> TIMER 1 module >>> Loaded
+				 #warning	PGX >>> TIMER 1 module >>> Loaded
 			 #endif
 		 #endif
 		 #if ( PGIMX_EVENTS == PGX_DISABLE )
 			 #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE ) && ( PGX_SUGGESTION == PGX_ENABLE )
-				 #warning	PicGIM >>> TIMER module >>> Hint >>> Enabled without interrupt. Keep in mind PicGIM is able to handle interrupts very easily.
+				 #warning	PGX >>> TIMER module >>> Hint >>> Enabled without interrupt. Keep in mind PicGIM is able to handle interrupts very easily.
 			 #endif
 		 #endif
 	 #endif
@@ -335,7 +334,7 @@
 		// #include "pgim_pwm.h"
 		// #if defined( __24FJ256GB110 )
 			// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-				// #warning	PicGIM >>> ERROR !!! >>> Core >>> You have requested the PWM module but it is NOT YET SUPPORTED with this MCU. \
+				// #warning	PGX >>> ERROR !!! >>> Core >>> You have requested the PWM module but it is NOT YET SUPPORTED with this MCU. \
 								// Please disable this module in "pgim_module_setup_public.h"
 				// #ifndef		PGX_EXIT_ON_ERROR
 					// #define		PGX_EXIT_ON_ERROR
@@ -354,37 +353,37 @@
 		// #if ( PGX_PWM_1 == PGX_ENABLE )
 		
 			// #if defined( _GIM_H_ ) && ( PGX_PWM_1_MODE == PGX_NONE )
-				// #warning	PicGIM >>> ERROR !!! >>> Core >>> Sorry, module NOT PRESENT in this MCU. Please disable it in "pgim_pwm_setup_public.h"
+				// #warning	PGX >>> ERROR !!! >>> Core >>> Sorry, module NOT PRESENT in this MCU. Please disable it in "pgim_pwm_setup_public.h"
 				// #ifndef		PGX_EXIT_ON_ERROR
 					// #define		PGX_EXIT_ON_ERROR
 				// #endif
 			// #else
 				// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-					// #warning	PicGIM >>> PWM 1 module >>> Loaded
+					// #warning	PGX >>> PWM 1 module >>> Loaded
 				// #endif
 				// #if defined( _GIM_H_ ) && ( PGX_PWM_1_MODE != PGX_ENHANCED ) && ( PGX_PWM_1_ENHANCED == PGX_ENABLE )
-					// #warning	PicGIM >>> ERROR !!! >>> Core >>> Sorry, ENHANCED mode NOT SUPPORTED.	Please disable it in "pgim_pwm_setup_public.h"
+					// #warning	PGX >>> ERROR !!! >>> Core >>> Sorry, ENHANCED mode NOT SUPPORTED.	Please disable it in "pgim_pwm_setup_public.h"
 					// #ifndef		PGX_EXIT_ON_ERROR
 						// #define		PGX_EXIT_ON_ERROR
 					// #endif
 				// #endif
 				// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE ) && ( PGX_PWM_1_MODE == PGX_ENHANCED ) && ( PGX_PWM_1_ENHANCED == PGX_ENABLE )
 					// #if ( PGX_PWM_1_OUT_CONF != SINGLE_OUT )
-						// #warning	PicGIM >>> PWM 1 module >>> ENHANCED mode enabled
+						// #warning	PGX >>> PWM 1 module >>> ENHANCED mode enabled
 						// #if ( PGX_PWM_AUTO_SHUTDOWN == PGX_ENABLE )
-							// #warning	PicGIM >>> PWM 1 module >>> AUTO-SHUTDOWN feature enabled
+							// #warning	PGX >>> PWM 1 module >>> AUTO-SHUTDOWN feature enabled
 						// #endif
 					// #else
-						// #warning	PicGIM >>> PWM 1 module >>> ENHANCED mode is disabled in SINGLE mode
+						// #warning	PGX >>> PWM 1 module >>> ENHANCED mode is disabled in SINGLE mode
 						// #if ( PGX_PWM_AUTO_SHUTDOWN == PGX_ENABLE )
-							// #warning	PicGIM >>> PWM 1 module >>> AUTO-SHUTDOWN feature is disabled in SINGLE mode
+							// #warning	PGX >>> PWM 1 module >>> AUTO-SHUTDOWN feature is disabled in SINGLE mode
 						// #endif
 					// #endif
 				// #endif
 				// #if defined( _GIM_H_ )&& ( PGX_VERBOSE == PGX_ENABLE ) && ( PGX_SUGGESTION == PGX_ENABLE ) && \
 					// ( PGX_PWM_1_MODE == PGX_ENHANCED ) && ( PGX_PWM_1_ENHANCED == PGX_DISABLE )
 					
-					// #warning	PicGIM >>> PWM 1 module >>> Hint >>> Keep in mind that this module supports the ENHANCED mode
+					// #warning	PGX >>> PWM 1 module >>> Hint >>> Keep in mind that this module supports the ENHANCED mode
 				// #endif
 			// #endif
 		// #endif
@@ -400,36 +399,36 @@
 		// #if ( PGX_PWM_2 == PGX_ENABLE )
 		
 			// #if defined( _GIM_H_ ) && ( PGX_PWM_2_MODE == PGX_NONE )
-				// #warning	PicGIM >>> ERROR !!! >>> Core >>> Sorry, module NOT PRESENT in this MCU. Please disable it in "pgim_pwm_setup_public.h"
+				// #warning	PGX >>> ERROR !!! >>> Core >>> Sorry, module NOT PRESENT in this MCU. Please disable it in "pgim_pwm_setup_public.h"
 				// #ifndef		PGX_EXIT_ON_ERROR
 					// #define		PGX_EXIT_ON_ERROR
 				// #endif
 			// #else
 				// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-					// #warning	PicGIM >>> PWM 2 module >>> Loaded
+					// #warning	PGX >>> PWM 2 module >>> Loaded
 				// #endif
 				// #if defined( _GIM_H_ ) && ( PGX_PWM_2_MODE != PGX_ENHANCED ) && ( PGX_PWM_2_ENHANCED == PGX_ENABLE )
-					// #warning	PicGIM >>> ERROR !!! >>> Core >>> Sorry, ENHANCED mode NOT SUPPORTED. Please disable it in "pgim_pwm_setup_public.h"
+					// #warning	PGX >>> ERROR !!! >>> Core >>> Sorry, ENHANCED mode NOT SUPPORTED. Please disable it in "pgim_pwm_setup_public.h"
 					// #ifndef		PGX_EXIT_ON_ERROR
 						// #define		PGX_EXIT_ON_ERROR
 					// #endif
 				// #endif
 				// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE ) && ( PGX_PWM_2_MODE == PGX_ENHANCED ) && ( PGX_PWM_2_ENHANCED == PGX_ENABLE )
 					// #if ( PGX_PWM_2_OUT_CONF != SINGLE_OUT )
-						// #warning	PicGIM >>> PWM 2 module >>> ENHANCED mode enabled
+						// #warning	PGX >>> PWM 2 module >>> ENHANCED mode enabled
 						// #if ( PGX_PWM_AUTO_SHUTDOWN == PGX_ENABLE )
-							// #warning	PicGIM >>> PWM 2 module >>> SHUTDOWN feature enabled
+							// #warning	PGX >>> PWM 2 module >>> SHUTDOWN feature enabled
 						// #endif
 					// #else
-						// #warning	PicGIM >>> PWM 2 module >>> ENHANCED mode is disabled in SINGLE mode
+						// #warning	PGX >>> PWM 2 module >>> ENHANCED mode is disabled in SINGLE mode
 						// #if ( PGX_PWM_AUTO_SHUTDOWN == PGX_ENABLE )
-							// #warning	PicGIM >>> PWM 2 module >>> SHUTDOWN feature is disabled in SINGLE mode
+							// #warning	PGX >>> PWM 2 module >>> SHUTDOWN feature is disabled in SINGLE mode
 						// #endif
 					// #endif
 				// #endif
 				// #if defined( _GIM_H_ )&& ( PGX_VERBOSE == PGX_ENABLE ) && ( PGX_SUGGESTION == PGX_ENABLE ) && \
 					// ( PGX_PWM_2_MODE == PGX_ENHANCED ) && ( PGX_PWM_2_ENHANCED == PGX_DISABLE )
-					// #warning	PicGIM >>> PWM 2 module >>> Hint >>> Keep in mind that this module supports the ENHANCED mode
+					// #warning	PGX >>> PWM 2 module >>> Hint >>> Keep in mind that this module supports the ENHANCED mode
 				// #endif
 			// #endif
 		// #endif
@@ -444,18 +443,18 @@
 
 				// #if ( PGX_PWM_DEAD_TIME > ( ( 1 / PGX_CLOCK ) * PGX_TCYCLEPERI * 0x7F ) )
 // //				#if ( PGX_PWM_DEAD_TIME > ( PGX_TCYCLEPERI * 0x7F / ( PGX_CLOCK / 1000000 ) ) )
-					// #warning	PicGIM >>> ERROR !!! >>> Core >>> Dead-time is too long. Please decrease the value in "pgim_pwm_setup_public.h"
+					// #warning	PGX >>> ERROR !!! >>> Core >>> Dead-time is too long. Please decrease the value in "pgim_pwm_setup_public.h"
 					// #ifndef		PGX_EXIT_ON_ERROR
 						// #define		PGX_EXIT_ON_ERROR
 					// #endif
 				// #else
-					// #warning	PicGIM >>> PWM module >>> Set DEAD-TIME
+					// #warning	PGX >>> PWM module >>> Set DEAD-TIME
 				// #endif
 			// #endif
 		// #endif
 		// #if	defined( _GIM_H_ ) && ( PGX_SUGGESTION == PGX_ENABLE ) && ( PGX_PWM_DC_RESOLUTION_MAX_CALC == PGX_ENABLE ) && \
 			// ( ( PGX_PWM_1 == PGX_ENABLE ) || ( PGX_PWM_2 == PGX_ENABLE ) )
-			// #warning	PicGIM >>> PWM module >>> Enabled duty-cycle resolution max calculation [bit]
+			// #warning	PGX >>> PWM module >>> Enabled duty-cycle resolution max calculation [bit]
 		// #endif	
 	// #endif
 	// //---[ END Pwm ]---
@@ -496,9 +495,9 @@
 	// #if ( PGIMX_LCD_PCD8544 == PGX_ENABLE )
 		// #include "pgim_lcd_pcd8544.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> LCD PCD8544 module >>> Loaded
+			// #warning	PGX >>> LCD PCD8544 module >>> Loaded
 			// #if ( PGIMX_FONT == PGX_ENABLE )
-				// #warning	PicGIM >>> LCD PCD8544 module >>> Fonts enabled and loaded
+				// #warning	PGX >>> LCD PCD8544 module >>> Fonts enabled and loaded
 			// #endif
 		// #endif
 	// #endif
@@ -543,7 +542,7 @@
 							// // #endif
 							
 							// // #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-								// // #warning	PicGIM >>> LCD 5110 module >>> Loaded
+								// // #warning	PGX >>> LCD 5110 module >>> Loaded
 							// // #endif
 						// // #endif
 						// // //---[ END Lcd 5110 ]---
@@ -563,9 +562,9 @@
 // //		#include "pgim_font.h"
 // //		#include "pgim_lcd_9340.h"
 // //		#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-// //			#warning	PicGIM >>> LCD 9340 module >>> Loaded
+// //			#warning	PGX >>> LCD 9340 module >>> Loaded
 // //			#if ( PGIMX_FONT == PGX_ENABLE )
-// //				#warning	PicGIM >>> LCD 9340 module >>> Fonts enabled and loaded
+// //				#warning	PGX >>> LCD 9340 module >>> Fonts enabled and loaded
 // //			#endif
 // //		#endif
 // //	#endif
@@ -584,7 +583,7 @@
 	// #if ( PGIMX_ENCODER == PGX_ENABLE )
 		// #include "pgim_encoder.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> ENCODER module >>> Loaded
+			// #warning	PGX >>> ENCODER module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END Encoder ]---
@@ -619,27 +618,27 @@
 		// #define PGX_SERIAL_DEBUG_TO_LCD_HD44780		PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> SERIAL module >>> Loaded
+			// #warning	PGX >>> SERIAL module >>> Loaded
 			// #if ( ( PGX_SUGGESTION == PGX_ENABLE ) && ( PGX_SERIAL_BAUDRATE_MODE == PGX_AUTOMATIC ) )
-				// #warning	PicGIM >>> SERIAL module >>> Activated AUTOMATIC mode configuration
+				// #warning	PGX >>> SERIAL module >>> Activated AUTOMATIC mode configuration
 			// #endif
 			// #if ( ( PGX_SUGGESTION == PGX_ENABLE ) && ( PGX_SERIAL_BAUDRATE_MODE == PGX_SEMI_AUTOMATIC ) )
-				// #warning	PicGIM >>> SERIAL module >>> Activated SEMI-AUTOMATIC mode configuration
+				// #warning	PGX >>> SERIAL module >>> Activated SEMI-AUTOMATIC mode configuration
 			// #endif
 			// #if ( ( PGX_SUGGESTION == PGX_ENABLE ) && ( PGX_SERIAL_BAUDRATE_MODE == PGX_MANUAL ) )
-				// #warning	PicGIM >>> SERIAL module >>> Activated MANUAL mode configuration
+				// #warning	PGX >>> SERIAL module >>> Activated MANUAL mode configuration
 			// #endif
 			// #if ( ( PGX_SUGGESTION == PGX_ENABLE ) && ( PGX_SERIAL_BAUDRATE_MODE != PGX_MANUAL ) )
-				// #warning	PicGIM >>> SERIAL module >>> Trying to calculate parameter...
+				// #warning	PGX >>> SERIAL module >>> Trying to calculate parameter...
 			// #endif			
 			// #if ( PGX_SERIAL_DEBUG_TO_PIN == PGX_ENABLE ) && ( PGX_SERIAL_BAUDRATE_MODE != PGX_MANUAL )
-				// #warning	PicGIM >>> SERIAL module >>> Activated debug output to PIN
+				// #warning	PGX >>> SERIAL module >>> Activated debug output to PIN
 			// #endif
 			// #if ( PGX_SERIAL_DEBUG_TO_LCD_PCD8544 == PGX_ENABLE ) && ( PGX_SERIAL_BAUDRATE_MODE != PGX_MANUAL )
-				// #warning	PicGIM >>> SERIAL module >>> Activated debug output to LCD-PCD8544
+				// #warning	PGX >>> SERIAL module >>> Activated debug output to LCD-PCD8544
 			// #endif
 			// #if ( PGX_SERIAL_DEBUG_TO_LCD_HD44780 == PGX_ENABLE ) && ( PGX_SERIAL_BAUDRATE_MODE != PGX_MANUAL )
-				// #warning	PicGIM >>> SERIAL module >>> Activated debug output to LCD-HD44780
+				// #warning	PGX >>> SERIAL module >>> Activated debug output to LCD-HD44780
 			// #endif
 		// #endif
 	// #endif
@@ -658,7 +657,7 @@
 	// #if ( PGIMX_EXTERNAL_MEMORY == PGX_ENABLE )
 		// #include "pgim_external_memory.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> EXTERNAL MEMORY module >>> Loaded
+			// #warning	PGX >>> EXTERNAL MEMORY module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END External Memory ]---
@@ -676,7 +675,7 @@
 // //	#if ( PGIMX_SERVO == PGX_ENABLE )
 // //		#include "pgim_servo.h"
 // //		#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-// //			#warning	PicGIM >>> SERVO module >>> Loaded
+// //			#warning	PGX >>> SERVO module >>> Loaded
 // //		#endif
 // //	#endif
 // //	//---[ END Servo ]---
@@ -686,7 +685,7 @@
 	// #if ( PGIMX_FTOA == PGX_ENABLE )
 		// #include "pgim_ftoa.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> FTOA function >>> Included
+			// #warning	PGX >>> FTOA function >>> Included
 		// #endif
 	// #endif
 	// //---[ END Ftoa Function ]---
@@ -704,26 +703,26 @@
 	// #if ( PGIMX_SENSOR == PGX_ENABLE )
 		// #include "pgim_sensor.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> SENSOR module >>> Loaded
+			// #warning	PGX >>> SENSOR module >>> Loaded
 			// #if ( ( PGX_SENSOR_ADC_REF == PGX_DISABLE ) && ( PGX_USER_SUPPLY_BATTERY	== PGX_YES ) )
-				// #warning	PicGIM >>> SENSOR module >>> Hint >>> With the battery power supply (voltage non-constant) it is better to use the ADC-Ref module for the measurement of the true supply voltage.
+				// #warning	PGX >>> SENSOR module >>> Hint >>> With the battery power supply (voltage non-constant) it is better to use the ADC-Ref module for the measurement of the true supply voltage.
 			// #endif
 			// // Parameter "PGX_SENSOR_ADC_REF_VOLT" value check
 			// #if ( PGX_SENSOR_ADC_REF == PGX_ENABLE )
 				// #if ( PGX_SENSOR_ADC_REF_VOLT > PGX_USER_SUPPLY_VOLT )
-					// #warning	PicGIM >>> SENSOR module >>> Reference voltage value too big!
+					// #warning	PGX >>> SENSOR module >>> Reference voltage value too big!
 				// #endif
 				// #if ( ( PGX_SENSOR_ADC_REF_VOLT < 0 ) || ( PGX_SENSOR_ADC_REF_VOLT == 0 ) )
-					// #warning	PicGIM >>> SENSOR module >>> Reference voltage value negative or zero!
+					// #warning	PGX >>> SENSOR module >>> Reference voltage value negative or zero!
 				// #endif
 			// #endif
 			// #if ( ( PGX_SENSOR_NTC_USE_ADCREF == PGX_YES ) && ( PGX_SENSOR_ADC_REF == PGX_DISABLE ) )
-				// #warning	PicGIM >>> SENSOR module >>> ADC-Ref sensor must be enabled to be used with the NTC sensor!
+				// #warning	PGX >>> SENSOR module >>> ADC-Ref sensor must be enabled to be used with the NTC sensor!
 			// #endif
 			// #if ( ( PGX_SENSOR_NTC_USE_ADCREF == PGX_YES ) && ( PGX_SENSOR_ADC_REF == PGX_ENABLE ) )
-				// #warning 	PicGIM >>> SENSOR module >>> Using ADC-Ref sensor to measure the power supply voltage for the NTC sensor.
+				// #warning 	PGX >>> SENSOR module >>> Using ADC-Ref sensor to measure the power supply voltage for the NTC sensor.
 			// #else
-				// #warning 	PicGIM >>> SENSOR module >>> Using declared power supply voltage for the NTC sensor.
+				// #warning 	PGX >>> SENSOR module >>> Using declared power supply voltage for the NTC sensor.
 			// #endif
 		// #endif
 	// #endif
@@ -744,17 +743,17 @@
 		// // E R R O R   C H E C K   B E F O R E   L O A D   M O D U L E
 		// #if ( ( PGX_RTC_DS1302_WR_TIME_ALL == PGX_INCLUDE ) || ( PGX_RTC_DS1302_RD_TIME_ALL == PGX_INCLUDE ) )
 			// #if ( ( PGX_RTC_DS1302_USE_MIN == PGX_EXCLUDE ) || ( PGX_RTC_DS1302_USE_HOUR == PGX_EXCLUDE ) )
-				// #error	PicGIM >>> RTC_DS1302 module >>> ERROR !!! >>> Incorrect pgim_selective_compiling_setup.h configuration file. Must be enabled minutes and hours, if you want to use *_ALL functions!
+				// #error	PGX >>> RTC_DS1302 module >>> ERROR !!! >>> Incorrect pgim_selective_compiling_setup.h configuration file. Must be enabled minutes and hours, if you want to use *_ALL functions!
 			// #endif
 		// #endif
 		// #if ( ( PGX_RTC_DS1302_WR_DATE_ALL == PGX_INCLUDE ) || ( PGX_RTC_DS1302_RD_DATE_ALL == PGX_INCLUDE ) )
 			// #if ( ( PGX_RTC_DS1302_USE_DAY == PGX_EXCLUDE ) || ( PGX_RTC_DS1302_USE_MONTH == PGX_EXCLUDE ) || ( PGX_RTC_DS1302_USE_YEAR == PGX_EXCLUDE ) )
-				// #error	PicGIM >>> RTC_DS1302 module >>> ERROR !!! >>> Incorrect pgim_selective_compiling_setup.h configuration file. Must be enabled day, month and year, if you want to use *_ALL functions!
+				// #error	PGX >>> RTC_DS1302 module >>> ERROR !!! >>> Incorrect pgim_selective_compiling_setup.h configuration file. Must be enabled day, month and year, if you want to use *_ALL functions!
 			// #endif
 		// #endif
 		// //If all is OK...
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> RTC_DS1302 module >>> Loaded
+			// #warning	PGX >>> RTC_DS1302 module >>> Loaded
 		// #endif	
 	// #endif
 	// //---[ END RTC_DS1302 ]---
@@ -772,7 +771,7 @@
 	// #if ( PGIMX_3WIRE == PGX_ENABLE )
 		// #include "pgim_3wire.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> 3WIRE module >>> Loaded
+			// #warning	PGX >>> 3WIRE module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END 3Wire ]---
@@ -803,13 +802,13 @@
 			// ( ( PGX_GCP_BUFFER_RX_14_ENABLE == PGX_ENABLE	) && ( PGX_GCP_BUFFER_RX_14_MODE	== PGX_GCP_STRING ) ) || \
 			// ( ( PGX_GCP_BUFFER_RX_15_ENABLE == PGX_ENABLE	) && ( PGX_GCP_BUFFER_RX_15_MODE	== PGX_GCP_STRING ) ) || \
 			// ( ( PGX_GCP_BUFFER_RX_16_ENABLE == PGX_ENABLE	) && ( PGX_GCP_BUFFER_RX_16_MODE	== PGX_GCP_STRING ) ) ) && ( PGX_GCP_STATUS_MOD_ENABLE == PGX_DISABLE ) )
-	  // #warning PicGIM >>> GCP module >>> Strings need STATUS_MOD enabled.
+	  // #warning PGX >>> GCP module >>> Strings need STATUS_MOD enabled.
 	// #endif
 	// //If all is OK...
 	// #if ( PGIMX_GCP == PGX_ENABLE ) 
 		// #include "pgim_gcp.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> GCP module >>> Loaded
+			// #warning	PGX >>> GCP module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END GCP ]---
@@ -827,7 +826,7 @@
 	// #if ( PGIMX_SSP == PGX_ENABLE ) 
 		// #include "pgim_ssp.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> SSP module >>> Loaded
+			// #warning	PGX >>> SSP module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END SSP ]---
@@ -845,7 +844,7 @@
 	// #if ( PGIMX_GKH32 == PGX_ENABLE ) 
 		// #include "pgim_gkh32.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> GKH32 module >>> Loaded
+			// #warning	PGX >>> GKH32 module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END H32 ]---
@@ -863,7 +862,7 @@
 	// #if ( PGIMX_PRS == PGX_ENABLE ) 
 		// #include "pgim_prs.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> PRS module >>> Loaded
+			// #warning	PGX >>> PRS module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END PRS ]---
@@ -881,7 +880,7 @@
 	// #if ( PGIMX_FONT == PGX_ENABLE )
 		// #include "pgim_font.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> FONT module >>> Loaded
+			// #warning	PGX >>> FONT module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END FONT ]---
@@ -899,7 +898,7 @@
 	// #if ( PGIMX_AMG88XX == PGX_ENABLE )
 		// #include "pgim_amg88xx.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> AMG88XX module >>> Loaded
+			// #warning	PGX >>> AMG88XX module >>> Loaded
 		// #endif
 	// #endif
 	// //---[ END AMG88XX ]---
@@ -916,17 +915,17 @@
 	// #if ( PGIMX_DDS_AD9851 == PGX_ENABLE )
 		// #include "pgim_dds_ad9851.h"
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> DDS AD9851 module >>> Loaded
+			// #warning	PGX >>> DDS AD9851 module >>> Loaded
 		// #endif
 		// //PGX_MISSING cannot be compared by .bits
 		// // #if ( PGX_DDS_AD9851_DATA_MODE	== PGX_PARALLEL )
 			// // #if ( PGX_DDS_AD9851_DATABUS_TRIS == PGX_MISSING ) || ( PGX_DDS_AD9851_DATABUS == PGX_MISSING ) 
-				// // #warning PicGIM >>> DDS AD9851 module >>> Wrong configuration in parallel mode.
+				// // #warning PGX >>> DDS AD9851 module >>> Wrong configuration in parallel mode.
 			// // #endif
 		// // #endif
 		// // #if ( PGX_DDS_AD9851_DATA_MODE == PGX_SERIAL ) 
 			// // #if ( PGX_DDS_AD9851_SERIAL_DATA_TRIS == PGX_MISSING )  ||  ( PGX_DDS_AD9851_SERIAL_DATA == PGX_MISSING )
-				// // #warning PicGIM >>> DDS AD9851 module >>> Wrong configuration in serial mode.
+				// // #warning PGX >>> DDS AD9851 module >>> Wrong configuration in serial mode.
 			// // #endif
 		// // #endif
 	// #endif
@@ -938,7 +937,7 @@
 	// //------------------------------------------------------------------------------
 	
 	// #if defined( PGX_EXIT_ON_ERROR ) 
-		// #error	PicGIM >>> ERROR !!! >>> Core >>> PicGIM has stopped compiling due to errors in configuration
+		// #error	PGX >>> ERROR !!! >>> Core >>> PicGIM has stopped compiling due to errors in configuration
 	// #endif
 	
 #endif /* _PGIMX_INCLUDES_H_ */

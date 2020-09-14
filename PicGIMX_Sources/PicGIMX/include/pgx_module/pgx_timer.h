@@ -60,7 +60,7 @@
 		//---[ Status ]---
 		#define	PGX_TIMER_ALREADY_STARTED			10				//!< Timer is already started.
 		#define	PGX_TIMER_ALREADY_STOPPED			11				//!< Timer is already stopped.
-		#define	PGX_TIMER_IS_RUNNING					12				//!< Timer is running.
+		#define	PGX_TIMER_IS_RUNNING				12				//!< Timer is running.
 		//---[ END Status ]---
 		
 		//---[ Error ]---
@@ -83,7 +83,7 @@
 			\deprecated		Do not call directly. \n
 							Already called in pgx_initialize().
 		*/
-		void	pgx_timer_init						( void );
+		void	pgx_timer_init                              ( void );
 
 		/*!
 			\brief			Allows to configure the timer selected by \a timer_id parameter and calculates the limit values.
@@ -107,7 +107,7 @@
 
 		 	\warning		This function must be called when the timer is stopped.
 		*/			
-		_pgx_Uint8	pgx_timer_set_period				( _pgx_Uint8 timer_id , _pgx_float timer_time , _pgx_Uint8 unit_measure );
+		_pgx_Uint8	pgx_timer_set_period                    ( _pgx_Uint8 timer_id , _pgx_float timer_time , _pgx_Uint8 unit_measure );
 		
 		/*!
 			\brief			Converts the specified frequency in period and performs a call to \ref pgx_timer_set_period function.
@@ -131,7 +131,7 @@
 
 		 	\warning		This function must be called when the timer is stopped.
 		*/		
-		_pgx_Uint8	pgx_timer_set_freq				( _pgx_Uint8 timer_id , _pgx_float timer_freq , _pgx_Uint8 unit_measure );	// PGX_HZ || PGX_KHZ
+		_pgx_Uint8	pgx_timer_set_freq                      ( _pgx_Uint8 timer_id , _pgx_float timer_freq , _pgx_Uint8 unit_measure );	// PGX_HZ || PGX_KHZ
 		
 		/*!
 			\brief			Allows to start the timer selected by \a timer_id parameter.
@@ -142,7 +142,7 @@
 								Use \b PGX_TIMER_0 to select Timer 0 \n
 								Use \b PGX_TIMER_1 to select Timer 1
 		*/
-		_pgx_Uint8	pgx_timer_start					( _pgx_Uint8 timer_id );
+		_pgx_Uint8	pgx_timer_start                         ( _pgx_Uint8 timer_id );
 		
 		/*!
 			\brief			Allows to stop the timer selected by \a timer_id parameter.
@@ -153,7 +153,7 @@
 								Use \b PGX_TIMER_0 to select Timer 0 \n
 								Use \b PGX_TIMER_1 to select Timer 1
 		*/
-		_pgx_Uint8	pgx_timer_stop					( _pgx_Uint8 timer_id );
+		_pgx_Uint8	pgx_timer_stop                          ( _pgx_Uint8 timer_id );
 		
 		/*!
 			\brief			Converts the value of the timer contained in the two 8-bit registers (TMRxH and TMRxL) in a 16-bit value.
@@ -162,7 +162,7 @@
 								Use \b PGX_TIMER_0 to select Timer 0 \n
 								Use \b PGX_TIMER_1 to select Timer 1
 		*/
-		_pgx_Uint16	pgx_timer_reg_current_value		( _pgx_Uint8 timer_id );	
+		_pgx_Uint16	pgx_timer_reg_current_value             ( _pgx_Uint8 timer_id );	
 		//---[ Prototypes ]---
 		
 		//---[ Timer_0 ]---    
@@ -182,18 +182,18 @@
 
 			#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
 				#if ( PGIMX_TIMER_0 == PGX_ENABLE_1_SHOT )
-					#warning	PicGIM >>> TIMER 0 module >>> Set 1-SHOT mode
+					#warning	PGX >>> TIMER 0 module >>> Set 1-SHOT mode
 				#elif ( PGX_TIMER_0 == PGX_ENABLE_LOOP )
-					#warning	PicGIM >>> TIMER 0 module >>> Set LOOP mode
+					#warning	PGX >>> TIMER 0 module >>> Set LOOP mode
 				#endif
 				#if ( PGIMX_TIMER_0 != PGX_DISABLE ) && ( PGX_SUGGESTION == PGX_ENABLE )
-					#warning	PicGIM >>> TIMER 0 module >>> Hint >>> Max time available is PGX_TIMER_FOSC_DIVIDER * PGX_TIMER_0_TMR_REG_MAX * PGX_TIMER_0_PRESCALER_MAX / PGX_CLOCK [us]
+					#warning	PGX >>> TIMER 0 module >>> Hint >>> Max time available is PGX_TIMER_FOSC_DIVIDER * PGX_TIMER_0_TMR_REG_MAX * PGX_TIMER_0_PRESCALER_MAX / PGX_CLOCK [us]
 				#endif
 			#endif
 			
 			#if defined( _GIM_H_ ) && defined( __18CXX ) //&& ( PGX_VERBOSE == PGX_ENABLE )
 				#if ( PGX_CLOCK < 4 )
-					#warning	PicGIM >>> TIMER 0 module >>> Sorry, DOES NOT WORK correctly with a clock frequency below 4.000 [MHz]
+					#warning	PGX >>> TIMER 0 module >>> Sorry, DOES NOT WORK correctly with a clock frequency below 4.000 [MHz]
 				#endif
 			#endif
 		#endif
@@ -210,24 +210,24 @@
 			#define	PGX_TIMER_1_TMR_REG_MIN			1.000			//!< Timer register min value.
 			#define PGX_TIMER_1_TMR_REG_MAX			65535.000       //!< Timer register max value (16bit).
 
-			#define PGX_TIMER_1_OFFSET_GUARD         500.000         //!< Guard offset in determination of the minimum possible time value.
+			#define PGX_TIMER_1_OFFSET_GUARD        500.000         //!< Guard offset in determination of the minimum possible time value.
 
 			extern	_pgx_Uint16_VAL	pgx_timer_1_tmr_reg_set_save;	//!< Backup the 16-bit value of the timer 1 register.
 
 			#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
 				#if ( PGIMX_TIMER_1 == PGX_ENABLE_1_SHOT )
-					#warning	PicGIM >>> TIMER 1 module >>> Set 1-SHOT mode
+					#warning	PGX >>> TIMER 1 module >>> Set 1-SHOT mode
 				#elif ( PGX_TIMER_1 == PGX_ENABLE_LOOP )
-					#warning PicGIM >>> TIMER 1 module >>> Set LOOP mode
+					#warning PGX >>> TIMER 1 module >>> Set LOOP mode
 				#endif
 				#if ( PGIMX_TIMER_1 != PGX_DISABLE ) && ( PGX_SUGGESTION == PGX_ENABLE )
-					#warning	PicGIM >>> TIMER 1 module >>> Hint >>> Max time available is PGX_TIMER_FOSC_DIVIDER * PGX_TIMER_1_TMR_REG_MAX * PGX_TIMER_1_PRESCALER_MAX / PGX_CLOCK [us]
+					#warning	PGX >>> TIMER 1 module >>> Hint >>> Max time available is PGX_TIMER_FOSC_DIVIDER * PGX_TIMER_1_TMR_REG_MAX * PGX_TIMER_1_PRESCALER_MAX / PGX_CLOCK [us]
 				#endif
 			#endif
 			
 			#if defined( _GIM_H_ ) && defined( __18CXX ) //&& ( PGX_VERBOSE == PGX_ENABLE )
 				#if ( PGX_CLOCK < 4 )
-					#warning	PicGIM >>> TIMER 1 module >>> Sorry, DOES NOT WORK correctly with a clock frequency below 4.000 [MHz]
+					#warning	PGX >>> TIMER 1 module >>> Sorry, DOES NOT WORK correctly with a clock frequency below 4.000 [MHz]
 				#endif
 			#endif
 		#endif

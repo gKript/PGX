@@ -68,26 +68,26 @@
 		#define PGX_LCD_HD44780_RS					L_D4				//!< Must be: <pin-lat-name>
 		#define PGX_LCD_HD44780_RW_PRESENT			PGX_YES				//!< Must be: PGX_YES || PGX_NO
 		#define PGX_LCD_HD44780_RW					L_D5				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
-		#define PGX_LCD_HD44780_EN_0_PRESENT			PGX_YES				//!< Must be: PGX_YES || PGX_NO
-		#define PGX_LCD_HD44780_EN_0					L_D6				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
-		#define PGX_LCD_HD44780_EN_1_PRESENT			PGX_NO				//!< Must be: PGX_YES || PGX_NO
-		#define PGX_LCD_HD44780_EN_1					PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
-		#define PGX_LCD_HD44780_EN_2_PRESENT			PGX_NO				//!< Must be: PGX_YES || PGX_NO
-		#define PGX_LCD_HD44780_EN_2					PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
-		#define PGX_LCD_HD44780_EN_3_PRESENT			PGX_NO				//!< Must be: PGX_YES || PGX_NO
-		#define PGX_LCD_HD44780_EN_3					PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
+		#define PGX_LCD_HD44780_EN_0_PRESENT		PGX_YES				//!< Must be: PGX_YES || PGX_NO
+		#define PGX_LCD_HD44780_EN_0				L_D6				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
+		#define PGX_LCD_HD44780_EN_1_PRESENT		PGX_NO				//!< Must be: PGX_YES || PGX_NO
+		#define PGX_LCD_HD44780_EN_1				PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
+		#define PGX_LCD_HD44780_EN_2_PRESENT		PGX_NO				//!< Must be: PGX_YES || PGX_NO
+		#define PGX_LCD_HD44780_EN_2				PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
+		#define PGX_LCD_HD44780_EN_3_PRESENT		PGX_NO				//!< Must be: PGX_YES || PGX_NO
+		#define PGX_LCD_HD44780_EN_3				PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
 		#define PGX_LCD_HD44780_DATA_0				L_D0				//!< Must be: <pin-lat-name> (lcd DB4)
 		#define PGX_LCD_HD44780_DATA_1				L_D1				//!< Must be: <pin-lat-name> (lcd DB5)
 		#define PGX_LCD_HD44780_DATA_2				L_D2				//!< Must be: <pin-lat-name> (lcd DB6)
 		#define PGX_LCD_HD44780_DATA_3				L_D3				//!< Must be: <pin-lat-name> (lcd DB7)
-		#define PGX_LCD_HD44780_BL_0_PRESENT			PGX_YES				//!< Must be: PGX_YES || PGX_NO
-		#define PGX_LCD_HD44780_BL_0					L_D7				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
-		#define PGX_LCD_HD44780_BL_1_PRESENT			PGX_NO				//!< Must be: PGX_YES || PGX_NO
-		#define PGX_LCD_HD44780_BL_1					PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
-		#define PGX_LCD_HD44780_BL_2_PRESENT			PGX_NO				//!< Must be: PGX_YES || PGX_NO
-		#define PGX_LCD_HD44780_BL_2					PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
-		#define PGX_LCD_HD44780_BL_3_PRESENT			PGX_NO				//!< Must be: PGX_YES || PGX_NO
-		#define PGX_LCD_HD44780_BL_3					PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
+		#define PGX_LCD_HD44780_BL_0_PRESENT		PGX_YES				//!< Must be: PGX_YES || PGX_NO
+		#define PGX_LCD_HD44780_BL_0				L_D7				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
+		#define PGX_LCD_HD44780_BL_1_PRESENT		PGX_NO				//!< Must be: PGX_YES || PGX_NO
+		#define PGX_LCD_HD44780_BL_1				PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
+		#define PGX_LCD_HD44780_BL_2_PRESENT		PGX_NO				//!< Must be: PGX_YES || PGX_NO
+		#define PGX_LCD_HD44780_BL_2				PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
+		#define PGX_LCD_HD44780_BL_3_PRESENT		PGX_NO				//!< Must be: PGX_YES || PGX_NO
+		#define PGX_LCD_HD44780_BL_3				PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
 		// TRIS		
 		#define PGX_LCD_HD44780_RS_TRIS				T_D4				//!< Must be: <pin-tris-name>
 		#define PGX_LCD_HD44780_RW_TRIS				T_D5				//!< Must be: <pin-tris-name> || PGX_MISSING if not used.
@@ -114,7 +114,7 @@
 	//		H A R D W A R E   C O N F I G   |	L C D - P C D 8 5 4 4
 	//------------------------------------------------------------------------------
 	#if ( PGIMX_LCD_PCD8544 == PGX_ENABLE )
-		#define	PGX_LCD_PCD8544_VIDEO_MEMORY			PGX_NO
+		#define	PGX_LCD_PCD8544_VIDEO_MEMORY		PGX_NO
 		// LAT
 		#define	PGX_LCD_PCD8544_BACKLIGHT			L_B2
 		#define PGX_LCD_PCD8544_VDD					PGX_MISSING			//!< Must be: <pin-lat-name> || PGX_MISSING if not used
@@ -125,7 +125,7 @@
 		#define	PGX_LCD_PCD8544_BACKLIGHT_TRIS		T_B2
 		#define PGX_LCD_PCD8544_VDD_TRIS				PGX_MISSING			//!< Must be: <pin-tris-name> || PGX_MISSING if not used
 		#define PGX_LCD_PCD8544_DC_TRIS				T_C0
-		#define PGX_LCD_PCD8544_RST_TRIS				T_C1
+		#define PGX_LCD_PCD8544_RST_TRIS			T_C1
 		#define PGX_LCD_PCD8544_CE_TRIS				T_C2
 	#endif
 
@@ -144,12 +144,12 @@
 	//------------------------------------------------------------------------------
 	#if ( PGIMX_ENCODER == PGX_ENABLE )
 		// PORT
-		#define	PGX_ENCODER_STEP						P_B0				//!< Must be: <pin-port-name>
+		#define	PGX_ENCODER_STEP					P_B0				//!< Must be: <pin-port-name>
 		#define	PGX_ENCODER_DIR						P_B5				//!< Must be: <pin-port-name>
 		#define	PGX_ENCODER_SW						P_B6				//!< Must be: <pin-port-name>
 		// TRIS
 		#define	PGX_ENCODER_STEP_TRIS				T_B0				//!< Must be: <pin-tris-name>
-		#define	PGX_ENCODER_DIR_TRIS					T_B5				//!< Must be: <pin-tris-name>
+		#define	PGX_ENCODER_DIR_TRIS				T_B5				//!< Must be: <pin-tris-name>
 		#define	PGX_ENCODER_SW_TRIS					T_B6				//!< Must be: <pin-tris-name>
 	#endif
 
@@ -178,7 +178,7 @@
 	//------------------------------------------------------------------------------
 	#if ( PGIMX_3WIRE == PGX_ENABLE )
 		// LAT
-		#define PGX_3WIRE_IO							L_B1				//!< Must be: <pin-lat-name>
+		#define PGX_3WIRE_IO						L_B1				//!< Must be: <pin-lat-name>
 		#define PGX_3WIRE_CK 						L_B2				//!< Must be: <pin-lat-name>
 		// TRIS		
 		#define PGX_3WIRE_IO_TRIS					T_B1				//!< Must be: <pin-tris-name>
@@ -192,8 +192,8 @@
 	//------------------------------------------------------------------------------
 	#if ( PGIMX_AMG88XX == PGX_ENABLE )
 		// TRIS
-		#define PGX_AMG88XX_IRQ_DEVICE1_TRIS			PGX_MISSING			//!< Must be: <pin-tris-name> || PGX_MISSING if not used.
-		#define PGX_AMG88XX_IRQ_DEVICE2_TRIS			PGX_MISSING			//!< Must be: <pin-tris-name> || PGX_MISSING if not used.
+		#define PGX_AMG88XX_IRQ_DEVICE1_TRIS		PGX_MISSING			//!< Must be: <pin-tris-name> || PGX_MISSING if not used.
+		#define PGX_AMG88XX_IRQ_DEVICE2_TRIS		PGX_MISSING			//!< Must be: <pin-tris-name> || PGX_MISSING if not used.
 		// PORT
 		#define PGX_AMG88XX_IRQ_DEVICE1				PGX_MISSING			//!< Must be: <pin-port-name> || PGX_MISSING if not used.
 		#define PGX_AMG88XX_IRQ_DEVICE2				PGX_MISSING			//!< Must be: <pin-port-name> || PGX_MISSING if not used.
@@ -213,7 +213,7 @@
 		#define PGX_DDS_AD9851_SERIAL_DATA			L_D7				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.		//Used in serial data mode to control AD9851 pin#25 "D7"
 		#define PGX_DDS_AD9851_WORD_CLOCK			L_B1				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
 		#define PGX_DDS_AD9851_FREQ_UPDATE			L_B2				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
-		#define PGX_DDS_AD9851_RESET					L_B3				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
+		#define PGX_DDS_AD9851_RESET				L_B3				//!< Must be: <pin-lat-name> || PGX_MISSING if not used.
 		#define PGX_DDS_AD9851_DATABUS				PGX_MISSING			//!< Must be: <port-lat-name> || PGX_MISSING if not used.	//Used in parallel data mode.
 	#endif
 	

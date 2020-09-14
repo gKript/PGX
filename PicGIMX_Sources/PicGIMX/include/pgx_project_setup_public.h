@@ -4,7 +4,7 @@
 	//------------------------------------------------------------------------
 	//	P R O J E C T   D E T A I L S
 	//------------------------------------------------------------------------
-	#define PGX_PROJECT_NAME					None						//!< Name of your Project
+	#define PGX_PROJECT_NAME                    None						//!< Name of your Project
 	#define PGX_PROJECT_ORGANIZATION			None						//!< Name of your Organization
 	#define PGX_PROJECT_AUTHOR					None						//!< Your name || nickname
 	#define PGX_PROJECT_VERSION_MAJOR			0							//!< Major version of your project

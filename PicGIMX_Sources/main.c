@@ -44,7 +44,7 @@
 						[ http://gkript.org/gk_gpl_v2.php ]
 		\attention		This is not a file defined as public and therefore would not be edited. \n We suggest that you edit this file only if necessary and only if you know what you are doing. \n
 */
-//#include <xc.h>
+
 #include "pgx.h"
 
 void main( void ) {
@@ -54,7 +54,8 @@ void main( void ) {
     
     pgx_loop {
         pgx_lcd_hd44780_clear( 0 );
-        pgx_lcd_hd44780_write_p_string_rom( 0 , 0 , 0 , "PicGIMX ->-> XC8" );
+        pgx_lcd_hd44780_print_delay( 1000 );
+        pgx_lcd_hd44780_write_p_string_rom( 0 , 0 , 0 , "PGX Delay Print " );
         pgx_lcd_hd44780_write_p_string_rom( 0 , 1 , 0 , ">>>>>>>>>>>>>>>>" );
         pgx_delay_sec( 3 );
 	}

@@ -218,12 +218,12 @@
 					#if defined( __EXTENDED18__ )
 						#pragma	config XINST = ON
 						#if( PGX_VERBOSE == PGX_ENABLE )
-							#warning	PicGIM >>> Core >>> Extended Instructions Set successful activated
+							#warning	PGX >>> Core >>> Extended Instructions Set successful activated
 						#endif
 					#else
 						#pragma	config XINST = OFF
 						#if( PGX_VERBOSE == PGX_ENABLE ) && ( PGX_SUGGESTION == PGX_ENABLE )
-							#warning	PicGIM >>> Core >>> Hint >>> TRADITIONAL code activated but EXTENDED Instructions Set is available with this MCU. Keep on mind!
+							#warning	PGX >>> Core >>> Hint >>> TRADITIONAL code activated but EXTENDED Instructions Set is available with this MCU. Keep on mind!
 						#endif
 					#endif
 				#endif

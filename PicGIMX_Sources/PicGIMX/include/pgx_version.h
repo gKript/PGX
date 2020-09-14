@@ -2,7 +2,7 @@
 #ifndef _PGIMX_VERSION_H_
 	#define _PGIMX_VERSION_H_
 	//------------------------------------------------------------------------
-	#define PGX_VERSION_STATE				"rel"       					//!< \b "rel" for release or \b "dev" for devel
+	#define PGX_VERSION_STATE               "rel"       					//!< \b "rel" for release or \b "dev" for devel
 	//------------------------------------------------------------------------
 	#define	PGX_MAJOR						0								//!<	Major version of PicGIM
 	#define	PGX_MINOR						1								//!<	Minor version of PicGIM
@@ -11,7 +11,9 @@
 	#define PGX_VERSION						"0.1-004" 						//!<	String for the current version of Gim	*/
 	#define	PGX_MILESTONE					"0.1"							//!<	Relative Milestone
 	//------------------------------------------------------------------------
-#endif
+#endif /* _PGIMX_VERSION_H_ */
+
+
 
 /*!	\page	SWC_version			The PicGIM version
 
@@ -23,9 +25,6 @@
 
 	\attention	Here a link to the file : \ref pgx_version.h \n This is not a file defined as public and therefore would not be edited. \n We suggest that you edit this file only if necessary and only if you know what you are doing. \n
 */
-
-
-
 
 /*!
 	\page	LicenseGPLV3		Gnu license
@@ -1172,6 +1171,6 @@
 			</p>
 		\endhtmlonly
 
- */
+ */ 
 
 

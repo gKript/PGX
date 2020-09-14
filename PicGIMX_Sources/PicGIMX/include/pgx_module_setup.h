@@ -11,51 +11,62 @@
 //	//------------------------------------------------------------------------
 //	//	Software General	
 //	//------------------------------------------------------------------------
-//	#define PGX_ERROR								PGX_DISABLE
-//	#define PGX_CAL_DELAY							PGX_DISABLE
-//	#define PGX_FTOA								PGX_DISABLE
-//	#define	PGX_GCP								PGX_DISABLE
-//	#define	PGX_SSP								PGX_DISABLE
-//	#define	PGX_GKH32								PGX_DISABLE
-//	#define	PGX_PRS								PGX_DISABLE
-//	#define	PGX_FONT								PGX_DISABLE
+//	#define PGIMX_ERROR								PGX_DISABLE
+//	#define PGIMX_CAL_DELAY							PGX_DISABLE
+//	#define PGIMX_FTOA								PGX_DISABLE
+//	#define	PGIMX_GCP								PGX_DISABLE
+//	#define	PGIMX_SSP								PGX_DISABLE
+//	#define	PGIMX_GKH32								PGX_DISABLE
+//	#define	PGIMX_PRS								PGX_DISABLE
+//	#define	PGIMX_FONT								PGX_DISABLE
 //	//------------------------------------------------------------------------
 //	//	Software Device	
 //	//------------------------------------------------------------------------
-//	#define PGX_3WIRE								PGX_DISABLE
+//	#define PGIMX_3WIRE								PGX_DISABLE
 //	//------------------------------------------------------------------------
 //	//	Hardware Internal
 //	//------------------------------------------------------------------------
-//	#define PGX_EVENTS								PGX_DISABLE
-//	#define PGX_AD_CONVERTER						PGX_DISABLE
-//	#define PGX_SPI								PGX_DISABLE
-//	#define PGX_I2C								PGX_DISABLE
-//	#define PGX_EE									PGX_DISABLE
-//	#define PGX_TIMER								PGX_DISABLE
-//	#define PGX_PWM								PGX_DISABLE
-//	#define PGX_SERIAL								PGX_DISABLE
+//	#define PGIMX_EVENTS							PGX_DISABLE
+//	#define PGIMX_AD_CONVERTER						PGX_DISABLE
+//	#define PGIMX_SPI								PGX_DISABLE
+//	#define PGIMX_I2C								PGX_DISABLE
+//	#define PGIMX_EE								PGX_DISABLE
+//	#define PGIMX_TIMER								PGX_DISABLE
+//	#define PGIMX_PWM								PGX_DISABLE
+//	#define PGIMX_SERIAL							PGX_DISABLE
 //	//------------------------------------------------------------------------
 //	//	Hardware External
 //	//------------------------------------------------------------------------
-//	#define PGX_LCD_HD44780						PGX_DISABLE
-//	#define PGX_LCD_PCD8544						PGX_DISABLE
-//	#define PGX_BUZZER								PGX_DISABLE
-//	#define PGX_SENSOR								PGX_DISABLE
-//	#define	PGX_RTC_DS1302							PGX_DISABLE
-//	#define	PGX_EXTERNAL_MEMORY					PGX_DISABLE
-//	#define	PGX_AMG88XX							PGX_DISABLE
-//	#define	PGX_DDS_AD9851							PGX_DISABLE
+//	#define PGIMX_LCD_HD44780						PGX_DISABLE
+//	#define PGIMX_LCD_PCD8544						PGX_DISABLE
+//	#define PGIMX_BUZZER							PGX_DISABLE
+//	#define PGIMX_SENSOR							PGX_DISABLE
+//	#define	PGIMX_RTC_DS1302						PGX_DISABLE
+//	#define	PGIMX_EXTERNAL_MEMORY					PGX_DISABLE
+//	#define	PGIMX_AMG88XX							PGX_DISABLE
+//	#define	PGIMX_DDS_AD9851						PGX_DISABLE
 //	//------------------------------------------------------------------------
 //	//	Hardware gKript
 //	//------------------------------------------------------------------------
-//	#define PGX_ENCODER							PGX_DISABLE
+//	#define PGIMX_ENCODER							PGX_DISABLE
 	//========================================================================
 	//	P U B L I C   F I L E S   I N C L U S I O N
 	//========================================================================
 	#include "pgx_project_setup_public.h"
 	#include "pgx_ezfuse.h"
 	#include "pgx_module_setup_public.h"
+//  #include "pgim_font_setup_public.h"
+//	#include "pgim_event_setup_public.h"
 	#include "pgx_timer_setup_public.h"
+//	#include "pgim_pwm_setup_public.h"
+//	#include "pgim_serial_setup_public.h"
+//	#include "pgim_external_memory_setup_public.h"
+//	#include "pgim_amg88xx_setup_public.h"
+//	#include "pgim_sensor_setup_public.h"
+//	#include "pgim_gcp_setup_public.h"
+//	#include "pgim_ssp_setup_public.h"
+//	#include "pgim_prs_setup_public.h"
+//	#include "pgim_dds_ad9851_setup_public.h"
     #include "pgx_hardware_setup.h"
 	//========================================================================
 	//	M O D U L E   I N C L U S I O N
@@ -86,7 +97,7 @@
 	// //------------------------------------------------------------------------------
 	// #if ( PGIMX_ERROR == PGX_ENABLE )
 		// #if ( PGX_PROJECT_STATE != PGX_DEBUG )
-			// #warning	PicGIM >>> ERROR !!! >>> Core >>> You must set the PROJECT STATE to DEBUG in pgim_project_setup_public.h as required by other modules or DISABLE the module that need DEBUG STATE
+			// #warning	PGX >>> ERROR !!! >>> Core >>> You must set the PROJECT STATE to DEBUG in pgim_project_setup_public.h as required by other modules or DISABLE the module that need DEBUG STATE
 			// #ifndef		PGX_EXIT_ON_ERROR
 				// #define		PGX_EXIT_ON_ERROR
 			// #endif
@@ -98,7 +109,6 @@
 	 //------------------------------------------------------------------------------
 	 #if ( PGIMX_LCD_HD44780 == PGX_ENABLE ) || \
 		 ( PGIMX_LCD_PCD8544 == PGX_ENABLE ) || \
-		 ( PGIMX_LCD_9340 == PGX_ENABLE ) || \
 		 ( PGIMX_BUZZER == PGX_ENABLE ) || \
 		 ( ( PGIMX_SERIAL == PGX_ENABLE ) && ( PGX_SERIAL_BAUDRATE_MODE != PGX_MANUAL ) && ( ( PGX_SERIAL_DEBUG_TO_PIN == PGX_ENABLE ) || ( PGX_SERIAL_DEBUG_TO_LCD_PCD8544 == PGX_ENABLE ) || ( PGX_SERIAL_DEBUG_TO_LCD_HD44780 == PGX_ENABLE ) ) ) || \
 		 ( PGIMX_EXTERNAL_MEMORY == PGX_ENABLE ) || \
@@ -108,7 +118,7 @@
 		 ( PGIMX_DDS_AD9851 == PGX_ENABLE )
 	
 		 #if ( PGIMX_CAL_DELAY == PGX_DISABLE )
-			 #warning	PicGIM >>> ERROR !!! >>> Core >>> You must enable the DELAY module required by other modules
+			 #warning	PGX >>> ERROR !!! >>> Core >>> You must enable the DELAY module required by other modules
 			 #ifndef		PGX_EXIT_ON_ERROR
 				 #define		PGX_EXIT_ON_ERROR
 			 #endif
@@ -121,7 +131,7 @@
 	// #if ( PGIMX_SENSOR == PGX_ENABLE )
 
 		// #if ( PGIMX_AD_CONVERTER == PGX_DISABLE )
-			// #warning	PicGIM >>> ERROR !!! >>> Core >>> You must enable the AD CONVERTER module required by other modules
+			// #warning	PGX >>> ERROR !!! >>> Core >>> You must enable the AD CONVERTER module required by other modules
 			// #ifndef		PGX_EXIT_ON_ERROR
 				// #define		PGX_EXIT_ON_ERROR
 			// #endif
@@ -133,7 +143,7 @@
 	// //------------------------------------------------------------------------------
 	// #if ( ( PGX_LCD_PCD8544 == PGX_ENABLE ) || ( PGX_SERIAL_DEBUG_TO_LCD_PCD8544 == PGX_ENABLE ) || ( PGX_EXTERNAL_MEMORY == PGX_ENABLE ) )
 		// #if ( PGIMX_SPI == PGX_DISABLE )
-			// #warning	PicGIM >>> ERROR !!! >>> Core >>> You must enable the SPI module required by other modules
+			// #warning	PGX >>> ERROR !!! >>> Core >>> You must enable the SPI module required by other modules
 			// #ifndef		PGX_EXIT_ON_ERROR
 				// #define		PGX_EXIT_ON_ERROR
 			// #endif
@@ -145,7 +155,7 @@
 	// //------------------------------------------------------------------------------
 	// #if ( PGIMX_AMG88XX == PGX_ENABLE )
 		// #if ( PGIMX_I2C == PGX_DISABLE )
-			// #warning	PicGIM >>> ERROR !!! >>> Core >>> You must enable the I2C module required by other modules
+			// #warning	PGX >>> ERROR !!! >>> Core >>> You must enable the I2C module required by other modules
 			// #ifndef		PGX_EXIT_ON_ERROR
 				// #define		PGX_EXIT_ON_ERROR
 			// #endif
@@ -158,7 +168,7 @@
 	// #if ( ( PGX_SERIAL == PGX_ENABLE ) && ( PGX_SERIAL_BAUDRATE_MODE != PGX_MANUAL ) && ( PGX_SERIAL_DEBUG_TO_LCD_PCD8544 == PGX_ENABLE ) )
 
 		// #if ( PGIMX_LCD_PCD8544 == PGX_DISABLE ) && defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PicGIM >>> ERROR !!! >>> Core >>> You must enable the LCD-PCD8544 module required by other modules
+			// #warning	PGX >>> ERROR !!! >>> Core >>> You must enable the LCD-PCD8544 module required by other modules
 			// #ifndef		PGX_EXIT_ON_ERROR
 				// #define		PGX_EXIT_ON_ERROR
 			// #endif
@@ -172,7 +182,7 @@
 		 && defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
 		
 		 #if ( PGIMX_LCD_HD44780 == PGX_DISABLE )
-			 #warning	PicGIM >>> ERROR !!! >>> Core >>> You must enable the LCD-HD44780 module required by other modules
+			 #warning	PGX >>> ERROR !!! >>> Core >>> You must enable the LCD-HD44780 module required by other modules
 			 #ifndef		PGX_EXIT_ON_ERROR
 				 #define		PGX_EXIT_ON_ERROR
 			 #endif
@@ -185,7 +195,7 @@
 	// #if ( ( PGX_SERIAL == PGX_ENABLE ) && ( PGX_SERIAL_BAUDRATE_MODE != PGX_MANUAL ) && ( PGX_SERIAL_DEBUG_TO_BUZZER == PGX_ENABLE ) )
 		 
 		// #if ( PGIMX_BUZZER == PGX_DISABLE )
-			// #warning	PicGIM >>> ERROR !!! >>> Core >>> You must enable the BUZZER module required by other modules
+			// #warning	PGX >>> ERROR !!! >>> Core >>> You must enable the BUZZER module required by other modules
 			// #ifndef		PGX_EXIT_ON_ERROR
 				// #define		PGX_EXIT_ON_ERROR
 			// #endif
@@ -198,7 +208,7 @@
 	// #if ( PGIMX_RTC_DS1302 == PGX_ENABLE )
 		 
 		// #if ( PGIMX_3WIRE == PGX_DISABLE )
-			// #warning	PicGIM >>> ERROR !!! >>> Core >>> You must enable the 3WIRE module required by other modules
+			// #warning	PGX >>> ERROR !!! >>> Core >>> You must enable the 3WIRE module required by other modules
 			// #ifndef		PGX_EXIT_ON_ERROR
 				// #define		PGX_EXIT_ON_ERROR
 			// #endif
@@ -211,7 +221,7 @@
 	// #if ( PGIMX_RTC_DS1302 == PGX_ENABLE )
 		 
 		// #if ( PGIMX_3WIRE == PGX_DISABLE )
-			// #warning	PicGIM >>> ERROR !!! >>> Core >>> You must enable the 3WIRE module required by other modules
+			// #warning	PGX >>> ERROR !!! >>> Core >>> You must enable the 3WIRE module required by other modules
 			// #ifndef		PGX_EXIT_ON_ERROR
 				// #define		PGX_EXIT_ON_ERROR
 			// #endif
@@ -225,13 +235,13 @@
 
 		// #if ( PGIMX_SERIAL == PGX_ENABLE ) && defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
 			// #if ( PGIMX_FONT == PGX_DISABLE )
-				// #warning	PicGIM >>> ERROR !!! >>> Core >>> You must enable FONT module as required by SERIAL debug
+				// #warning	PGX >>> ERROR !!! >>> Core >>> You must enable FONT module as required by SERIAL debug
 				// #ifndef		PGX_EXIT_ON_ERROR
 					// #define		PGX_EXIT_ON_ERROR
 				// #endif
 			// #endif
 			// #if ( PGX_FONT_5X8 == PGX_NOT_INCLUDE )
-				// #warning	PicGIM >>> ERROR !!! >>> Core >>> You must include 5X8 font as required by SERIAL debug
+				// #warning	PGX >>> ERROR !!! >>> Core >>> You must include 5X8 font as required by SERIAL debug
 				// #ifndef		PGX_EXIT_ON_ERROR
 					// #define		PGX_EXIT_ON_ERROR
 				// #endif
@@ -244,8 +254,8 @@
 	// //------------------------------------------------------------------------------
 	// #if ( PGX_BOARD == PGX_BOARD_A )
 		// #if ( PGX_PIN_NUMBER != 28 )
-			// #warning	PicGIM >>> ERROR !!! >>> Board A  >>> You are using an MCU NOT COMPATIBLE with Board A.
-			// #warning	PicGIM >>> ERROR !!! >>> Continue >>> Board A can only support MCU DIL with 28 Pin.
+			// #warning	PGX >>> ERROR !!! >>> Board A  >>> You are using an MCU NOT COMPATIBLE with Board A.
+			// #warning	PGX >>> ERROR !!! >>> Continue >>> Board A can only support MCU DIL with 28 Pin.
 			// #ifndef	PGX_EXIT_ON_ERROR
 				// #define	PGX_EXIT_ON_ERROR
 			// #endif
@@ -253,8 +263,8 @@
     // #endif
 
 	// #if ( ( PGX_SPI == PGX_ENABLE ) && ( PGX_I2C == PGX_ENABLE ) )
-		// #error	PicGIM >>> ERROR !!! >>> MSSP HW module >>> Hardware conflict.
-		// #error	PicGIM >>> ERROR !!! >>> Continue       >>> Currently it is not possible to use both modules at the same time.
+		// #error	PGX >>> ERROR !!! >>> MSSP HW module >>> Hardware conflict.
+		// #error	PGX >>> ERROR !!! >>> Continue       >>> Currently it is not possible to use both modules at the same time.
 		// #ifndef	PGX_EXIT_ON_ERROR
 			// #define	PGX_EXIT_ON_ERROR
 		// #endif

@@ -2,11 +2,68 @@
 #ifndef _PGIMX_EZFUSE_H_
 	#define _PGIMX_EZFUSE_H_
 	//------------------------------------------------------------------------
-	#if defined( __18F4620 )
-		#include "./pgx_mcu/pgx_18f4620.h"
-	#endif
-	//------------------------------------------------------------------------
-#endif
+    #if defined( __18F2320 )
+        #if	defined ( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+            #warning	PGX >>> Core >>> Set 18F2320 as current mcu
+        #endif
+        #include "./pgx_mcu/pgim_18f2320.h"
+        #define		PGIMX_P18F2320
+    //------------------------------------------------------------------------
+    #elif defined( __18F2550 )
+        #if	defined ( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+            #warning	PGX >>> Core >>> Set 18F2550 as current mcu
+        #endif
+        #include "./pgx_mcu/pgim_18f2550.h"
+        #define		PGIMX_P18F2550
+    //------------------------------------------------------------------------
+    #elif defined( __18F2553 )
+        #if	defined ( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+            #warning	PGX >>> Core >>> Set 18F2553 as current mcu
+        #endif
+        #include "./pgx_mcu/pgim_18f2553.h"
+        #define		PGIMX_P18F2553
+    //------------------------------------------------------------------------
+    #elif defined( __18F4520 )
+        #if	defined ( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+            #warning	PGX >>> Core >>> Set 18F4520 as current mcu
+        #endif
+        #include "./pgx_mcu/pgim_18f4520.h"
+        #define		PGIMX_P18F4520
+    //------------------------------------------------------------------------
+    #elif defined( __18F4550 )
+        #if	defined ( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+            #warning	PGX >>> Core >>> Set 18F4550 as current mcu
+        #endif
+        #include "./pgx_mcu/pgim_18f4550.h"
+        #define		PGIMX_P18F4550
+    //------------------------------------------------------------------------
+    #elif defined( __18F4553 )
+        #if	defined ( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+            #warning	PGX >>> Core >>> Set 18F4553 as current mcu
+        #endif
+        #include "./pgx_mcu/pgim_18f4553.h"
+        #define		PGIMX_P18F4553
+    //------------------------------------------------------------------------
+    #elif defined( __18F4620 )
+        #if	defined ( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+            #warning	PGX >>> Core >>> Set 18F4620 as current mcu
+        #endif
+        #include "./pgx_mcu/pgx_18f4620.h"
+        #define		PGIMX_P18F4620
+    //------------------------------------------------------------------------
+    #elif defined( __18F97J60 )
+        #if	defined ( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+            #warning	PGX >>> Core >>> Set 18F97J60 as current mcu
+        #endif
+        #include "./pgx_mcu/pgim_18f97J60.h"
+        #define		PGIMX_P18F97J60
+    //------------------------------------------------------------------------
+    #else
+        #error	PGX >>> Core >>> MCU not supported by PGX...
+    #endif
+#endif /* _PGIMX_EZFUSE_H_ */
+
+
 
 /*!	
 	\page	SWC_EzFuse			Easy FUSE settingss

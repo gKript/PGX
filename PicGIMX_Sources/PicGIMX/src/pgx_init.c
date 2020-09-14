@@ -1,12 +1,11 @@
 //
-//#include "pgx_delay.h"
-//#include "pgx_lcd_hd44780.h"
 #include "pgx.h"
 
-#if PGX_PROJECT_STATE == PGX_DEBUG
-	#warning	PicGIM >>> Message >>> This file is always compiled.
+#if ( PGX_PROJECT_STATE == PGX_DEBUG )
+	#warning	PGX >>> Message >>> This file is always compiled.
 #endif
 
+//---[ PGX Init ]---
 void pgx_initialize( void ) {
 	//------------------------------------------------------------------------
 	#if ( PGX_POWER_GOOD_DELAY > 0 )
@@ -60,15 +59,12 @@ void pgx_initialize( void ) {
 
 	#if ( PGIMX_LCD_HD44780 == PGX_ENABLE )
 		pgx_lcd_hd44780_init( );
+        pgx_lcd_hd44780_print_delay( 0 );
 	#endif
 
 	// #if ( PGX_LCD_PCD8544 == PGX_ENABLE )
 		// pgx_lcd_pcd8544_init( );
-        // #endif
-
-// //	#if ( PGX_LCD_9340 == PGX_ENABLE )
-// //		pgx_lcd_9340_init( );
-// //	#endif
+    // #endif
 
 	// #if ( PGX_SERIAL == PGX_ENABLE )			//To init after lcd-pcd8544 and lcd-char
 		// pgx_serial_init();
@@ -100,5 +96,6 @@ void pgx_initialize( void ) {
 	// #endif
 	//------------------------------------------------------------------------
 }
+//---[ END PGX Init ]---
 
 

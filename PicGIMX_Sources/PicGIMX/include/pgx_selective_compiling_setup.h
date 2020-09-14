@@ -64,25 +64,25 @@
 		#define	PGX_LCD_HD44780_PUT_P_CHAR						PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_lcd_hd44780_put_byte()
-		#define	PGX_LCD_HD44780_PUT_BYTE							PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+		#define	PGX_LCD_HD44780_PUT_BYTE						PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_lcd_hd44780_put_p_byte()
 		#define	PGX_LCD_HD44780_PUT_P_BYTE						PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_lcd_hd44780_write_string_rom()
-		#define	PGX_LCD_HD44780_WRITE_STRING_ROM					PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+		#define	PGX_LCD_HD44780_WRITE_STRING_ROM				PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_lcd_hd44780_write_p_string()
 		#define	PGX_LCD_HD44780_WRITE_P_STRING					PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_lcd_hd44780_write_p_string_flash()
-		#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH				PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+		#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH			PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_lcd_hd44780_write_p_string_rom()
 		#define	PGX_LCD_HD44780_WRITE_P_STRING_ROM				PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_lcd_hd44780_write_p_string_flash_rom()
-		#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH_ROM			PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+		#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH_ROM		PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_lcd_hd44780_write_p_int()
 		#define	PGX_LCD_HD44780_WRITE_P_INT						PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
@@ -94,7 +94,7 @@
 		//		THESE FUNCTIONS CAN BE DISABLED IF NOT USED ( semi-automatic )
 		//------------------------------------------------------------------------------------------------------------
 		//pg_lcd_hd44780_write_p_char()
-		#define	PGX_LCD_HD44780_WRITE_P_CHAR						PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+		#define	PGX_LCD_HD44780_WRITE_P_CHAR					PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//------------------------------------------------------------------------------------------------------------
 		//		THESE FUNCTIONS ARE AUTOMATICALLY DISABLED IF NOT REQUIRED:
@@ -141,7 +141,7 @@
 		#define	PGX_RTC_DS1302_USE_DAY							PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_rtc_ds1302_use_month()
-		#define	PGX_RTC_DS1302_USE_MONTH							PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+		#define	PGX_RTC_DS1302_USE_MONTH						PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_rtc_ds1302_use_year()
 		#define	PGX_RTC_DS1302_USE_YEAR							PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
@@ -198,7 +198,7 @@
 		#define	PGX_ADC_START_AVG								PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_adc_get_perc()
-		#define	PGX_ADC_GET_PERC									PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+		#define	PGX_ADC_GET_PERC								PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_adc_get_perc_f()
 		#define	PGX_ADC_GET_PERC_F								PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
@@ -274,7 +274,7 @@
 		//		THESE FUNCTIONS CAN BE DISABLED IF NOT USED ( manual )
 		//------------------------------------------------------------------------------------------------------------
 		//pg_ee_write()
-		#define	PGX_EE_WRITE										PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+		#define	PGX_EE_WRITE									PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_ee_read()
 		#define	PGX_EE_READ										PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
@@ -313,13 +313,13 @@
 		//		THESE FUNCTIONS CAN BE DISABLED IF NOT USED ( manual )
 		//------------------------------------------------------------------------------------------------------------
 		//pg_pwm_stop()
-		#define	PGX_PWM_STOP										PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+		#define	PGX_PWM_STOP									PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_pwm_restart()
 		#define	PGX_PWM_RESTART									PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_pwm_shutdown()
-		#define	PGX_PWM_SHUTDOWN									PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+		#define	PGX_PWM_SHUTDOWN								PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
 		//pg_pwm_dc_res_max()
 		#define	PGX_PWM_DC_RES_MAX								PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE

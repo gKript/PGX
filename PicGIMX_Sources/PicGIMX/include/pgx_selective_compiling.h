@@ -59,23 +59,23 @@
 			#undef	PGX_LCD_HD44780_PUT_P_CHAR
 			#define	PGX_LCD_HD44780_PUT_P_CHAR						PGX_INCLUDE
 			#undef	PGX_LCD_HD44780_PUT_BYTE
-			#define	PGX_LCD_HD44780_PUT_BYTE							PGX_INCLUDE
+			#define	PGX_LCD_HD44780_PUT_BYTE						PGX_INCLUDE
 			#undef	PGX_LCD_HD44780_PUT_P_BYTE
 			#define	PGX_LCD_HD44780_PUT_P_BYTE						PGX_INCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_STRING_ROM
-			#define	PGX_LCD_HD44780_WRITE_STRING_ROM					PGX_INCLUDE
+			#define	PGX_LCD_HD44780_WRITE_STRING_ROM				PGX_INCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_STRING
 			#define	PGX_LCD_HD44780_WRITE_P_STRING					PGX_INCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_STRING_FLASH
-			#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH				PGX_INCLUDE
+			#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH			PGX_INCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_STRING_ROM
 			#define	PGX_LCD_HD44780_WRITE_P_STRING_ROM				PGX_INCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_STRING_FLASH_ROM
-			#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH_ROM			PGX_INCLUDE
+			#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH_ROM		PGX_INCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_INT
 			#define	PGX_LCD_HD44780_WRITE_P_INT						PGX_INCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_CHAR
-			#define	PGX_LCD_HD44780_WRITE_P_CHAR						PGX_INCLUDE
+			#define	PGX_LCD_HD44780_WRITE_P_CHAR					PGX_INCLUDE
 			#undef	PGX_LCD_HD44780_WRITE
 			#define	PGX_LCD_HD44780_WRITE							PGX_INCLUDE
 		#endif
@@ -90,7 +90,7 @@
 			#undef	PGX_RTC_DS1302_USE_DAY
 			#define	PGX_RTC_DS1302_USE_DAY							PGX_INCLUDE
 			#undef	PGX_RTC_DS1302_USE_MONTH
-			#define	PGX_RTC_DS1302_USE_MONTH							PGX_INCLUDE
+			#define	PGX_RTC_DS1302_USE_MONTH						PGX_INCLUDE
 			#undef	PGX_RTC_DS1302_USE_YEAR
 			#define	PGX_RTC_DS1302_USE_YEAR							PGX_INCLUDE
 			#undef	PGX_RTC_DS1302_USE_WEEKDAY
@@ -113,7 +113,7 @@
 			#undef	PGX_ADC_START_AVG
 			#define	PGX_ADC_START_AVG								PGX_INCLUDE
 			#undef	PGX_ADC_GET_PERC
-			#define	PGX_ADC_GET_PERC									PGX_INCLUDE
+			#define	PGX_ADC_GET_PERC								PGX_INCLUDE
 			#undef	PGX_ADC_GET_PERC_F
 			#define	PGX_ADC_GET_PERC_F								PGX_INCLUDE
 		#endif
@@ -137,7 +137,7 @@
 		//==============================================================================
 		#if ( PGIMX_EE == PGX_ENABLE )
 			#undef	PGX_EE_WRITE										
-			#define	PGX_EE_WRITE										PGX_INCLUDE
+			#define	PGX_EE_WRITE									PGX_INCLUDE
 			#undef	PGX_EE_READ										
 			#define	PGX_EE_READ										PGX_INCLUDE
 			#undef	PGX_EE_WRITE_BUFFER								
@@ -150,11 +150,11 @@
 		//==============================================================================
 		#if ( PGIMX_PWM == PGX_ENABLE )
 			#undef	PGX_PWM_STOP										
-			#define	PGX_PWM_STOP										PGX_INCLUDE
+			#define	PGX_PWM_STOP									PGX_INCLUDE
 			#undef	PGX_PWM_RESTART										
 			#define	PGX_PWM_RESTART									PGX_INCLUDE
 			#undef	PGX_PWM_SHUTDOWN								
-			#define	PGX_PWM_SHUTDOWN									PGX_INCLUDE
+			#define	PGX_PWM_SHUTDOWN								PGX_INCLUDE
 			#undef	PGX_PWM_DC_RES_MAX								
 			#define	PGX_PWM_DC_RES_MAX								PGX_INCLUDE
 		#endif
@@ -171,23 +171,23 @@
 			#undef	PGX_LCD_HD44780_PUT_P_CHAR
 			#define	PGX_LCD_HD44780_PUT_P_CHAR						PGX_EXCLUDE
 			#undef	PGX_LCD_HD44780_PUT_BYTE
-			#define	PGX_LCD_HD44780_PUT_BYTE							PGX_EXCLUDE
+			#define	PGX_LCD_HD44780_PUT_BYTE						PGX_EXCLUDE
 			#undef	PGX_LCD_HD44780_PUT_P_BYTE
 			#define	PGX_LCD_HD44780_PUT_P_BYTE						PGX_EXCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_STRING_ROM
-			#define	PGX_LCD_HD44780_WRITE_STRING_ROM					PGX_EXCLUDE
+			#define	PGX_LCD_HD44780_WRITE_STRING_ROM				PGX_EXCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_STRING
 			#define	PGX_LCD_HD44780_WRITE_P_STRING					PGX_EXCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_STRING_FLASH
-			#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH				PGX_EXCLUDE
+			#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH			PGX_EXCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_STRING_ROM
 			#define	PGX_LCD_HD44780_WRITE_P_STRING_ROM				PGX_EXCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_STRING_FLASH_ROM
-			#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH_ROM			PGX_EXCLUDE
+			#define	PGX_LCD_HD44780_WRITE_P_STRING_FLASH_ROM		PGX_EXCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_INT
 			#define	PGX_LCD_HD44780_WRITE_P_INT						PGX_EXCLUDE
 			#undef	PGX_LCD_HD44780_WRITE_P_CHAR
-			#define	PGX_LCD_HD44780_WRITE_P_CHAR						PGX_EXCLUDE
+			#define	PGX_LCD_HD44780_WRITE_P_CHAR					PGX_EXCLUDE
 			#undef	PGX_LCD_HD44780_WRITE
 			#define	PGX_LCD_HD44780_WRITE							PGX_EXCLUDE
 		#endif
@@ -202,7 +202,7 @@
 			#undef	PGX_RTC_DS1302_USE_DAY
 			#define	PGX_RTC_DS1302_USE_DAY							PGX_EXCLUDE
 			#undef	PGX_RTC_DS1302_USE_MONTH
-			#define	PGX_RTC_DS1302_USE_MONTH							PGX_EXCLUDE
+			#define	PGX_RTC_DS1302_USE_MONTH						PGX_EXCLUDE
 			#undef	PGX_RTC_DS1302_USE_YEAR
 			#define	PGX_RTC_DS1302_USE_YEAR							PGX_EXCLUDE
 			#undef	PGX_RTC_DS1302_USE_WEEKDAY
@@ -225,7 +225,7 @@
 			#undef	PGX_ADC_START_AVG
 			#define	PGX_ADC_START_AVG								PGX_EXCLUDE
 			#undef	PGX_ADC_GET_PERC
-			#define	PGX_ADC_GET_PERC									PGX_EXCLUDE
+			#define	PGX_ADC_GET_PERC								PGX_EXCLUDE
 			#undef	PGX_ADC_GET_PERC_F
 			#define	PGX_ADC_GET_PERC_F								PGX_EXCLUDE
 		#endif
@@ -249,7 +249,7 @@
 		//==============================================================================
 		#if ( PGIMX_EE == PGX_ENABLE )
 			#undef	PGX_EE_WRITE										
-			#define	PGX_EE_WRITE										PGX_EXCLUDE
+			#define	PGX_EE_WRITE									PGX_EXCLUDE
 			#undef	PGX_EE_READ										
 			#define	PGX_EE_READ										PGX_EXCLUDE
 			#undef	PGX_EE_WRITE_BUFFER								
@@ -262,11 +262,11 @@
 		//==============================================================================
 		#if ( PGIMX_PWM == PGX_ENABLE )
 			#undef	PGX_PWM_STOP										
-			#define	PGX_PWM_STOP										PGX_EXCLUDE
+			#define	PGX_PWM_STOP									PGX_EXCLUDE
 			#undef	PGX_PWM_RESTART										
 			#define	PGX_PWM_RESTART									PGX_EXCLUDE
 			#undef	PGX_PWM_SHUTDOWN								
-			#define	PGX_PWM_SHUTDOWN									PGX_EXCLUDE
+			#define	PGX_PWM_SHUTDOWN								PGX_EXCLUDE
 			#undef	PGX_PWM_DC_RES_MAX								
 			#define	PGX_PWM_DC_RES_MAX								PGX_EXCLUDE
 		#endif

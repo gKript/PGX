@@ -49,14 +49,12 @@
 		\attention	This is not a file defined as public and therefore would not be edited. \n We suggest that you edit this file only if necessary and only if you know what you are doing. \n
 */
 
-
-
 #include "pgx.h"
 
 #if ( PGIMX_TIMER == PGX_ENABLE )
 
 	#if ( PGX_PROJECT_STATE == PGX_DEBUG )
-		#warning	PicGIM >>> Message >>> This file is compiling.
+		#warning	PGX >>> Message >>> This file is compiling.
 	#endif
 
 	#if ( PGIMX_TIMER_0 != PGX_DISABLE )

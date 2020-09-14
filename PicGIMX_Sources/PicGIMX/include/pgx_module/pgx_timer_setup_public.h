@@ -55,13 +55,13 @@
 		//		T I M E R   E N A B L I N G
 		//-------------------------------------------------------------------------------------------------------------
 		#define PGX_TIMER_0					PGX_ENABLE_1_SHOT		//!< Must be: PGX_DISABLE || PGX_ENABLE_1_SHOT || PGX_ENABLE_LOOP
-		#define PGX_TIMER_1					PGX_DISABLE		//!< Must be: PGX_DISABLE || PGX_ENABLE_1_SHOT || PGX_ENABLE_LOOP
+		#define PGX_TIMER_1					PGX_DISABLE             //!< Must be: PGX_DISABLE || PGX_ENABLE_1_SHOT || PGX_ENABLE_LOOP
 	
 		//-------------------------------------------------------------------------------------------------------------
 		//		P A R A M E T E R S
 		//-------------------------------------------------------------------------------------------------------------
-		#define PGX_TIMER_0_DELAY_TRIM			320				//!< Set the correct value of delay in uSec resulting from test
-		#define PGX_TIMER_1_DELAY_TRIM			299				//!< Set the correct value of delay in uSec resulting from test
+		#define PGX_TIMER_0_DELAY_TRIM		320                     //!< Set the correct value of delay in uSec resulting from test
+		#define PGX_TIMER_1_DELAY_TRIM		299                     //!< Set the correct value of delay in uSec resulting from test
 		
 	#endif
 #endif /* _PGIMX_TIMER_SETUP_PUBLIC_H_ */

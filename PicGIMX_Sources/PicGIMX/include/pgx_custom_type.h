@@ -11,7 +11,7 @@
 	typedef unsigned char					_pgx_Uint8;
 	typedef int								_pgx_int16;
 	typedef unsigned int					_pgx_Uint16;
-    typedef __int24							_pgx_int24;	//not standard
+    typedef __int24							_pgx_int24;     //not standard
     typedef __uint24						_pgx_Uint24;	//not standard
 	typedef long							_pgx_int32;
 	typedef unsigned long					_pgx_Uint32;
