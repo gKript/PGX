@@ -59,7 +59,7 @@ void pgx_initialize( void ) {
 
 	#if ( PGIMX_LCD_HD44780 == PGX_ENABLE )
 		pgx_lcd_hd44780_init( );
-        pgx_lcd_hd44780_print_delay( 0 );
+        pgx_lcd_hd44780_print_speed( 0 );
 	#endif
 
 	// #if ( PGX_LCD_PCD8544 == PGX_ENABLE )

@@ -54,10 +54,10 @@ void main( void ) {
     
     pgx_loop {
         pgx_lcd_hd44780_clear( 0 );
-        pgx_lcd_hd44780_print_delay( 1000 );
-        pgx_lcd_hd44780_write_p_string_rom( 0 , 0 , 0 , "PGX Delay Print " );
-        pgx_lcd_hd44780_write_p_string_rom( 0 , 1 , 0 , ">>>>>>>>>>>>>>>>" );
-        pgx_delay_sec( 3 );
+        pgx_lcd_hd44780_print_speed( 70 );
+        pgx_lcd_hd44780_write_p_string_rom( 0 , 0 , 0 , "PGX - SpeedPrint" );
+        pgx_lcd_hd44780_write_p_string_rom( 0 , 1 , 0 , "  Control Demo  " );
+        pgx_delay_sec( 1 );
 	}
     pgx_timer_set_period( PGX_TIMER_0 , 10.0 , PGX_SEC );
     pgx_timer_start( PGX_TIMER_0 );

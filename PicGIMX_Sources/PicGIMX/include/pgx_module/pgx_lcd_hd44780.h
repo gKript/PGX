@@ -107,7 +107,7 @@
 			\return			Nothing.
 			\param			Delay time in [ms].
 		*/	
-        void pgx_lcd_hd44780_print_delay( _pgx_Uint16 PrintDelay );
+        void pgx_lcd_hd44780_print_speed( _pgx_Uint16 PrintSpeed );
 		
         /*!
 			\brief			Checks for the controllers to be initialized.

@@ -11,17 +11,17 @@
 		#warning PicGIMX: This file is compiling...
 	#endif
 	
-    //global var
     //#if ( )
-        _pgx_Uint16 pgx_lcd_hd780_print_delay_ms;
+        //global variable
+        _pgx_Uint16 pgx_lcd_hd780_print_speed_ms;
     //#endif
     
     //---[ HD44780 Print Delay ]---
     //#if ( )
-	void pgx_lcd_hd44780_print_delay( _pgx_Uint16 PrintDelay ) {
+	void pgx_lcd_hd44780_print_speed( _pgx_Uint16 PrintSpeed) {
         //--------------------------------------------------------------------
         //Implemented only in put char function...
-        pgx_lcd_hd780_print_delay_ms = PrintDelay;
+        pgx_lcd_hd780_print_speed_ms = PrintSpeed;
     }
     //#endif
     //---[ END HD44780 Print Delay ]---
@@ -468,8 +468,8 @@
 	void pgx_lcd_hd44780_put_char( _pgx_int8 Controller , _pgx_Uint8 Data ) {
         //--------------------------------------------------------------------
 		pgx_lcd_hd44780_write_byte( Controller , PGX_DATA , Data );
-		if( pgx_lcd_hd780_print_delay_ms ) {
-            pgx_delay_msec( pgx_lcd_hd780_print_delay_ms );
+		if( pgx_lcd_hd780_print_speed_ms ) {
+            pgx_delay_msec( pgx_lcd_hd780_print_speed_ms );
         }
         pgx_lcd_hd44780_wait_busy( Controller );
 	}
