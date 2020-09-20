@@ -94,26 +94,26 @@
 	// //---[ END Error ]---
 
 
-	// //---[ Calibrated Delay ]---
-	// #if defined( PGX_DOXYGEN )
-		// #undef		PGX_CAL_DELAY
-		// #define		PGX_CAL_DELAY		PGX_ENABLE
-	// #elif ( PGX_ALL_MODULES_DISABLED == PGX_ENABLE ) && ( PGX_PROJECT_STATE == PGX_DEBUG )
-		// #undef		PGX_CAL_DELAY
-		// #define		PGX_CAL_DELAY		PGX_DISABLE
-	// #endif
-	// #if ( PGIMX_CAL_DELAY == PGX_ENABLE )
-        // #define	_XTAL_FREQ              PGX_CLOCK
-		// #include "pgim_caldelay.h"
-		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PGX >>> DELAY module >>> Loaded
-		// #endif
-	// #else
-		// #if defined( __18CXX )
-			// #include <delays.h>
-		// #endif
-	// #endif
-	// //---[ END Calibrated Delay ]---
+	 //---[ Calibrated Delay ]---
+	 #if defined( PGX_DOXYGEN )
+		 #undef		PGX_CAL_DELAY
+		 #define		PGX_CAL_DELAY		PGX_ENABLE
+	 #elif ( PGX_ALL_MODULES_DISABLED == PGX_ENABLE ) && ( PGX_PROJECT_STATE == PGX_DEBUG )
+		 #undef		PGX_CAL_DELAY
+		 #define		PGX_CAL_DELAY		PGX_DISABLE
+	 #endif
+	 #if ( PGIMX_CAL_DELAY == PGX_ENABLE )
+         //#define	_XTAL_FREQ              PGX_CLOCK
+		 #include "pgx_delay.h"
+		 #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+			 #warning	PGX >>> DELAY module >>> Loaded
+		 #endif
+	 #else
+		 #if defined( __18CXX )
+			 #include <delays.h>
+		 #endif
+	 #endif
+	 //---[ END Calibrated Delay ]---
 	
 	
 	// //---[ Buzzer ]---

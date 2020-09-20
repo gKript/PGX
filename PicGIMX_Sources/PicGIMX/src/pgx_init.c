@@ -32,9 +32,9 @@ void pgx_initialize( void ) {
 		// pgx_event_init( );
 	// #endif
 
-	// #if ( PGX_CAL_DELAY == PGX_ENABLE ) && defined( __18CXX )
-		// pgx_delay_NinstusCalc( );
-	// #endif
+	 #if ( PGIMX_CAL_DELAY == PGX_ENABLE ) //&& defined( __18CXX )
+		 pg_delay_ninstus_calc( );
+	 #endif
 
 	// #if ( PGX_I2C == PGX_ENABLE )
 		// pgx_i2c_init( );

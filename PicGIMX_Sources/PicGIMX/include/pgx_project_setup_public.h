@@ -13,7 +13,7 @@
 	#define PGX_PROJECT_STATE					PGX_RELEASE					//!< Must be: PGX_DEBUG  ||  PGX_RELEASE
 	#define PGX_PROJECT_DATE					GG/MM/AAAA					//!< Date of the project
 	
-//========================================================================
+    //========================================================================
 	//	H A R D W A R E   C O N F I G   M A I N   S Y S T E M
 	//========================================================================
 	#define PGX_CLOCK_HZ						40000000					//!< CORE FREQUENCY of the CPU in your project. Unit of measure is given in [Hz].  \note The working frequency is the \b CORE \b FREQUENCY of the \b MCU in your project. To set it correctly, consider the value of the \b oscillator/crystal and eventually of the \b PLL. Using a lower frequency than 4MHz, delay functions will be definitely inaccurate.

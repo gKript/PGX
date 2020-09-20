@@ -36,7 +36,7 @@
 	#define		PGX_PIN_NUMBER				40					//!<	The number of pins
 
 	#define		PGX_TCYCLEPERI				4					//!<	The number of cycles required for an instruction for the family PIC18
-	#define		PGX_MAX_OSC_FREQ				40000000			//!<	The maximum working frequency [Hz] for this specific processor
+	#define		PGX_MAX_OSC_FREQ			40000000			//!<	The maximum working frequency [Hz] for this specific processor
 	
 	#define		PGX_MAX_RAM					3986				//!<	The maximum amount of RAM				
 	#define		PGX_MAX_EEPROM				1024				//!<	If ( PGX_MAX_EEPROM == 0 ) there is no EEPROM memory
@@ -44,34 +44,34 @@
 	#define		PGX_MCU_SUPPLY_VOLT_MAX		5500				//!<	The maximum power supply voltage [mV]
 	#define		PGX_MCU_SUPPLY_VOLT_MIN		2000				//!<	The minimum power supply voltage [mV]
 	
-	#define		PGX_ADC_RES_BITS				10					//!<	ADC resolution bits
+	#define		PGX_ADC_RES_BITS			10					//!<	ADC resolution bits
 	#define		PGX_ADC_RES_STEPS			1024				//!<	ADC resolution steps.
 	
 	#define		PGX_PWM_1_MODE				PGX_ENHANCED			//!<	Available mode: PGX_NONE, PGX_STANDARD or PGX_ENHANCED
 	#define		PGX_PWM_2_MODE				PGX_STANDARD			//!<	Available mode: PGX_NONE, PGX_STANDARD or PGX_ENHANCED
-	#define		PGX_PWM_FOSC_DIVIDER			4					//!<	Internal clock divider to drive timer
+	#define		PGX_PWM_FOSC_DIVIDER		4					//!<	Internal clock divider to drive timer
 	
 	#define		PGX_SERIAL_TX_TRIS			TRISCbits.TRISC6	//!<	Tx pin of USART port
 	#define		PGX_SERIAL_RX_TRIS			TRISCbits.TRISC7	//!<	Rx pin of USART port
 	
-	#define		PGX_SPI_SDO_TRIS				TRISCbits.TRISC5	//!<	SPI output; Set tris to '0' as output
-	#define		PGX_SPI_SDI_TRIS				TRISCbits.TRISC4	//!<	SPI input; Tris is automatically controlled by the SPI module
-	#define		PGX_SPI_SCK_TRIS				TRISCbits.TRISC3	//!<	SPI clock; Master mode: set tris to '0' as output; Slave mode: set tris to '1' as input;; Slave mode: set tris to '1' as input;
+	#define		PGX_SPI_SDO_TRIS			TRISCbits.TRISC5	//!<	SPI output; Set tris to '0' as output
+	#define		PGX_SPI_SDI_TRIS			TRISCbits.TRISC4	//!<	SPI input; Tris is automatically controlled by the SPI module
+	#define		PGX_SPI_SCK_TRIS			TRISCbits.TRISC3	//!<	SPI clock; Master mode: set tris to '0' as output; Slave mode: set tris to '1' as input;; Slave mode: set tris to '1' as input;
 	#define		PGX_SPI_SS_TRIS				TRISAbits.TRISA5	//!<	SPI slave-select
 	
-	#define		PGX_I2C_SDA_TRIS				TRISCbits.TRISC4	//!<	I2C data I/O
-	#define		PGX_I2C_SCL_TRIS				TRISCbits.TRISC3	//!<	I2C clock
+	#define		PGX_I2C_SDA_TRIS			TRISCbits.TRISC4	//!<	I2C data I/O
+	#define		PGX_I2C_SCL_TRIS			TRISCbits.TRISC3	//!<	I2C clock
 	
-	#define		PGX_HW_PIN_SERIAL_TX			25					//!<	Serial(Uart)transmission hardware pin number
+	#define		PGX_HW_PIN_SERIAL_TX		25					//!<	Serial(Uart)transmission hardware pin number
 	#define		PGX_HW_PIN_SERIAL_TX_N		RC6					//!<	Serial(Uart)transmission hardware pin name
-	#define		PGX_HW_PIN_SERIAL_RX			26					//!<	Serial(Uart)reception hardware pin number
+	#define		PGX_HW_PIN_SERIAL_RX		26					//!<	Serial(Uart)reception hardware pin number
 	#define		PGX_HW_PIN_SERIAL_RX_N		RC7					//!<	Serial(Uart)reception hardware pin name
 	#define		PGX_HW_PIN_SPI_SDI			23					//!<	SPI Input hardware pin number
-	#define		PGX_HW_PIN_SPI_SDI_N			RC4					//!<	SPI Input hardware pin name
+	#define		PGX_HW_PIN_SPI_SDI_N		RC4					//!<	SPI Input hardware pin name
 	#define		PGX_HW_PIN_SPI_SDO			24					//!<	SPI Output hardware pin number
-	#define		PGX_HW_PIN_SPI_SDO_N			RC5					//!<	SPI Output hardware pin name
+	#define		PGX_HW_PIN_SPI_SDO_N		RC5					//!<	SPI Output hardware pin name
 	#define		PGX_HW_PIN_SPI_SCK			18					//!<	SPI Clock hardware pin number
-	#define		PGX_HW_PIN_SPI_SCK_N			RC3					//!<	SPI Clock hardware pin name
+	#define		PGX_HW_PIN_SPI_SCK_N		RC3					//!<	SPI Clock hardware pin name
 	#define		PGX_HW_PIN_SPI_SS			7					//!<	SPI Slave Select hardware pin number
 	#define		PGX_HW_PIN_SPI_SS_N			RA5					//!<	SPI Slave Select hardware pin name
 	#define		PGX_HW_PIN_IRQ_INT0			33					//!<	Event (IRQ) Int0 hardware pin number
@@ -87,13 +87,13 @@
 	
 	#define		PGX_RESET_POR				0b11110000			//!<	Power-On reset
 	#define		PGX_RESET_POR_MASK			0b11111111			//!<	Power-On reset mask
-	#define		PGX_RESET_RI					0b00000000			//!<	Reset instruction
+	#define		PGX_RESET_RI				0b00000000			//!<	Reset instruction
 	#define		PGX_RESET_RI_MASK			0b01000000			//!<	Reset instruction mask
 	#define		PGX_RESET_BOR				0b01110000			//!<	Brown-out reset
 	#define		PGX_RESET_BOR_MASK			0b01110100			//!<	Brown-out reset mask
 	#define		PGX_RESET_MCLR_PMRM			0b00100000			//!<	MCLR during power-managed Run Modes
-	#define		PGX_RESET_MCLR_PMRM_MASK		0b00100000			//!<	MCLR during power-managed Run Modes mask
-	#define		PGX_RESET_MCLR_PMISM			0b00100000			//!<	MCLR during power-managed Idle modes and Sleep mode
+	#define		PGX_RESET_MCLR_PMRM_MASK	0b00100000			//!<	MCLR during power-managed Run Modes mask
+	#define		PGX_RESET_MCLR_PMISM		0b00100000			//!<	MCLR during power-managed Idle modes and Sleep mode
 	#define		PGX_RESET_MCLR_PMISM_MASK	0b00110000			//!<	MCLR during power-managed Idle modes and Sleep mode mask
 	#define		PGX_RESET_WDT_FP_PMRM		0b00000000			//!<	WDT time-out during full power or power-managed Run mode
 	#define		PGX_RESET_WDT_FP_PMRM_MASK	0b00100000			//!<	WDT time-out during full power or power-managed Run mode mask
@@ -104,18 +104,18 @@
 	#define		PGX_RESET_SUR				0b00000001			//!<	Stack Underflow Reset (STVREN = 1)
 	#define		PGX_RESET_SUR_MASK			0b00000001			//!<	Stack Underflow Reset mask (STVREN = 1)
 	#define		PGX_RESET_WDT_PMISM			0b00000000			//!<	WDT time-out during power-managed Idle or Sleep modes
-	#define		PGX_RESET_WDT_PMISM_MASK		0b00110000			//!<	WDT time-out during power-managed Idle or Sleep modes mask
+	#define		PGX_RESET_WDT_PMISM_MASK	0b00110000			//!<	WDT time-out during power-managed Idle or Sleep modes mask
 	#define		PGX_RESET_INT_EXIT_PMM		0b00000000			//!<	Interrupt exit from power-managed modes
 	#define		PGX_RESET_INT_EXIT_PMM_MASK	0b00010000			//!<	Interrupt exit from power-managed modes mask
 	#define		PGX_RESET_POR				0b11110000			//!<	Power-On reset 
 	#define		PGX_RESET_POR_MASK			0b11111111			//!<	Power-On reset mask 
-	#define		PGX_RESET_RI					0b00000000			//!<	Reset instruction 
+	#define		PGX_RESET_RI				0b00000000			//!<	Reset instruction 
 	#define		PGX_RESET_RI_MASK			0b01000000			//!<	Reset instruction mask 
 	#define		PGX_RESET_BOR				0b01110000			//!<	Brown-out reset 
 	#define		PGX_RESET_BOR_MASK			0b01110100			//!<	Brown-out reset mask 
 	#define		PGX_RESET_MCLR_PMRM			0b00100000			//!<	MCLR during power-managed Run Modes 
-	#define		PGX_RESET_MCLR_PMRM_MASK		0b00100000			//!<	MCLR during power-managed Run Modes mask 
-	#define		PGX_RESET_MCLR_PMISM			0b00100000			//!<	MCLR during power-managed Idle modes and Sleep mode 
+	#define		PGX_RESET_MCLR_PMRM_MASK	0b00100000			//!<	MCLR during power-managed Run Modes mask 
+	#define		PGX_RESET_MCLR_PMISM		0b00100000			//!<	MCLR during power-managed Idle modes and Sleep mode 
 	#define		PGX_RESET_MCLR_PMISM_MASK	0b00110000			//!<	MCLR during power-managed Idle modes and Sleep mode mask 
 	#define		PGX_RESET_WDT_FP_PMRM		0b00000000			//!<	WDT time-out during full power or power-managed Run mode 
 	#define		PGX_RESET_WDT_FP_PMRM_MASK	0b00100000			//!<	WDT time-out during full power or power-managed Run mode mask 
@@ -126,7 +126,7 @@
 	#define		PGX_RESET_SUR				0b00000001			//!<	Stack Underflow Reset (STVREN = 1) 
 	#define		PGX_RESET_SUR_MASK			0b00000001			//!<	Stack Underflow Reset mask (STVREN = 1) 
 	#define		PGX_RESET_WDT_PMISM			0b00000000			//!<	WDT time-out during power-managed Idle or Sleep modes 
-	#define		PGX_RESET_WDT_PMISM_MASK		0b00110000			//!<	WDT time-out during power-managed Idle or Sleep modes mask 
+	#define		PGX_RESET_WDT_PMISM_MASK	0b00110000			//!<	WDT time-out during power-managed Idle or Sleep modes mask 
 	#define		PGX_RESET_INT_EXIT_PMM		0b00000000			//!<	Interrupt exit from power-managed modes 
 	#define		PGX_RESET_INT_EXIT_PMM_MASK	0b00010000			//!<	Interrupt exit from power-managed modes mask 
 #endif /* _PGIMX_18F4620_PRIVATE_H_ */

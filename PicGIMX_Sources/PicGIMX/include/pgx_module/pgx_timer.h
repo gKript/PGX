@@ -74,7 +74,55 @@
 		#define	PGX_TIMER_FOSC_DIVIDER				4.000			//!< Internal clock divider to drive timer.
 		//---[ END Variables ]---
 		
-		//---[ Prototypes ]---	
+		//---[ Prescaler Value ]---
+		#define	PGX_TIMER_0_PRESCALER_256			0b11111000        //!< Timer 0 1:256 prescaler value
+		#define	PGX_TIMER_0_PRESCALER_128			0b11111001        //!< Timer 0 1:128 prescaler value
+		#define	PGX_TIMER_0_PRESCALER_64			0b11111010        //!< Timer 0 1:64 prescaler value
+		#define	PGX_TIMER_0_PRESCALER_32			0b11111011        //!< Timer 0 1:32 prescaler value
+		#define	PGX_TIMER_0_PRESCALER_16			0b11111100        //!< Timer 0 1:16 prescaler value
+		#define	PGX_TIMER_0_PRESCALER_8				0b11111101        //!< Timer 0 1:8 prescaler value
+		#define	PGX_TIMER_0_PRESCALER_4				0b11111110        //!< Timer 0 1:4 prescaler value
+		#define	PGX_TIMER_0_PRESCALER_2				0b11111111        //!< Timer 0 1:2 prescaler value
+		#define	PGX_TIMER_0_PRESCALER_1				0b11110111        //!< Timer 0 1:1 NO prescaler
+        //---
+        #define	PGX_TIMER_1_PRESCALER_8				0b11111100        //!< Timer 1 1:8 prescaler value
+		#define	PGX_TIMER_1_PRESCALER_4				0b11111101        //!< Timer 1 1:4 prescaler value
+		#define	PGX_TIMER_1_PRESCALER_2				0b11111110        //!< Timer 1 1:2 prescaler value
+		#define	PGX_TIMER_1_PRESCALER_1				0b11111111        //!< Timer 1 1:1 NO prescaler
+        //---[ END Prescaler Value ]---
+
+		//---[ Counter Bits ]---
+		#define	PGX_TIMER_0_BIT_8					0b10111111        //!< Timer 0 8 bit counter
+        #define	PGX_TIMER_0_BIT_16					0b11111111		//!< Timer 0 16 bit counter
+		//---
+		#define	PGX_TIMER_1_BIT_8					0b11111111        //!< Timer 1 8 bit counter
+        #define	PGX_TIMER_1_BIT_16					0b01111111		//!< Timer 1 16 bit counter
+		//---[ END Counter Bits ]---
+
+		//---[ Clock Source ]---
+		#define	PGX_TIMER_0_SOURCE_EXTERNAL			0b11011111        //!< Timer 0 external pin source (T0CKI))
+        #define	PGX_TIMER_0_SOURCE_INTERNAL			0b11111111		//!< Timer 0 internal source (CLKO)
+		//---
+		#define	PGX_TIMER_1_SOURCE_EXTERNAL			0b11111101        //!< Timer 1 external pin source (RC0/T1OSO/T13CKI)
+        #define	PGX_TIMER_1_SOURCE_INTERNAL			0b11111111		//!< Timer 1 internal source (CLKO)
+		//---[ END Clock Source ]---
+
+		//---[ Clock EDGE ]---
+		#define	PGX_TIMER_0_EDGE_T0CKI_H_TO_L		0b11101111        //!< T0CKI edge High to Low
+        #define	PGX_TIMER_0_EDGE_T0CKI_L_TO_H		0b11111111		//!< T0CKI edge Low to High
+		//---[ END Clock EDGE ]---
+		
+		//---[ Oscillator ]---
+  		#define	PGX_TIMER_1_OSCILLATOR_ON			0b11110111        //!< Timer 1 oscillator on
+        #define	PGX_TIMER_1_OSCILLATOR_OFF			0b11111111		//!< Timer 1 oscillator off
+		//---[ END Oscillator ]---
+
+		//---[ External Clock Sync ]---
+  		#define	PGX_TIMER_1_SYNC_ON					0b11111111        //!< Timer 1 external clock synchronization on
+        #define	PGX_TIMER_1_SYNC_OFF				0b11111011		//!< Timer 1 external clock synchronization off
+		//---[ END External Clock Sync ]---
+  
+        //---[ Prototypes ]---	
 		/*!
 			\brief			This function properly initializes the TIMER module.
 			\attention		Internal use only !
@@ -176,14 +224,14 @@
 			#define	PGX_TIMER_0_TMR_REG_MIN			1.000			//!< Timer register min value. Not 0.
 			#define PGX_TIMER_0_TMR_REG_MAX			65535.000		//!< Timer register max value (16bit).
 
-			#define PGX_TIMER_0_OFFSET_GUARD			500.000			//!< Guard offset in determination of the minimum possible time.
+			#define PGX_TIMER_0_OFFSET_GUARD		500.000			//!< Guard offset in determination of the minimum possible time.
 
 			extern	_pgx_Uint16_VAL	pgx_timer_0_tmr_reg_set_save;	//!< Backup the 16-bit value of the timer 0 register.
 
 			#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
 				#if ( PGIMX_TIMER_0 == PGX_ENABLE_1_SHOT )
 					#warning	PGX >>> TIMER 0 module >>> Set 1-SHOT mode
-				#elif ( PGX_TIMER_0 == PGX_ENABLE_LOOP )
+				#elif ( PGIMX_TIMER_0 == PGX_ENABLE_LOOP )
 					#warning	PGX >>> TIMER 0 module >>> Set LOOP mode
 				#endif
 				#if ( PGIMX_TIMER_0 != PGX_DISABLE ) && ( PGX_SUGGESTION == PGX_ENABLE )
@@ -217,7 +265,7 @@
 			#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
 				#if ( PGIMX_TIMER_1 == PGX_ENABLE_1_SHOT )
 					#warning	PGX >>> TIMER 1 module >>> Set 1-SHOT mode
-				#elif ( PGX_TIMER_1 == PGX_ENABLE_LOOP )
+				#elif ( PGIMX_TIMER_1 == PGX_ENABLE_LOOP )
 					#warning PGX >>> TIMER 1 module >>> Set LOOP mode
 				#endif
 				#if ( PGIMX_TIMER_1 != PGX_DISABLE ) && ( PGX_SUGGESTION == PGX_ENABLE )
@@ -303,8 +351,8 @@
 			\subsection	dwjp2cnbptimer	Channels enabling
 				\htmlonly <hr> \endhtmlonly
 				\code
-					#define PGX_TIMER_0					PGX_ENABLE_LOOP
-					#define PGX_TIMER_1					PGX_DISABLE
+					#define PGIMX_TIMER_0					PGX_ENABLE_LOOP
+					#define PGIMX_TIMER_1					PGX_DISABLE
 				\endcode
 					These defines enable or disable independently pwm channels. \n
 					They must be: \n

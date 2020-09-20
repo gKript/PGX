@@ -52,16 +52,21 @@ void main( void ) {
 	T_B0 = PGX_OUT;
 	L_B0 = PGX_OFF;
     
-    pgx_loop {
+    //pgx_loop {
         pgx_lcd_hd44780_clear( 0 );
-        pgx_lcd_hd44780_print_speed( 70 );
-        pgx_lcd_hd44780_write_p_string_rom( 0 , 0 , 0 , "PGX 3 SpeedPrint" );
-        pgx_lcd_hd44780_write_p_string_rom( 0 , 1 , 0 , "  Control Demo  " );
-        pgx_delay_sec( 1 );
-	}
-    pgx_timer_set_period( PGX_TIMER_0 , 10.0 , PGX_SEC );
+        pgx_lcd_hd44780_print_speed( 0 );
+        //----------------------------------------------"----------------" );
+        pgx_lcd_hd44780_write_p_string_rom( 0 , 0 , 0 , "PGX Timer 0" );
+        pgx_lcd_hd44780_write_p_string_rom( 0 , 1 , 0 , ">" );
+        //pgx_delay_sec( 5 );
+	//}
+    pgx_timer_set_period( PGX_TIMER_0 , 3.0 , PGX_SEC );
     pgx_timer_start( PGX_TIMER_0 );
-    
+    while (TMR0L && TMR0H) {
+        pgx_lcd_hd44780_put_char( 0 , 'T' );
+        pgx_delay_sec( 2 );
+        //pgx_pin_toggle
+    }
 	PGX_HALT;
 }
 

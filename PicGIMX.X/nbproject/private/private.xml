@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/asynt/OneDrive/Documenti/Progetti/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx.h</file>
-            <file>file:/C:/Users/asynt/OneDrive/Documenti/Progetti/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_module_setup.h</file>
-            <file>file:/C:/Users/asynt/OneDrive/Documenti/Progetti/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_module_setup_public.h</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_module/pgx_timer.h</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_timer.c</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_module/pgx_timer_setup_public.h</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_project_setup_public.h</file>
         </group>
     </open-files>
 </project-private>

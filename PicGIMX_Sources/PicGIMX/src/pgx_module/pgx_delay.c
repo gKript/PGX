@@ -5,8 +5,16 @@
     #warning PGX >>> Message >>> This file is compiling...
 #endif
 
-#if ( PGIMX_CAL_DELAY == PGX_ENABLE )
+#if ( PGIMX_CAL_DELAY == PGX_ENABLE )   //#if defined( __18CXX )
 
+    _pgx_Uint8	pgx_ninstus = 0;
+
+    //---[ Ninstus ]---
+    void pg_delay_ninstus_calc( void ) {
+        pgx_ninstus = (_pgx_Uint8)( 0.000001 / ( 1.0 / ( ( PGX_CLOCK * 1000000 ) / PGX_TCYCLEPERI ) ) );
+    }
+    //---[ END Ninstus ]---
+    
     //---[ Delay ms ]---
     void pgx_delay_msec( _pgx_Uint16 pgx_delay ) {
         //--------------------------------------------------------------------

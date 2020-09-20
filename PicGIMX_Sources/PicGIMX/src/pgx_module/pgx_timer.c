@@ -93,7 +93,6 @@
 		_pgx_Uint16_VAL	pgx_timer_1_tmr_reg_set_save;
 	#endif
 
-
 	//---[ Timer Set Period]---
 	_pgx_Uint8	pgx_timer_set_period( _pgx_Uint8 timer_id , _pgx_float timer_time , _pgx_Uint8 unit_measure ) {	// PGX_SEC || PGX_MSEC
 		//--------------------------------------------------
@@ -116,7 +115,6 @@
 						#endif
 						return PGX_NOK;
 					}
-
 					// Upper limit check
 					if( pgx_timer_0_nanosec > pgx_timer_0_nanosec_max ) {
 						#if PGX_ERROR_IS_ENABLE
@@ -124,51 +122,55 @@
 						#endif
 						return PGX_NOK;
 					}
-
 					// Search for right prescaler value
 					if( pgx_timer_0_nanosec <= pgx_timer_0_count_max ) {
 						pgx_timer_0_prescaler = 1;	        // No prescaler
-						pgx_timer_0_prescaler_mask = T0_PS_1_1;
+						//pgx_timer_0_prescaler_mask = T0_PS_1_1;
+						pgx_timer_0_prescaler_mask = PGX_TIMER_0_PRESCALER_1;
 					} else {
 						pgx_timer_0_prescaler = 2;
-						pgx_timer_0_prescaler_mask = T0_PS_1_2;
+						//pgx_timer_0_prescaler_mask = T0_PS_1_2;
+						pgx_timer_0_prescaler_mask = PGX_TIMER_0_PRESCALER_2;
 					}
 					if ( pgx_timer_0_nanosec < ( pgx_timer_0_count_max * 2.000 ) ) {
 						pgx_timer_0_prescaler = 4;
-						pgx_timer_0_prescaler_mask = T0_PS_1_4;
+						//pgx_timer_0_prescaler_mask = T0_PS_1_4;
+						pgx_timer_0_prescaler_mask = PGX_TIMER_0_PRESCALER_4;
 					} else if ( pgx_timer_0_nanosec < ( pgx_timer_0_count_max * 4.000 ) ) {
 						pgx_timer_0_prescaler = 8;
-						pgx_timer_0_prescaler_mask = T0_PS_1_8;
+						//pgx_timer_0_prescaler_mask = T0_PS_1_8;
+						pgx_timer_0_prescaler_mask = PGX_TIMER_0_PRESCALER_8;
 					} else if ( pgx_timer_0_nanosec < ( pgx_timer_0_count_max * 8.000 ) ) {
 						pgx_timer_0_prescaler = 16;
-						pgx_timer_0_prescaler_mask = T0_PS_1_16;
+						//pgx_timer_0_prescaler_mask = T0_PS_1_16;
+						pgx_timer_0_prescaler_mask = PGX_TIMER_0_PRESCALER_16;
 					} else if ( pgx_timer_0_nanosec < ( pgx_timer_0_count_max * 16.000 ) ) {
 						pgx_timer_0_prescaler = 32;
-						pgx_timer_0_prescaler_mask = T0_PS_1_32;
+						//pgx_timer_0_prescaler_mask = T0_PS_1_32;
+						pgx_timer_0_prescaler_mask = PGX_TIMER_0_PRESCALER_32;
 					} else if ( pgx_timer_0_nanosec < ( pgx_timer_0_count_max * 32.000 ) ) {
 						pgx_timer_0_prescaler = 64;
-						pgx_timer_0_prescaler_mask = T0_PS_1_64;
+						//pgx_timer_0_prescaler_mask = T0_PS_1_64;
+						pgx_timer_0_prescaler_mask = PGX_TIMER_0_PRESCALER_64;
 					} else if ( pgx_timer_0_nanosec < ( pgx_timer_0_count_max * 64.000 ) ) {
 						pgx_timer_0_prescaler = 128;
-						pgx_timer_0_prescaler_mask = T0_PS_1_128;
+						//pgx_timer_0_prescaler_mask = T0_PS_1_128;
+						pgx_timer_0_prescaler_mask = PGX_TIMER_0_PRESCALER_128;
 					} else {
 						pgx_timer_0_prescaler = 256;
-						pgx_timer_0_prescaler_mask = T0_PS_1_256;
+						//pgx_timer_0_prescaler_mask = T0_PS_1_256;
+						pgx_timer_0_prescaler_mask = PGX_TIMER_0_PRESCALER_256;
 					}
-
 					// Computation for the right timer register value
 					pgx_timer_0_period_with_prescaler = ( pgx_timer_0_period * pgx_timer_0_prescaler );
-					pgx_timer_0_timer_counter = (_pgx_Uint16)( pgx_timer_0_nanosec  / pgx_timer_0_period_with_prescaler );
-					pgx_timer_0_tmr_reg_set_value.Val = 65535 - pgx_timer_0_timer_counter;
-
+					pgx_timer_0_timer_counter = (_pgx_Uint16)( pgx_timer_0_nanosec / pgx_timer_0_period_with_prescaler );
+					pgx_timer_0_tmr_reg_set_value.val = 65535 - pgx_timer_0_timer_counter;
 					TMR0H = pgx_timer_0_tmr_reg_set_value.byte.HB;   // TMR0H MUST be loaded before TMR0L !!!
 					TMR0L = pgx_timer_0_tmr_reg_set_value.byte.LB;
-
 					// Setting the parameters of the timer
-					T0CON = ( 0x7F & T0_16BIT & T0_SOURCE_INT & T0_EDGE_FALL & pgx_timer_0_prescaler_mask );  // Configure timer, but don't start it yet
+					T0CON = ( 0x7F & PGX_TIMER_0_BIT_16 & PGX_TIMER_0_SOURCE_INTERNAL & PGX_TIMER_0_EDGE_T0CKI_H_TO_L & pgx_timer_0_prescaler_mask );  // Configure timer, but don't start it yet
 					pgx_timer_0_tmr_reg_set_save.byte.LB  = TMR0L;
 					pgx_timer_0_tmr_reg_set_save.byte.HB  = TMR0H;
-
 					#if PGX_ERROR_IS_ENABLE
 						pgx_error_set( PGX_ERROR_TIMER , PGX_OK , PGX_ERROR_OK );
 					#endif
@@ -195,7 +197,6 @@
 						#endif
 						return PGX_NOK;
 					}
-
 					// Upper limit check
 					if( pgx_timer_1_nanosec > pgx_timer_1_nanosec_max ) {
 						#if PGX_ERROR_IS_ENABLE
@@ -203,36 +204,35 @@
 						#endif
 						return PGX_NOK;
 					}
-
 					// Search for right prescaler value
 					if( pgx_timer_1_nanosec <= pgx_timer_1_count_max ) {
 						pgx_timer_1_prescaler = 1;	        // No prescaler
-						pgx_timer_1_prescaler_mask = T0_PS_1_1;
+						//pgx_timer_1_prescaler_mask = T0_PS_1_1;
+						pgx_timer_1_prescaler_mask = PGX_TIMER_1_PRESCALER_1;
 					} else {
 						pgx_timer_1_prescaler = 2;
-						pgx_timer_1_prescaler_mask = T0_PS_1_2;
+						//pgx_timer_1_prescaler_mask = T0_PS_1_2;
+						pgx_timer_1_prescaler_mask = PGX_TIMER_1_PRESCALER_2;
 					}
 					if ( pgx_timer_1_nanosec < ( pgx_timer_1_count_max * 2.000 ) ) {
 						pgx_timer_1_prescaler = 4;
-						pgx_timer_1_prescaler_mask = T0_PS_1_4;
+						//pgx_timer_1_prescaler_mask = T0_PS_1_4;
+						pgx_timer_1_prescaler_mask = PGX_TIMER_1_PRESCALER_4;
 					} else if ( pgx_timer_1_nanosec < ( pgx_timer_1_count_max * 4.000 ) ) {
 						pgx_timer_1_prescaler = 8;
-						pgx_timer_1_prescaler_mask = T0_PS_1_8;
+						//pgx_timer_1_prescaler_mask = T0_PS_1_8;
+						pgx_timer_1_prescaler_mask = PGX_TIMER_1_PRESCALER_8;
 					}
-
 					// Computation for the right timer register value
 					pgx_timer_1_period_with_prescaler = ( pgx_timer_1_period * pgx_timer_1_prescaler );
 					pgx_timer_1_timer_counter = (_pgx_Uint16)( pgx_timer_1_nanosec  / pgx_timer_1_period_with_prescaler );
-					pgx_timer_1_tmr_reg_set_value.Val = 65535 - pgx_timer_1_timer_counter;
-
+					pgx_timer_1_tmr_reg_set_value.val = 65535 - pgx_timer_1_timer_counter;
 					TMR1H = pgx_timer_1_tmr_reg_set_value.byte.HB;   // TMR1H MUST be loaded before TMR1L !!!
 					TMR1L = pgx_timer_1_tmr_reg_set_value.byte.LB;
-
 					// Setting the parameters of the timer
-					T1CON = ( 0x7F & T1_16BIT_RW & T1_SOURCE_INT & T1_OSC1EN_OFF & T1_SYNC_EXT_OFF & pgx_timer_1_prescaler_mask );  // Configure timer, but don't start it yet
+					T1CON = ( 0x7F & PGX_TIMER_1_BIT_16 & PGX_TIMER_1_SOURCE_INTERNAL & PGX_TIMER_1_OSCILLATOR_OFF & PGX_TIMER_1_SYNC_OFF & pgx_timer_1_prescaler_mask );  // Configure timer, but don't start it yet
 					pgx_timer_1_tmr_reg_set_save.byte.LB  = TMR1L;
 					pgx_timer_1_tmr_reg_set_save.byte.HB  = TMR1H;
-
 					#if PGX_ERROR_IS_ENABLE
 						pgx_error_set( PGX_ERROR_TIMER , PGX_OK , PGX_ERROR_OK );
 					#endif
@@ -261,7 +261,7 @@
 		
 		if ( unit_measure == PGX_HZ )
 			timer_freq /= 1000;								// Then found kilo-hertz.
-		pgx_timer_freq_to_period = (_pgx_float)1.0 / timer_freq;			// Then found milli-seconds.
+		pgx_timer_freq_to_period = (_pgx_float)(1.0 / timer_freq);			// Then found milli-seconds.
 		pgx_timer_set_period( timer_id , pgx_timer_freq_to_period , PGX_MSEC );
 		
 		// If timer_id = 0, force TIMER_0 in loop mode. Remember to restore!!!
@@ -271,7 +271,6 @@
         return( 0 );
 	}
 	//---[ END Timer Set Frequency]---
-
 
 	//---[ Timer Start  ]---
 	_pgx_Uint8	pgx_timer_start( _pgx_Uint8 timer_id ) {
@@ -355,7 +354,7 @@
 			{
 				pgx_timer_0_tmr_reg_current_value.byte.HB = TMR0H;
 				pgx_timer_0_tmr_reg_current_value.byte.LB = TMR0L;
-				return( pgx_timer_0_tmr_reg_current_value.Val );
+				return( pgx_timer_0_tmr_reg_current_value.val );
 			}
 			#endif
 			//--------------------------------------------------
@@ -364,7 +363,7 @@
 			{
 				pgx_timer_1_tmr_reg_current_value.byte.HB = TMR1H;
 				pgx_timer_1_tmr_reg_current_value.byte.LB = TMR1L;
-				return( pgx_timer_1_tmr_reg_current_value.Val );
+				return( pgx_timer_1_tmr_reg_current_value.val );
 			}
 			#endif
 			default:
