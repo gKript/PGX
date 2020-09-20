@@ -34,7 +34,7 @@
 	//================================================================================================================
 	//		H A R D W A R E   E X T E R N A L
 	//================================================================================================================
-	#define PGIMX_LCD_HD44780                           PGX_ENABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+	#define PGIMX_LCD_HD44780                           PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 	#define PGIMX_LCD_PCD8544                           PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 	#define PGIMX_BUZZER                                PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 	#define PGIMX_SENSOR                                PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE

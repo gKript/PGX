@@ -1,10 +1,9 @@
 //
 #ifndef _PGIMX_LCD_HD44780_H_
 	#define _PGIMX_LCD_HD44780_H_
-	
+	//------------------------------------------------------------------------
 	#include "pgx_custom_type.h"
 	#include "pgx_delay.h"
-
 	//------------------------------------------------------------------------
 	//		H A R D W A R E   C O N F I G   |   L C D - H D 4 4 7 8 0
 	//------------------------------------------------------------------------
@@ -86,126 +85,121 @@
 		#define	PGX_LCD_HD44780_SPLASH_SLIDE_3_EN	PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 		#define	PGX_LCD_HD44780_SPLASH_SLIDE_SPEED	1					//!< Slowdown time of slider in milli-seconds [ms]
 	#endif
-	
-
-		#if ( PGX_LCD_HD44780_BUSY_FLAG == PGX_ENABLE )
-		
-			/*!
-				\brief			Wait for the display is ready to receive next comand or data.
-				\return			Nothing.
-				\param			ControllerNumber		The number of the controller.
-			*/	
-			void pgx_lcd_hd44780_wait_busy                  ( _pgx_int8 Controller );
-			
-		#endif
-        
-        extern _pgx_Uint16 pgx_lcd_hd780_print_delay_ms;
-            
-        /*!
-			\brief			Slows down the speed of printing characters on the display. If set to zero the speed is maximum..
-			\attention		Internal use only !
-			\return			Nothing.
-			\param			Delay time in [ms].
-		*/	
-        void pgx_lcd_hd44780_print_speed( _pgx_Uint16 PrintSpeed );
-		
-        /*!
-			\brief			Checks for the controllers to be initialized.
-			\attention		Internal use only !
-			\return			Nothing.
-			\param			Nothing.
-			\deprecated		Do not call directly. \n
-							Already called in pgx_initialize().
-		*/
-		void	pgx_lcd_hd44780_init                        ( void );
-
+	#if ( PGX_LCD_HD44780_BUSY_FLAG == PGX_ENABLE )
 		/*!
-			\brief			Properly initializes all present controllers. 
-			\attention		Internal use only !
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\deprecated		Do not call directly. \n
-							Already called in pgx_initialize().
-		*/		
-		void	pgx_lcd_hd44780_init_routine                ( _pgx_int8 Controller );
-
-		/*!
-			\brief			Turn on all the pixels of the display. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-		*/			
-		void	pgx_lcd_hd44780_splash_full                 ( _pgx_int8 Controller );
-		
-		/*!
-			\brief			Show full cursor moving.
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-		*/			
-		void	pgx_lcd_hd44780_splash_slide                ( _pgx_int8 Controller );
-
-		/*!
-			\brief			Delete all character on the display. 
+			\brief			Wait for the display is ready to receive next comand or data.
 			\return			Nothing.
 			\param			ControllerNumber		The number of the controller.
 		*/	
-		void	pgx_lcd_hd44780_clear                       ( _pgx_int8 Controller );
-		
-		/*!
-			\brief			Places the cursor, in a specific position.
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Ln						It specifies the line.
-			\param			Pos						It specifies the column.
-		*/	
-		void	pgx_lcd_hd44780_goto                        ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos );
-		
-		/*!
-			\brief			Print a character, at the current position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Data					The character to print.
-		*/	
-		void	pgx_lcd_hd44780_put_char                    ( _pgx_int8 Controller , _pgx_Uint8 Data );
-		
-		/*!
-			\brief			Print a character, in a specific position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Ln						It specifies the line.
-			\param			Pos						It specifies the column.
-			\param			Data					The character to print.
-		*/	
-		void 	pgx_lcd_hd44780_put_p_char                  ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , _pgx_Uint8 Data );
-		
-		/*!
-			\brief			Print a byte, at the current position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Data					The byte to print.
-		*/	
-		void	pgx_lcd_hd44780_put_byte                    ( _pgx_int8 Controller , _pgx_Uint8 Val );
-		
-		/*!
-			\brief			Print a byte, in a specific position.
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Ln						It specifies the line.
-			\param			Pos						It specifies the column.
-			\param			Data					The byte to print.
-		*/	
-		void 	pgx_lcd_hd44780_put_p_byte                  ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , _pgx_Uint8 Val );
-		
-		/*!
-			\brief			Print a character from display CGRAM at the current position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			location				The storage location in the CGRAM.
-			\param			new_char				The new char.
-		*/	
-		void	pgx_lcd_hd44780_char_generator              ( _pgx_int8 Controller , char location , char * new_char );
-
+		void pgx_lcd_hd44780_wait_busy                  ( _pgx_int8 Controller );
+	#endif
+	//------------------------------------------------------------------------
+	extern _pgx_Uint16 pgx_lcd_hd780_print_delay_ms;
+	//---[ Prototypes ]-------------------------------------------------------
+	/*!
+		\brief			Slows down the speed of printing characters on the display. If set to zero the speed is maximum..
+		\attention		Internal use only !
+		\return			Nothing.
+		\param			Delay time in [ms].
+	*/	
+	void pgx_lcd_hd44780_print_speed( _pgx_Uint16 PrintSpeed );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Checks for the controllers to be initialized.
+		\attention		Internal use only !
+		\return			Nothing.
+		\param			Nothing.
+		\deprecated		Do not call directly. \n
+						Already called in pgx_initialize().
+	*/
+	void	pgx_lcd_hd44780_init                        ( void );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Properly initializes all present controllers. 
+		\attention		Internal use only !
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\deprecated		Do not call directly. \n
+						Already called in pgx_initialize().
+	*/		
+	void	pgx_lcd_hd44780_init_routine                ( _pgx_int8 Controller );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Turn on all the pixels of the display. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+	*/			
+	void	pgx_lcd_hd44780_splash_full                 ( _pgx_int8 Controller );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Show full cursor moving.
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+	*/			
+	void	pgx_lcd_hd44780_splash_slide                ( _pgx_int8 Controller );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Delete all character on the display. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+	*/	
+	void	pgx_lcd_hd44780_clear                       ( _pgx_int8 Controller );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Places the cursor, in a specific position.
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Ln						It specifies the line.
+		\param			Pos						It specifies the column.
+	*/	
+	void	pgx_lcd_hd44780_goto                        ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a character, at the current position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Data					The character to print.
+	*/	
+	void	pgx_lcd_hd44780_put_char                    ( _pgx_int8 Controller , _pgx_Uint8 Data );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a character, in a specific position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Ln						It specifies the line.
+		\param			Pos						It specifies the column.
+		\param			Data					The character to print.
+	*/	
+	void 	pgx_lcd_hd44780_put_p_char                  ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , _pgx_Uint8 Data );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a byte, at the current position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Data					The byte to print.
+	*/	
+	void	pgx_lcd_hd44780_put_byte                    ( _pgx_int8 Controller , _pgx_Uint8 Val );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a byte, in a specific position.
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Ln						It specifies the line.
+		\param			Pos						It specifies the column.
+		\param			Data					The byte to print.
+	*/	
+	void 	pgx_lcd_hd44780_put_p_byte                  ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , _pgx_Uint8 Val );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a character from display CGRAM at the current position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			location				The storage location in the CGRAM.
+		\param			new_char				The new char.
+	*/	
+	void	pgx_lcd_hd44780_char_generator              ( _pgx_int8 Controller , char location , char * new_char );
+	//------------------------------------------------------------------------
 	#if ( PGIMX_EE == PGX_ENABLE )
-	
 		/*!
 			\brief			Print a character from micro-controller internal EEPROM at the current position.
 			\return			Nothing.
@@ -214,127 +208,128 @@
 			\param			ee_addy					The char address in the microcontroller eeprom.
 		*/	
 		void	pgx_lcd_hd44780_char_generator_from_EE      ( _pgx_int8 Controller ,char location , _pgx_Uint16 ee_addy );
-		
 	#endif
-	
-		/*!
-			\brief			Write a nibble on the display data bus. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			DataType				The type of the data: a command or a data.
-			\param			Dat						The command or the data to send.
-		*/	
-		void	pgx_ldc_hd44780_write_nibble                ( _pgx_int8 Controller , _pgx_Uint8 DataType , _pgx_Uint8 Dat );
-		
-		/*!
-			\brief			Write a byte on the display data bus.
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			DataType				The type of the data: a command or a data.
-			\param			Dat						The command or the data to send.
-		*/	
-		void	pgx_lcd_hd44780_write_byte                  ( _pgx_int8 Controller , _pgx_Uint8 DataType , _pgx_Uint8 Dat );
-		
-		/*!
-			\brief			Enables selected controller. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			EnState					The state in which, the enable must be set.
-								Use \b PGX_ENABLE to activate the controller \n
-								Use \b PGX_DISABLE to deactivate the controller
-		*/	
-		void	pgx_lcd_hd44780_en_select                   ( _pgx_int8 Controller , _pgx_Uint8 EnState );
-		
-		/*!
-			\brief			Print with the \a PRINTF \a FORMAT, at the current position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Ln						It specifies the line.
-			\param			Pos						It specifies the column.
-			\param			Format					The Format to use.
-		*/	
-		//void	pgx_lcd_hd44780_write                       ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8 * Format , ... );
-		void	pgx_lcd_hd44780_write                       ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const _pgx_int8 * Format , ... );
-		
-		/*!
-			\brief			Print a string by a pointer, at the current position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Str						The pointer to the string in \a RAM.
-		*/	
-		void	pgx_lcd_hd44780_write_string                ( _pgx_int8 Controller , _pgx_int8 * Str );
-		
-		/*!
-			\brief			Print a constant string by a pointer, at the current position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Str						The pointer to the string in \a ROM.
-		*/	
-		//void	pgx_lcd_hd44780_write_string_rom            ( _pgx_int8 Controller , const rom _pgx_int8 * Str );
-        void	pgx_lcd_hd44780_write_string_rom            ( _pgx_int8 Controller , const _pgx_int8 * Str );
-		
-		/*!
-			\brief			Print a string by a pointer, in a specific position.
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Ln						It specifies the line.
-			\param			Pos						It specifies the column.
-			\param			Str						The pointer to the string in \a RAM.
-		*/	
-		void	pgx_lcd_hd44780_write_p_string              ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , _pgx_int8 * Str );
-
-
-		void	pgx_lcd_hd44780_write_p_string_flash        ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , _pgx_int8  *Str , _pgx_Uint8 time , _pgx_Uint8 unit );
-
-		/*!
-			\brief			Print a constant string by a pointer, in a specific position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Ln						It specifies the line.
-			\param			Pos						It specifies the column.
-			\param			Str						The pointer to the string in \a ROM.
-		*/	
-		//void	pgx_lcd_hd44780_write_p_string_rom          ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8 * Str );
-		void	pgx_lcd_hd44780_write_p_string_rom          ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const _pgx_int8 * Str );
-
-		//void	pgx_lcd_hd44780_write_p_string_flash_rom	( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8 * Str , _pgx_Uint8 time , _pgx_Uint8 unit );
-		void	pgx_lcd_hd44780_write_p_string_flash_rom	( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const _pgx_int8 * Str , _pgx_Uint8 time , _pgx_Uint8 unit );
-
-		/*!
-			\brief			Print an integer, specifying the Format, in a specific position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Ln						It specifies the line.
-			\param			Pos						It specifies the column.
-			\param			Format					The Format to use.
-		*/	
-		//void	pgx_lcd_hd44780_write_p_int                 ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8 * Format , _pgx_int16 Val );
-		void	pgx_lcd_hd44780_write_p_int                 ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const _pgx_int8 * Format , _pgx_int16 Val );
-		
-		/*!
-			\brief			Print a float, specifying the Format, in a specific position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Ln						It specifies the line.
-			\param			Pos						It specifies the column.
-			\param			Format					The Format to use.
-		*/	
-		void	pgx_lcd_hd44780_write_p_float               ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , _pgx_Uint24 Decimal_Digits , float Flt );
-		
-		/*!
-			\brief			Print a char, specifying the Format, in a specific position. 
-			\return			Nothing.
-			\param			ControllerNumber		The number of the controller.
-			\param			Ln						It specifies the line.
-			\param			Pos						It specifies the column.
-			\param			Decimal_Digits			Number of digits of truncation, after the decimal point of the float value.
-			\param			Flt						Float value to be printed.
-		*/	
-		//void	pgx_lcd_hd44780_write_p_char                ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8 * Format , _pgx_int8 chr );
-		void	pgx_lcd_hd44780_write_p_char                ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const _pgx_int8 * Format , _pgx_int8 chr );
-		
-//		void	pgx_lcd_hd44780_write_pchar_rom             ( _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8  *Format , const rom far _pgx_int8 chr );
-		
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Write a nibble on the display data bus. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			DataType				The type of the data: a command or a data.
+		\param			Dat						The command or the data to send.
+	*/	
+	void	pgx_ldc_hd44780_write_nibble                ( _pgx_int8 Controller , _pgx_Uint8 DataType , _pgx_Uint8 Dat );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Write a byte on the display data bus.
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			DataType				The type of the data: a command or a data.
+		\param			Dat						The command or the data to send.
+	*/	
+	void	pgx_lcd_hd44780_write_byte                  ( _pgx_int8 Controller , _pgx_Uint8 DataType , _pgx_Uint8 Dat );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Enables selected controller. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			EnState					The state in which, the enable must be set.
+							Use \b PGX_ENABLE to activate the controller \n
+							Use \b PGX_DISABLE to deactivate the controller
+	*/	
+	void	pgx_lcd_hd44780_en_select                   ( _pgx_int8 Controller , _pgx_Uint8 EnState );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print with the \a PRINTF \a FORMAT, at the current position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Ln						It specifies the line.
+		\param			Pos						It specifies the column.
+		\param			Format					The Format to use.
+	*/	
+	//void	pgx_lcd_hd44780_write                       ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8 * Format , ... );
+	void	pgx_lcd_hd44780_write                       ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const _pgx_int8 * Format , ... );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a string by a pointer, at the current position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Str						The pointer to the string in \a RAM.
+	*/	
+	void	pgx_lcd_hd44780_write_string                ( _pgx_int8 Controller , _pgx_int8 * Str );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a constant string by a pointer, at the current position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Str						The pointer to the string in \a ROM.
+	*/	
+	//void	pgx_lcd_hd44780_write_string_rom            ( _pgx_int8 Controller , const rom _pgx_int8 * Str );
+	void	pgx_lcd_hd44780_write_string_rom            ( _pgx_int8 Controller , const _pgx_int8 * Str );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a string by a pointer, in a specific position.
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Ln						It specifies the line.
+		\param			Pos						It specifies the column.
+		\param			Str						The pointer to the string in \a RAM.
+	*/	
+	void	pgx_lcd_hd44780_write_p_string              ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , _pgx_int8 * Str );
+	//------------------------------------------------------------------------
+	/*!
+	*/	
+	void	pgx_lcd_hd44780_write_p_string_flash        ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , _pgx_int8  *Str , _pgx_Uint8 time , _pgx_Uint8 unit );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a constant string by a pointer, in a specific position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Ln						It specifies the line.
+		\param			Pos						It specifies the column.
+		\param			Str						The pointer to the string in \a ROM.
+	*/	
+	//void	pgx_lcd_hd44780_write_p_string_rom          ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8 * Str );
+	void	pgx_lcd_hd44780_write_p_string_rom          ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const _pgx_int8 * Str );
+	//------------------------------------------------------------------------
+	/*!
+	 */
+	//void	pgx_lcd_hd44780_write_p_string_flash_rom	( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8 * Str , _pgx_Uint8 time , _pgx_Uint8 unit );
+	void	pgx_lcd_hd44780_write_p_string_flash_rom	( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const _pgx_int8 * Str , _pgx_Uint8 time , _pgx_Uint8 unit );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print an integer, specifying the Format, in a specific position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Ln						It specifies the line.
+		\param			Pos						It specifies the column.
+		\param			Format					The Format to use.
+	*/	
+	//void	pgx_lcd_hd44780_write_p_int                 ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8 * Format , _pgx_int16 Val );
+	void	pgx_lcd_hd44780_write_p_int                 ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const _pgx_int8 * Format , _pgx_int16 Val );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a float, specifying the Format, in a specific position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Ln						It specifies the line.
+		\param			Pos						It specifies the column.
+		\param			Format					The Format to use.
+	*/	
+	void	pgx_lcd_hd44780_write_p_float               ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , _pgx_Uint24 Decimal_Digits , float Flt );
+	//------------------------------------------------------------------------
+	/*!
+		\brief			Print a char, specifying the Format, in a specific position. 
+		\return			Nothing.
+		\param			ControllerNumber		The number of the controller.
+		\param			Ln						It specifies the line.
+		\param			Pos						It specifies the column.
+		\param			Decimal_Digits			Number of digits of truncation, after the decimal point of the float value.
+		\param			Flt						Float value to be printed.
+	*/	
+	//void	pgx_lcd_hd44780_write_p_char                ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8 * Format , _pgx_int8 chr );
+	//void	pgx_lcd_hd44780_write_pchar_rom             ( _pgx_Uint8 Ln , _pgx_Uint8 Pos , const rom far _pgx_int8  *Format , const rom far _pgx_int8 chr );
+	void	pgx_lcd_hd44780_write_p_char                ( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos , const _pgx_int8 * Format , _pgx_int8 chr );
+	//---[ END Prototypes ]-----------------------------------------------
 #endif /* _PGIMX_LCD_HD44780_H_ */
 
 

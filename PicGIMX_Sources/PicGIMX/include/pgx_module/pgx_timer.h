@@ -54,8 +54,10 @@
 
 	#if ( PGIMX_TIMER == PGX_ENABLE )
 
-		#define	PGX_ENABLE_LOOP						100
-		#define	PGX_ENABLE_1_SHOT					101
+		//---[ Timer Mode ]---
+		#define	PGX_ENABLE_LOOP						100				//!< Timer continues to cycle.
+		#define	PGX_ENABLE_1_SHOT					101				//!< Timer cycles only once.
+		//---[ END Timer Mode ]---
 
 		//---[ Status ]---
 		#define	PGX_TIMER_ALREADY_STARTED			10				//!< Timer is already started.
@@ -122,7 +124,7 @@
         #define	PGX_TIMER_1_SYNC_OFF				0b11111011		//!< Timer 1 external clock synchronization off
 		//---[ END External Clock Sync ]---
   
-        //---[ Prototypes ]---	
+        //---[ Prototypes ]---------------------------------------------------	
 		/*!
 			\brief			This function properly initializes the TIMER module.
 			\attention		Internal use only !
@@ -132,7 +134,7 @@
 							Already called in pgx_initialize().
 		*/
 		void	pgx_timer_init                              ( void );
-
+		//--------------------------------------------------------------------
 		/*!
 			\brief			Allows to configure the timer selected by \a timer_id parameter and calculates the limit values.
 			\return			\b PGX_OK : if the configuration was successful. \n
@@ -156,7 +158,7 @@
 		 	\warning		This function must be called when the timer is stopped.
 		*/			
 		_pgx_Uint8	pgx_timer_set_period                    ( _pgx_Uint8 timer_id , _pgx_float timer_time , _pgx_Uint8 unit_measure );
-		
+		//--------------------------------------------------------------------
 		/*!
 			\brief			Converts the specified frequency in period and performs a call to \ref pgx_timer_set_period function.
 			\return			\b PGX_OK : if the configuration was successful. \n
@@ -180,7 +182,7 @@
 		 	\warning		This function must be called when the timer is stopped.
 		*/		
 		_pgx_Uint8	pgx_timer_set_freq                      ( _pgx_Uint8 timer_id , _pgx_float timer_freq , _pgx_Uint8 unit_measure );	// PGX_HZ || PGX_KHZ
-		
+		//--------------------------------------------------------------------
 		/*!
 			\brief			Allows to start the timer selected by \a timer_id parameter.
 			\return			\b PGX_OK : if the timer has been started successfully. \n
@@ -191,7 +193,7 @@
 								Use \b PGX_TIMER_1 to select Timer 1
 		*/
 		_pgx_Uint8	pgx_timer_start                         ( _pgx_Uint8 timer_id );
-		
+		//--------------------------------------------------------------------
 		/*!
 			\brief			Allows to stop the timer selected by \a timer_id parameter.
 			\return			\b PGX_OK : if the timer has been stopped successfully. \n
@@ -202,7 +204,7 @@
 								Use \b PGX_TIMER_1 to select Timer 1
 		*/
 		_pgx_Uint8	pgx_timer_stop                          ( _pgx_Uint8 timer_id );
-		
+		//--------------------------------------------------------------------
 		/*!
 			\brief			Converts the value of the timer contained in the two 8-bit registers (TMRxH and TMRxL) in a 16-bit value.
 			\return			The current value of the timer registers in 16-bit Format.
@@ -211,7 +213,7 @@
 								Use \b PGX_TIMER_1 to select Timer 1
 		*/
 		_pgx_Uint16	pgx_timer_reg_current_value             ( _pgx_Uint8 timer_id );	
-		//---[ Prototypes ]---
+		//---[ END Prototypes ]-----------------------------------------------
 		
 		//---[ Timer_0 ]---    
 		#if ( PGIMX_TIMER_0 != PGX_DISABLE )

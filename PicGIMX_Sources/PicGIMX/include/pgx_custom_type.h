@@ -4,8 +4,8 @@
 	//------------------------------------------------------------------------
 	#define	_pgx_Font						const _pgx_Uint8
 	//------------------------------------------------------------------------
-//	typedef enum tBOOL { FALSE = 0 , TRUE } bool;
-//	typedef bool							_pgx_bool;
+	typedef enum _BOOL { FALSE = 0 , TRUE } BOOL;
+	typedef BOOL							_pgx_bool;
 	//------------------------------------------------------------------------
 	typedef char							_pgx_int8;
 	typedef unsigned char					_pgx_Uint8;

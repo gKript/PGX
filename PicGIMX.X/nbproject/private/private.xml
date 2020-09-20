@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/asyntote/Projects/PicGimX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_define.h</file>
-            <file>file:/home/asyntote/Projects/PicGimX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_pin_mapping.h</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_module/pgx_lcd_hd44780.h</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_module/pgx_timer.h</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/main.c</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/src/pgx_init.c</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx.h</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_pin_mapping.h</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_module/pgx_delay.h</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_module_setup_public.h</file>
+            <file>file:/home/sky/MPLABXProjects/PGX/trunk/PicGIMX_Sources/PicGIMX/include/pgx_define.h</file>
         </group>
     </open-files>
 </project-private>
