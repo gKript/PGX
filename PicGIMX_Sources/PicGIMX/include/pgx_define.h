@@ -419,6 +419,9 @@
 	#define	T_H6				TRISHbits.TRISH6	
 	#define	T_H7				TRISHbits.TRISH7
 	//------------------------------------------------------------------------
+
+    #include "pgx_pin_mapping.h"
+
 #endif /* _PGIMX_DEFINE_H_ */
 
 /*!
