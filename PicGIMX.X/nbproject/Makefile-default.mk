@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_timer.c ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_lcd_hd44780.c ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_delay.c ../PicGIMX_Sources/PicGIMX/src/pgx_init.c ../PicGIMX_Sources/main.c
+SOURCEFILES_QUOTED_IF_SPACED=../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_timer.c ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_lcd_hd44780.c ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_delay.c ../PicGIMX_Sources/PicGIMX/src/pgx_init.c ../PicGIMX_Sources/main.c ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgim_event.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/809872133/pgx_timer.p1 ${OBJECTDIR}/_ext/809872133/pgx_lcd_hd44780.p1 ${OBJECTDIR}/_ext/809872133/pgx_delay.p1 ${OBJECTDIR}/_ext/2059308222/pgx_init.p1 ${OBJECTDIR}/_ext/1340699775/main.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/809872133/pgx_timer.p1.d ${OBJECTDIR}/_ext/809872133/pgx_lcd_hd44780.p1.d ${OBJECTDIR}/_ext/809872133/pgx_delay.p1.d ${OBJECTDIR}/_ext/2059308222/pgx_init.p1.d ${OBJECTDIR}/_ext/1340699775/main.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/809872133/pgx_timer.p1 ${OBJECTDIR}/_ext/809872133/pgx_lcd_hd44780.p1 ${OBJECTDIR}/_ext/809872133/pgx_delay.p1 ${OBJECTDIR}/_ext/2059308222/pgx_init.p1 ${OBJECTDIR}/_ext/1340699775/main.p1 ${OBJECTDIR}/_ext/809872133/pgim_event.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/809872133/pgx_timer.p1.d ${OBJECTDIR}/_ext/809872133/pgx_lcd_hd44780.p1.d ${OBJECTDIR}/_ext/809872133/pgx_delay.p1.d ${OBJECTDIR}/_ext/2059308222/pgx_init.p1.d ${OBJECTDIR}/_ext/1340699775/main.p1.d ${OBJECTDIR}/_ext/809872133/pgim_event.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/809872133/pgx_timer.p1 ${OBJECTDIR}/_ext/809872133/pgx_lcd_hd44780.p1 ${OBJECTDIR}/_ext/809872133/pgx_delay.p1 ${OBJECTDIR}/_ext/2059308222/pgx_init.p1 ${OBJECTDIR}/_ext/1340699775/main.p1
+OBJECTFILES=${OBJECTDIR}/_ext/809872133/pgx_timer.p1 ${OBJECTDIR}/_ext/809872133/pgx_lcd_hd44780.p1 ${OBJECTDIR}/_ext/809872133/pgx_delay.p1 ${OBJECTDIR}/_ext/2059308222/pgx_init.p1 ${OBJECTDIR}/_ext/1340699775/main.p1 ${OBJECTDIR}/_ext/809872133/pgim_event.p1
 
 # Source Files
-SOURCEFILES=../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_timer.c ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_lcd_hd44780.c ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_delay.c ../PicGIMX_Sources/PicGIMX/src/pgx_init.c ../PicGIMX_Sources/main.c
+SOURCEFILES=../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_timer.c ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_lcd_hd44780.c ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_delay.c ../PicGIMX_Sources/PicGIMX/src/pgx_init.c ../PicGIMX_Sources/main.c ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgim_event.c
 
 
 
@@ -134,6 +134,14 @@ ${OBJECTDIR}/_ext/1340699775/main.p1: ../PicGIMX_Sources/main.c  nbproject/Makef
 	@-${MV} ${OBJECTDIR}/_ext/1340699775/main.d ${OBJECTDIR}/_ext/1340699775/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1340699775/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/_ext/809872133/pgim_event.p1: ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgim_event.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/809872133" 
+	@${RM} ${OBJECTDIR}/_ext/809872133/pgim_event.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/809872133/pgim_event.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../PicGIMX_Sources/PicGIMX/include" -I"../PicGIMX_Sources/PicGIMX/include/pgx_mcu" -I"../PicGIMX_Sources/PicGIMX/include/pgx_module" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/809872133/pgim_event.p1 ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgim_event.c 
+	@-${MV} ${OBJECTDIR}/_ext/809872133/pgim_event.d ${OBJECTDIR}/_ext/809872133/pgim_event.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/809872133/pgim_event.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/_ext/809872133/pgx_timer.p1: ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_timer.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/809872133" 
@@ -174,6 +182,14 @@ ${OBJECTDIR}/_ext/1340699775/main.p1: ../PicGIMX_Sources/main.c  nbproject/Makef
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../PicGIMX_Sources/PicGIMX/include" -I"../PicGIMX_Sources/PicGIMX/include/pgx_mcu" -I"../PicGIMX_Sources/PicGIMX/include/pgx_module" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1340699775/main.p1 ../PicGIMX_Sources/main.c 
 	@-${MV} ${OBJECTDIR}/_ext/1340699775/main.d ${OBJECTDIR}/_ext/1340699775/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1340699775/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/809872133/pgim_event.p1: ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgim_event.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/809872133" 
+	@${RM} ${OBJECTDIR}/_ext/809872133/pgim_event.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/809872133/pgim_event.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../PicGIMX_Sources/PicGIMX/include" -I"../PicGIMX_Sources/PicGIMX/include/pgx_mcu" -I"../PicGIMX_Sources/PicGIMX/include/pgx_module" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/809872133/pgim_event.p1 ../PicGIMX_Sources/PicGIMX/src/pgx_module/pgim_event.c 
+	@-${MV} ${OBJECTDIR}/_ext/809872133/pgim_event.d ${OBJECTDIR}/_ext/809872133/pgim_event.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/809872133/pgim_event.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

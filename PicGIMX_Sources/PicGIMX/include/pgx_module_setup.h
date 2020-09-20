@@ -28,7 +28,7 @@
 //	//------------------------------------------------------------------------
 //	//	Hardware Internal
 //	//------------------------------------------------------------------------
-//	#define PGIMX_EVENTS							PGX_DISABLE
+//	#define PGIMX_EVENT								PGX_DISABLE
 //	#define PGIMX_AD_CONVERTER						PGX_DISABLE
 //	#define PGIMX_SPI								PGX_DISABLE
 //	#define PGIMX_I2C								PGX_DISABLE
@@ -51,6 +51,7 @@
 //	//	Hardware gKript
 //	//------------------------------------------------------------------------
 //	#define PGIMX_ENCODER							PGX_DISABLE
+
 	//========================================================================
 	//	P U B L I C   F I L E S   I N C L U S I O N
 	//========================================================================
@@ -58,7 +59,7 @@
 	#include "pgx_ezfuse.h"
 	#include "pgx_module_setup_public.h"
 //  #include "pgim_font_setup_public.h"
-//	#include "pgim_event_setup_public.h"
+	#include "pgim_event_setup_public.h"
 	#include "pgx_timer_setup_public.h"
 //	#include "pgim_pwm_setup_public.h"
 //	#include "pgim_serial_setup_public.h"
@@ -70,6 +71,7 @@
 //	#include "pgim_prs_setup_public.h"
 //	#include "pgim_dds_ad9851_setup_public.h"
     #include "pgx_hardware_setup.h"
+
 	//========================================================================
 	//	M O D U L E   I N C L U S I O N
 	//========================================================================
@@ -251,6 +253,5 @@
 	//========================================================================
 
 #endif /* _PGIMX_MODULE_SETUP_H_ */
- 
  
  

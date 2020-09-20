@@ -52,11 +52,11 @@
 #include "pgx.h"
 
 #if ( PGIMX_TIMER == PGX_ENABLE )
-
+	//------------------------------------------------------------------------
 	#if ( PGX_PROJECT_STATE == PGX_DEBUG )
 		#warning	PGX >>> Message >>> This file is compiling.
 	#endif
-
+	//------------------------------------------------------------------------
 	#if ( PGIMX_TIMER_0 != PGX_DISABLE )
 		_pgx_float		pgx_timer_0_period;
 		_pgx_float		pgx_timer_0_count_min;
@@ -64,17 +64,17 @@
 		_pgx_float		pgx_timer_0_nanosec;
 		_pgx_float		pgx_timer_0_nanosec_min;
 		_pgx_float		pgx_timer_0_nanosec_max;
-
+		//---
 		_pgx_Uint16		pgx_timer_0_prescaler;
 		_pgx_Uint8		pgx_timer_0_prescaler_mask;
 		_pgx_Uint16		pgx_timer_0_timer_counter;
 		_pgx_Uint16_VAL	pgx_timer_0_tmr_reg_set_value;
 		_pgx_Uint16_VAL	pgx_timer_0_tmr_reg_current_value;
 		_pgx_float		pgx_timer_0_period_with_prescaler;
-
+		//---
 		_pgx_Uint16_VAL	pgx_timer_0_tmr_reg_set_save;
 	#endif
-
+	//------------------------------------------------------------------------
 	#if ( PGIMX_TIMER_1 != PGX_DISABLE )
 		_pgx_float		pgx_timer_1_period;
 		_pgx_float		pgx_timer_1_count_min;
@@ -92,8 +92,9 @@
 
 		_pgx_Uint16_VAL	pgx_timer_1_tmr_reg_set_save;
 	#endif
-
-	//---[ Timer Set Period]---
+	//------------------------------------------------------------------------
+	
+	//---[ Timer Set Period ]---
 	_pgx_Uint8	pgx_timer_set_period( _pgx_Uint8 timer_id , _pgx_float timer_time , _pgx_Uint8 unit_measure ) {	// PGX_SEC || PGX_MSEC
 		//--------------------------------------------------
 		if ( unit_measure == PGX_SEC )
@@ -252,7 +253,6 @@
 			}
 		}
 	}
-	//---[ END Timer Set Period]---
 
 	//---[ Timer Set Frequency]---
 	_pgx_Uint8	pgx_timer_set_freq( _pgx_Uint8 timer_id , _pgx_float timer_freq , _pgx_Uint8 unit_measure ) {	// PGX_HZ || PGX_KHZ
@@ -270,7 +270,6 @@
 		;
         return( 0 );
 	}
-	//---[ END Timer Set Frequency]---
 
 	//---[ Timer Start  ]---
 	_pgx_Uint8	pgx_timer_start( _pgx_Uint8 timer_id ) {
@@ -304,7 +303,6 @@
 			}
 		}
 	}
-	//---[ END Timer Start ]---
 
 	//---[ Timer Stop  ]---
 	_pgx_Uint8	pgx_timer_stop( _pgx_Uint8 timer_id ) {
@@ -342,7 +340,6 @@
 			}
 		}
 	}
-	//---[ END Timer Stop ]---
 
 	//---[ Timer Value ]---
 	_pgx_Uint16	pgx_timer_reg_current_value( _pgx_Uint8 timer_id ) {
@@ -372,7 +369,6 @@
 			}
 		}
 	}
-	//---[ END Timer Value ]---
 
 	//---[ Timer Init ]---
 	void	pgx_timer_init( void ) {
@@ -418,7 +414,7 @@
 								001 = 1:4 Prescale value
 								000 = 1:2 Prescale value
 		 */
-		//--------------------------------------------------
+		//------------------------------------------------------------------------
 		#if ( PGIMX_TIMER_1 != PGX_DISABLE )
 			pgx_timer_1_period		= ( ( 100.000 * PGX_TIMER_FOSC_DIVIDER ) / PGX_CLOCK );		// One step timer, without prescaler, by tens of nano-second [10 ns];
 			pgx_timer_1_count_max	= ( ( ( 100.000 * PGX_TIMER_FOSC_DIVIDER ) / PGX_CLOCK ) * PGX_TIMER_1_TMR_REG_MAX );	// Max time with full tmr register, without prescaler, by tens of nano-second [10 ns];
@@ -464,7 +460,6 @@
 								0 = Stops Timer1				
 		*/
 	}
-	//---[ END Timer Init ]---
 #endif
 
 

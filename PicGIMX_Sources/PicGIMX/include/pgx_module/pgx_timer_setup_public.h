@@ -54,8 +54,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		//		T I M E R   E N A B L I N G
 		//-------------------------------------------------------------------------------------------------------------
-		#define PGIMX_TIMER_0				PGX_ENABLE_1_SHOT		//!< Must be: PGX_DISABLE || PGX_ENABLE_1_SHOT || PGX_ENABLE_LOOP
-		#define PGIMX_TIMER_1				PGX_ENABLE_1_SHOT       //!< Must be: PGX_DISABLE || PGX_ENABLE_1_SHOT || PGX_ENABLE_LOOP
+		#define PGIMX_TIMER_0				PGX_ENABLE_1_SHOT		//!< Must be: PGX_DISABLE || PGX_ENABLE_1_SHOT || PGX_ENABLE_LOOP - (PGIMX sub-modules)
+		#define PGIMX_TIMER_1				PGX_ENABLE_1_SHOT       //!< Must be: PGX_DISABLE || PGX_ENABLE_1_SHOT || PGX_ENABLE_LOOP - (PGIMX sub-modules)
 		//-------------------------------------------------------------------------------------------------------------
 		//		P A R A M E T E R S
 		//-------------------------------------------------------------------------------------------------------------

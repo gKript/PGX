@@ -92,30 +92,28 @@
 			// #warning	PGX >>> ERROR module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END Error ]---
+	//-------------------------------------------------------------------------------
 
-
-	 //---[ Calibrated Delay ]---
-	 #if defined( PGX_DOXYGEN )
-		 #undef		PGX_CAL_DELAY
-		 #define		PGX_CAL_DELAY		PGX_ENABLE
-	 #elif ( PGX_ALL_MODULES_DISABLED == PGX_ENABLE ) && ( PGX_PROJECT_STATE == PGX_DEBUG )
-		 #undef		PGX_CAL_DELAY
-		 #define		PGX_CAL_DELAY		PGX_DISABLE
-	 #endif
-	 #if ( PGIMX_CAL_DELAY == PGX_ENABLE )
-         //#define	_XTAL_FREQ              PGX_CLOCK
-		 #include "pgx_delay.h"
-		 #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			 #warning	PGX >>> DELAY module >>> Loaded
-		 #endif
-	 #else
-		 #if defined( __18CXX )
-			 #include <delays.h>
-		 #endif
-	 #endif
-	 //---[ END Calibrated Delay ]---
-	
+	//---[ Calibrated Delay ]---
+	#if defined( PGX_DOXYGEN )
+		#undef		PGX_CAL_DELAY
+		#define		PGX_CAL_DELAY		PGX_ENABLE
+	#elif ( PGX_ALL_MODULES_DISABLED == PGX_ENABLE ) && ( PGX_PROJECT_STATE == PGX_DEBUG )
+		#undef		PGX_CAL_DELAY
+		#define		PGX_CAL_DELAY		PGX_DISABLE
+	#endif
+	#if ( PGIMX_CAL_DELAY == PGX_ENABLE )
+		//#define	_XTAL_FREQ              PGX_CLOCK
+		#include "pgx_delay.h"
+		#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+			#warning	PGX >>> DELAY module >>> Loaded
+		#endif
+	#else
+		#if defined( __18CXX )
+			#include <delays.h>
+		#endif
+	#endif
+	//-------------------------------------------------------------------------------
 	
 	// //---[ Buzzer ]---
 	// #if defined( PGX_DOXYGEN )
@@ -132,75 +130,70 @@
 			// #warning	PGX >>> BUZZER module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END Buzzer ]---
+	//-------------------------------------------------------------------------------
 	
-	
-	// //---[ Interrupts ]---
-	// #if defined( PGX_DOXYGEN )
-	
-		// #undef		PGX_EVENTS
-		// #undef		PGX_EVENT_SET_INT0	
-		// #undef		PGX_EVENT_SET_INT1	
-		// #undef		PGX_EVENT_SET_INT2	
-		// #undef		PGX_EVENT_SET_TMR0	
-		// #undef		PGX_EVENT_SET_TMR1	
-		// #undef		PGX_EVENT_SET_TMR2	
-		// #undef		PGX_EVENT_SET_RB0	
-		// #undef		PGX_EVENT_SET_AD		
-		// #undef		PGX_EVENT_SET_USARTRC      
-		// #undef		PGX_EVENT_SET_USARTTX      
-		// #undef		PGX_EVENT_SET_SSP	
-		// #undef		PGX_EVENT_SET_CCP1	
-		// #undef		PGX_EVENT_SET_CCP2	
-		// #undef		PGX_EVENT_SET_OSCF	
-		// #undef		PGX_EVENT_SET_CM		
-		// #undef		PGX_EVENT_SET_EE		
-		// #undef		PGX_EVENT_SET_BCL	
-
-		// #define		PGX_EVENTS			PGX_ENABLE
-		// #define		PGX_EVENT_SET_INT0			PGX_ENABLE
-		// #define		PGX_EVENT_SET_INT1			PGX_ENABLE
-		// #define		PGX_EVENT_SET_INT2			PGX_ENABLE
-		// #define		PGX_EVENT_SET_TMR0		PGX_ENABLE
-		// #define		PGX_EVENT_SET_TMR1		PGX_ENABLE
-		// #define		PGX_EVENT_SET_TMR2		PGX_ENABLE
-		// #define		PGX_EVENT_SET_RB0			PGX_ENABLE
-		// #define		PGX_EVENT_SET_AD			PGX_ENABLE
-		// #define		PGX_EVENT_SET_USARTRC	PGX_ENABLE
-		// #define		PGX_EVENT_SET_USARTTX	PGX_ENABLE
-		// #define		PGX_EVENT_SET_SSP			PGX_ENABLE
-		// #define		PGX_EVENT_SET_CCP1		PGX_ENABLE
-		// #define		PGX_EVENT_SET_CCP2		PGX_ENABLE
-		// #define		PGX_EVENT_SET_OSCF		PGX_ENABLE
-		// #define		PGX_EVENT_SET_CM			PGX_ENABLE
-		// #define		PGX_EVENT_SET_EE			PGX_ENABLE
-		// #define		PGX_EVENT_SET_BCL			PGX_ENABLE
-	
-	
-	// #elif ( PGX_ALL_MODULES_DISABLED == PGX_ENABLE ) && ( PGX_PROJECT_STATE == PGX_DEBUG )
-		// #undef		PGX_EVENTS
-		// #define		PGX_EVENTS		PGX_DISABLE
-	// #endif
-	
-	// //--------------------------------------------------
-	// #if ( PGIMX_EVENTS == PGX_ENABLE )
-
-// //		#include <portb.h>      //kmod
-		// #include "pgim_event.h"
-// //		#include "pgim_interrupt_callbacks.h"
-		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
-			// #warning	PGX >>> IRQ module >>> INTERRUPTS handle module loaded
-			// #if ( PGX_SUGGESTION == PGX_ENABLE )
-				// #warning PGX >>> Note >>> Hint >>> See the documentation to know how initialize interrupts you want to manage.
-			// #endif
-		// #endif
-	// #else
-		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE ) && ( PGX_SUGGESTION == PGX_ENABLE )
-			// #warning	PGX >>> Note >>> INTERRUPTS disabled
-			// #warning    PGX >>> Note >>> Hint >>> Keep in mind that PicGim offers a very simple way to use them. See the documentation.
-		// #endif
-	// #endif
-	// //---[ END Interrupts ]---
+	//---[ Interrupts ]---
+	#if defined( PGX_DOXYGEN )
+		//-------------------------------------------------------------------------------
+		#undef		PGX_EVENT
+		#undef		PGX_EVENT_SET_INT0	
+		#undef		PGX_EVENT_SET_INT1	
+		#undef		PGX_EVENT_SET_INT2	
+		#undef		PGX_EVENT_SET_TMR0	
+		#undef		PGX_EVENT_SET_TMR1	
+		#undef		PGX_EVENT_SET_TMR2	
+		#undef		PGX_EVENT_SET_RB0	
+		#undef		PGX_EVENT_SET_AD		
+		#undef		PGX_EVENT_SET_USARTRC      
+		#undef		PGX_EVENT_SET_USARTTX      
+		#undef		PGX_EVENT_SET_SSP	
+		#undef		PGX_EVENT_SET_CCP1	
+		#undef		PGX_EVENT_SET_CCP2	
+		#undef		PGX_EVENT_SET_OSCF	
+		#undef		PGX_EVENT_SET_CM		
+		#undef		PGX_EVENT_SET_EE		
+		#undef		PGX_EVENT_SET_BCL	
+		//---
+		#define		PGX_EVENT				PGX_ENABLE
+		#define		PGX_EVENT_SET_INT0		PGX_ENABLE
+		#define		PGX_EVENT_SET_INT1		PGX_ENABLE
+		#define		PGX_EVENT_SET_INT2		PGX_ENABLE
+		#define		PGX_EVENT_SET_TMR0		PGX_ENABLE
+		#define		PGX_EVENT_SET_TMR1		PGX_ENABLE
+		#define		PGX_EVENT_SET_TMR2		PGX_ENABLE
+		#define		PGX_EVENT_SET_RB0		PGX_ENABLE
+		#define		PGX_EVENT_SET_AD		PGX_ENABLE
+		#define		PGX_EVENT_SET_USARTRC	PGX_ENABLE
+		#define		PGX_EVENT_SET_USARTTX	PGX_ENABLE
+		#define		PGX_EVENT_SET_SSP		PGX_ENABLE
+		#define		PGX_EVENT_SET_CCP1		PGX_ENABLE
+		#define		PGX_EVENT_SET_CCP2		PGX_ENABLE
+		#define		PGX_EVENT_SET_OSCF		PGX_ENABLE
+		#define		PGX_EVENT_SET_CM		PGX_ENABLE
+		#define		PGX_EVENT_SET_EE		PGX_ENABLE
+		#define		PGX_EVENT_SET_BCL		PGX_ENABLE
+	#elif ( PGX_ALL_MODULES_DISABLED == PGX_ENABLE ) && ( PGX_PROJECT_STATE == PGX_DEBUG )
+		#undef		PGX_EVENT
+		#define		PGX_EVENT				PGX_DISABLE
+	#endif
+	//-------------------------------------------------------------------------------
+	#if ( PGIMX_EVENT == PGX_ENABLE )
+		//-------------------------------------------------------------------------------
+		#include "pgim_event.h"
+		//#include "pgim_interrupt_callbacks.h"
+		#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
+			#warning	PGX >>> IRQ module >>> INTERRUPTS handle module loaded
+			#if ( PGX_SUGGESTION == PGX_ENABLE )
+				#warning PGX >>> Note >>> Hint >>> See the documentation to know how initialize interrupts you want to manage.
+			#endif
+		#endif
+	#else
+		#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE ) && ( PGX_SUGGESTION == PGX_ENABLE )
+			#warning	PGX >>> Note >>> INTERRUPTS disabled
+			#warning    PGX >>> Note >>> Hint >>> Keep in mind that PicGim offers a very simple way to use them. See the documentation.
+		#endif
+	#endif
+	//-------------------------------------------------------------------------------
 	
 	
 	// //---[ AD-Converter ]---
@@ -219,7 +212,7 @@
 			// #warning	PGX >>> ADC module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END AD-Converter ]---
+	//-------------------------------------------------------------------------------
 	
 	
 	// //---[ Spi ]---
@@ -238,7 +231,7 @@
 			// #warning	PGX >>> SPI module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END Spi ]---
+	//-------------------------------------------------------------------------------
 	
 	
 	// //---[ I2C ]---
@@ -257,7 +250,7 @@
 			// #warning	PGX >>> I2C module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END I2C ]---
+	//-------------------------------------------------------------------------------
 	
 	
 	// //---[ EE ]---
@@ -282,7 +275,7 @@
 			// #endif
 		// #endif
 	// #endif
-	// //---[ END EE ]---
+	//-------------------------------------------------------------------------------
 	
 	
 	 //---[ Timer ]---
@@ -293,7 +286,7 @@
 		 #undef		PGX_TIMER
 		 #define		PGX_TIMER		PGX_DISABLE
 	 #endif
-	 //--------------------------------------------------
+	//-------------------------------------------------------------------------------
 	 #if ( PGIMX_TIMER == PGX_ENABLE )
     	//#include <plib/timers.h>
 		 #include "pgx_timer.h"
@@ -307,13 +300,13 @@
 				 #warning	PGX >>> TIMER 1 module >>> Loaded
 			 #endif
 		 #endif
-		 #if ( PGIMX_EVENTS == PGX_DISABLE )
+		 #if ( PGIMX_EVENT == PGX_DISABLE )
 			 #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE ) && ( PGX_SUGGESTION == PGX_ENABLE )
 				 #warning	PGX >>> TIMER module >>> Hint >>> Enabled without interrupt. Keep in mind PicGIM is able to handle interrupts very easily.
 			 #endif
 		 #endif
 	 #endif
-	 //---[ END Timer ]---
+	//-------------------------------------------------------------------------------
 	
 	
 	// //---[ Pwm ]---
@@ -453,8 +446,7 @@
 			// #warning	PGX >>> PWM module >>> Enabled duty-cycle resolution max calculation [bit]
 		// #endif	
 	// #endif
-	// //---[ END Pwm ]---
-	
+	//-------------------------------------------------------------------------------
 	
 	//---[ Lcd HD44780 ]---
 	 #if defined( PGX_DOXYGEN )
@@ -474,11 +466,8 @@
 			  #warning PicGIMX: LCD HD44780 module >>> Loaded
 		  #endif
 	 #endif
-	//---[ END Lcd HD44780 ]---
-	
+	//-------------------------------------------------------------------------------
 
-	
-	
 	// //---[ Lcd PCD8544 ]---
 	// #if defined( PGX_DOXYGEN )
 		// #undef		PGX_LCD_PCD8544
@@ -542,8 +531,7 @@
 							// // #endif
 						// // #endif
 						// // //---[ END Lcd 5110 ]---
-	// //---[ END Lcd PCD8544 ]---
-	
+	//-------------------------------------------------------------------------------
 	
 	// //---[ Lcd 9340 ]---
 // //	#if defined( PGX_DOXYGEN )
@@ -564,8 +552,7 @@
 // //			#endif
 // //		#endif
 // //	#endif
-	// //---[ END Lcd 9340 ]---
-	
+	//-------------------------------------------------------------------------------
 	
 	// //---[ Encoder ]---
 	// #if defined( PGX_DOXYGEN )
@@ -581,8 +568,7 @@
 		// #if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
 			// #warning	PGX >>> ENCODER module >>> Loaded
 		// #endif
-	// #endif
-	// //---[ END Encoder ]---
+	//-------------------------------------------------------------------------------
 	
 	
 	// //---[ Serial ]---
@@ -638,8 +624,7 @@
 			// #endif
 		// #endif
 	// #endif
-	// //---[ END Serial ]---
-	
+	//-------------------------------------------------------------------------------
 	
 	// //---[ External Memory ]---
 	// #if defined( PGX_DOXYGEN )
@@ -656,9 +641,8 @@
 			// #warning	PGX >>> EXTERNAL MEMORY module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END External Memory ]---
+	//-------------------------------------------------------------------------------
 
-	
 // //	//---[ Servo ]---
 // //	#if defined( PGX_DOXYGEN )
 // //		#undef		PGX_SERVO
@@ -674,8 +658,7 @@
 // //			#warning	PGX >>> SERVO module >>> Loaded
 // //		#endif
 // //	#endif
-// //	//---[ END Servo ]---
-
+	//-------------------------------------------------------------------------------
 
 	// //---[ Ftoa Function]---
 	// #if ( PGIMX_FTOA == PGX_ENABLE )
@@ -684,9 +667,8 @@
 			// #warning	PGX >>> FTOA function >>> Included
 		// #endif
 	// #endif
-	// //---[ END Ftoa Function ]---
+	//-------------------------------------------------------------------------------
 
-	
 	// //---[ Sensor ]---
 	// #if defined( PGX_DOXYGEN )
 		// #undef		PGX_SENSOR
@@ -724,7 +706,6 @@
 	// #endif
 	// //---[ END Sensor ]---
 
-	
 	// //---[ RTC_DS1302 ]---
 	// #if defined( PGX_DOXYGEN )
 		// #undef		PGX_RTC_DS1302
@@ -752,8 +733,7 @@
 			// #warning	PGX >>> RTC_DS1302 module >>> Loaded
 		// #endif	
 	// #endif
-	// //---[ END RTC_DS1302 ]---
-	
+	//-------------------------------------------------------------------------------
 	
 	// //---[ 3Wire ]---
 	// #if defined( PGX_DOXYGEN )
@@ -770,8 +750,7 @@
 			// #warning	PGX >>> 3WIRE module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END 3Wire ]---
-	
+	//-------------------------------------------------------------------------------
 	
 	// //---[ GCP ]---
 	// #if defined( PGX_DOXYGEN )
@@ -807,8 +786,7 @@
 			// #warning	PGX >>> GCP module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END GCP ]---
-	
+	//-------------------------------------------------------------------------------
 	
 	// //---[ SSP ]---
 	// #if defined( PGX_DOXYGEN )
@@ -825,8 +803,7 @@
 			// #warning	PGX >>> SSP module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END SSP ]---
-	
+	//-------------------------------------------------------------------------------
 	
 	// //---[ H32 ]---
 	// #if defined( PGX_DOXYGEN )
@@ -843,8 +820,7 @@
 			// #warning	PGX >>> GKH32 module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END H32 ]---
-	
+	//-------------------------------------------------------------------------------
 	
 	// //---[ PRS ]---
 	// #if defined( PGX_DOXYGEN )
@@ -861,9 +837,8 @@
 			// #warning	PGX >>> PRS module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END PRS ]---
+	//-------------------------------------------------------------------------------
 	
-
 	// //---[ FONT ]---
 	// #if defined( PGX_DOXYGEN )
 		// #undef		PGX_FONT
@@ -879,9 +854,8 @@
 			// #warning	PGX >>> FONT module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END FONT ]---
+	//-------------------------------------------------------------------------------
 
-	
 	// //---[ AMG88XX ]---
 	// #if defined( PGX_DOXYGEN )
 		// #undef		PGX_AMG88XX
@@ -897,8 +871,7 @@
 			// #warning	PGX >>> AMG88XX module >>> Loaded
 		// #endif
 	// #endif
-	// //---[ END AMG88XX ]---
-	
+	//-------------------------------------------------------------------------------
 	
 	// //---[ DDS AD9851 ]---
 	// #if defined( PGX_DOXYGEN )
@@ -925,17 +898,15 @@
 			// // #endif
 		// // #endif
 	// #endif
-	// //---[ END DDS AD9851 ]---
-
+	//-------------------------------------------------------------------------------
 
 	// //------------------------------------------------------------------------------
 	// //		E R R O R   M A N A G E M A N T
 	// //------------------------------------------------------------------------------
-	
 	// #if defined( PGX_EXIT_ON_ERROR ) 
 		// #error	PGX >>> ERROR !!! >>> Core >>> PicGIM has stopped compiling due to errors in configuration
 	// #endif
-	
+	//-------------------------------------------------------------------------------
 #endif /* _PGIMX_INCLUDES_H_ */
 
 

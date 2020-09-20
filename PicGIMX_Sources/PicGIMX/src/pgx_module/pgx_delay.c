@@ -1,19 +1,19 @@
 //
 #include "pgx.h"
 
-#if ( PGX_PROJECT_STATE == PGX_DEBUG )
-    #warning PGX >>> Message >>> This file is compiling...
-#endif
-
 #if ( PGIMX_CAL_DELAY == PGX_ENABLE )   //#if defined( __18CXX )
-
+	//------------------------------------------------------------------------
+	#if ( PGX_PROJECT_STATE == PGX_DEBUG )
+		#warning PGX >>> Message >>> This file is compiling...
+	#endif
+	//------------------------------------------------------------------------
     _pgx_Uint8	pgx_ninstus = 0;
 
     //---[ Ninstus ]---
     void pg_delay_ninstus_calc( void ) {
+		//------------------------------------------------------------------------
         pgx_ninstus = (_pgx_Uint8)( 0.000001 / ( 1.0 / ( ( PGX_CLOCK * 1000000 ) / PGX_TCYCLEPERI ) ) );
     }
-    //---[ END Ninstus ]---
     
     //---[ Delay ms ]---
     void pgx_delay_msec( _pgx_Uint16 pgx_delay ) {
@@ -24,7 +24,6 @@
         }
         return;
     }
-    //---[ END Delay ms ]---
     
 	//---[ Delay us ]---
 	void pgx_delay_usec( _pgx_Uint16 pgx_delay ) {
@@ -35,7 +34,6 @@
 		}
         return;
 	}
-    //---[ END Delay us ]---
     
     //---[ Delay s ]---
 	#if ( PGX_DELAY_SEC == PGX_INCLUDE )
@@ -50,7 +48,6 @@
 			}
 		}
 	#endif
-    //---[ END Delay s ]---
 
     //---[ Delay ]---
 	#if ( PGX_DELAY == PGX_INCLUDE )
@@ -70,7 +67,6 @@
 			#endif
 		}
 	#endif
-    //---[ END Delay ]---
 	
 	// #if ( ( PGX_EVENTS == PGX_ENABLE ) && ( PGX_DELAY_HIGH_PRIORITY == PGX_INCLUDE ) )
 		// void pgx_delay_high_priority( _pgx_Uint16 req_delay , _pgx_Uint8 unit ) {

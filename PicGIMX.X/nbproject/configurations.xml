@@ -27,6 +27,8 @@
       <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_selective_compiling_setup.h</itemPath>
       <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_hardware_setup_public.h</itemPath>
       <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_pin_mapping.h</itemPath>
+      <itemPath>../PicGIMX_Sources/PicGIMX/include/pgim_event.h</itemPath>
+      <itemPath>../PicGIMX_Sources/PicGIMX/include/pgim_event_setup_public.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -40,6 +42,7 @@
           <itemPath>../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_timer.c</itemPath>
           <itemPath>../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_lcd_hd44780.c</itemPath>
           <itemPath>../PicGIMX_Sources/PicGIMX/src/pgx_module/pgx_delay.c</itemPath>
+          <itemPath>../PicGIMX_Sources/PicGIMX/src/pgx_module/pgim_event.c</itemPath>
         </logicalFolder>
         <itemPath>../PicGIMX_Sources/PicGIMX/src/pgx_init.c</itemPath>
       </logicalFolder>
@@ -189,6 +192,7 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

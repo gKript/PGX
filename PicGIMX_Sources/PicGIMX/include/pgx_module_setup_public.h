@@ -22,7 +22,7 @@
 	 //================================================================================================================
 	 //		H A R D W A R E   I N T E R N A L
 	 //================================================================================================================
-	 #define PGIMX_EVENTS                               PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+	 #define PGIMX_EVENT								PGX_ENABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 	 #define PGIMX_AD_CONVERTER                         PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 	 #define PGIMX_SPI                                  PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 	 #define PGIMX_I2C                                  PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
