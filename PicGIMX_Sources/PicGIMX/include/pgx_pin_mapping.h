@@ -2,9 +2,9 @@
 #ifndef PGX_PIN_MAPPING_H
     #define	PGX_PIN_MAPPING_H
 	//------------------------------------------------------------------------
-    #define GET_PIN_OUT(pin)        ( PIN##pin##_TRIS )
-    #define GET_PIN_IN(pin)         ( PIN##pin##_PORT )
-    #define GET_PIN_MODE(pin)       ( PIN##pin##_TRIS )
+    #define _PIN_OUT(pin)        ( PIN##pin##_TRIS )
+    #define _PIN_IN(pin)         ( PIN##pin##_PORT )
+    #define _PIN_MODE(pin)       ( PIN##pin##_TRIS )
 	//------------------------------------------------------------------------
 	//		N U M E R I C   P I N   P O R T   M A P P I N G
 	//------------------------------------------------------------------------

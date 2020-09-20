@@ -47,11 +47,36 @@
 
 #include "pgx.h"
 
+void digitalWrite( _pgx_int8 p , _pgx_int8 status ) {
+    if ( status == PGX_HIGH ) {
+        _PIN_MODE( p ) = PGX_OUT;     //  Il mode è dentro all'if perchè così tocco il tris solo se devo fare qualcosa, se no non tocco nulla
+        _PIN_OUT( p ) = PGX_HIGH;
+    }
+    else if ( status == PGX_LOW ) {
+        _PIN_MODE( p ) = PGX_OUT;
+        _PIN_OUT( p ) = PGX_LOW;
+    }
+}
+
+_pgx_int8 digitalRead( _pgx_int8 p ) {
+    _PIN_MODE( p ) = PGX_IN;
+    if ( _PIN_IN( p ) ) 
+         return PGX_HIGH;
+    else
+        return _PIN_IN( p );
+}
+
+
 void main( void ) {
 	pgx_initialize( );
     
     pgx_loop {
-        pgx_delay_sec( 2 );
+        if ( digitalRead( 22 ) ) {
+            digitalWrite( 20 , PGX_HIGH );
+            pgx_delay_msec( 500 );
+            digitalWrite( 20 , PGX_LOW );
+        }
+        pgx_delay_msec( 500 );
     }
     
     PGX_HALT;
