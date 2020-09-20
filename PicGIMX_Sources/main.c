@@ -49,7 +49,12 @@
 
 void main( void ) {
 	pgx_initialize( );
-	T_B0 = PGX_OUT;
+    
+    GET_PIN_MODE(44) = 1;
+    
+    
+/*
+ * 	T_B0 = PGX_OUT;
 	L_B0 = PGX_OFF;
     
     //pgx_loop {
@@ -67,7 +72,13 @@ void main( void ) {
         pgx_delay_sec( 2 );
         //pgx_pin_toggle
     }
+ * 
+ */
+ 
+    
+    
 	PGX_HALT;
+ 
 }
 
 

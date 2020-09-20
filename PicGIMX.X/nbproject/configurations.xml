@@ -26,6 +26,7 @@
       <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_selective_compiling.h</itemPath>
       <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_selective_compiling_setup.h</itemPath>
       <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_hardware_setup_public.h</itemPath>
+      <itemPath>../PicGIMX_Sources/PicGIMX/include/pgx_pin_mapping.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
