@@ -1,6 +1,13 @@
 //
 #ifndef PGX_PIN_MAPPING_H
     #define	PGX_PIN_MAPPING_H
+
+
+void pin_mode( _pgx_Uint8 p , _pgx_Uint8 status );
+void pin_write( _pgx_Uint8 p , _pgx_Uint8 status );
+_pgx_int8 pin_read( _pgx_Uint8 p );
+
+
 	//------------------------------------------------------------------------
     #define _PIN_OUT(pin)        ( PIN##pin##_TRIS )
     #define _PIN_IN(pin)         ( PIN##pin##_PORT )

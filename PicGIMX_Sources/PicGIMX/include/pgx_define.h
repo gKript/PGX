@@ -199,7 +199,7 @@
 	//------------------------------------------------------------------------
 	//	P O R T S	D E F I N E S
 	//------------------------------------------------------------------------
-	#define	P_A1				PORTAbits.RA1
+	#define	P_A0				PORTAbits.RA1
 	#define	P_A1				PORTAbits.RA1
 	#define	P_A2				PORTAbits.RA2
 	#define	P_A3				PORTAbits.RA3
@@ -273,7 +273,7 @@
 	//------------------------------------------------------------------------------
 	//      L A T
 	//------------------------------------------------------------------------------
-	#define	L_A1				LATAbits.LATA1	
+	#define	L_A0    			LATAbits.LATA1	
 	#define	L_A1				LATAbits.LATA1	
 	#define	L_A2				LATAbits.LATA2	
 	#define	L_A3				LATAbits.LATA3
@@ -347,7 +347,7 @@
 	//------------------------------------------------------------------------------
 	//      T R I S
 	//------------------------------------------------------------------------------
-	#define	T_A1				TRISAbits.TRISA1	
+	#define	T_A0				TRISAbits.TRISA1	
 	#define	T_A1				TRISAbits.TRISA1	
 	#define	T_A2				TRISAbits.TRISA2	
 	#define	T_A3				TRISAbits.TRISA3
@@ -419,8 +419,6 @@
 	#define	T_H6				TRISHbits.TRISH6	
 	#define	T_H7				TRISHbits.TRISH7
 	//------------------------------------------------------------------------
-
-    #include "pgx_pin_mapping.h"
 
 #endif /* _PGIMX_DEFINE_H_ */
 

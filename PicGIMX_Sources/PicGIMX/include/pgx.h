@@ -21,6 +21,7 @@
 	#include "pgx_custom_type.h"
 	#include "pgx_version.h"
 	#include "pgx_define.h"
+	#include "pgx_pin_mapping.h"
 	#include "pgx_project_setup_public.h"
 	#include "pgx_ezfuse.h"
 	#include "pgx_hardware_setup.h"
