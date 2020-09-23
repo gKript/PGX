@@ -135,19 +135,19 @@
 		#define		PGX_EVENT_TMR1						5			//!< This is the internal definition of the interrupt TMR1
 		#define		PGX_EVENT_TMR2						6			//!< This is the internal definition of the interrupt TMR2
 		#define		PGX_EVENT_RB0						8			//!< This is the internal definition of the interrupt RB0
-		#define		PGX_EVENT_AD							10			//!< This is the internal definition of the interrupt AD
+		#define		PGX_EVENT_AD						10			//!< This is the internal definition of the interrupt AD
 		#define		PGX_EVENT_USARTRC					11			//!< This is the internal definition of the interrupt USARTRC
 		#define		PGX_EVENT_USARTTX					12			//!< This is the internal definition of the interrupt USARTTX
 		#define		PGX_EVENT_SSP						13			//!< This is the internal definition of the interrupt SSP
 		#define		PGX_EVENT_CCP1						14			//!< This is the internal definition of the interrupt CCP1
 		#define		PGX_EVENT_CCP2						15			//!< This is the internal definition of the interrupt CCP2
 		#define		PGX_EVENT_OSCF						16			//!< This is the internal definition of the interrupt OSCF
-		#define		PGX_EVENT_CM							17			//!< This is the internal definition of the interrupt CM
-		#define		PGX_EVENT_EE							18			//!< This is the internal definition of the interrupt EE
+		#define		PGX_EVENT_CM						17			//!< This is the internal definition of the interrupt CM
+		#define		PGX_EVENT_EE						18			//!< This is the internal definition of the interrupt EE
 		#define		PGX_EVENT_BCL						19			//!< This is the internal definition of the interrupt BCL
 		//---
-		#define		PGX_EVENT_GLOBAL						100			//!< This is the internal definition of the GLOBAL interrupt
-		#define		PGX_EVENT_PERIPHERAL					101			//!< This is the internal definition of the PERIPHERAL interrupt
+		#define		PGX_EVENT_GLOBAL					100			//!< This is the internal definition of the GLOBAL interrupt
+		#define		PGX_EVENT_PERIPHERAL				101			//!< This is the internal definition of the PERIPHERAL interrupt
 		//---
 		#define		PGX_EVENT_ANY						200			//!< This is the internal definition of the ANY interrupt events
 		//---

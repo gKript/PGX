@@ -48,19 +48,20 @@
 #include "pgx.h"
 
 
+_pgx_Uint8 st = 0;
+
+
+void	led_toggle( void ) {
+    st ^= 1;    
+    pin_write( 22 , st );
+    pgx_delay_sec( 1 );
+}
+
+
 void main( void ) {
 	pgx_initialize( );
-    
-    pgx_loop {
-        if ( !pin_read( 20 ) ) {
-            pin_write( 22 , PGX_HIGH );
-            pgx_delay_msec( 200 );
-            pin_write( 22 , PGX_LOW );
-            pgx_delay_msec( 200 );
-        }
-        //pgx_delay_msec( 500 );
-    }
-    
+    pin_mode( 20 , PGX_IN );
+    pgx_event_attach( PGX_EVENT_INT0 , led_toggle );
     PGX_HALT;
 }
 

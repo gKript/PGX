@@ -50,34 +50,34 @@
 #ifndef _PGIMX_EVENT_SETUP_PUBLIC_H_
 	#define	_PGIMX_EVENT_SETUP_PUBLIC_H_
 	//------------------------------------------------------------------------
-	#if ( PGIMX_EVENT == PG_ENABLE )
+	#if ( PGIMX_EVENT == PGX_ENABLE )
 		//------------------------------------------------------------------------
 		//		A U T O   I N T E R R U P T S   H A N D L E R
 		//------------------------------------------------------------------------
-		#define PG_EVENT_AUTO_HANDLER		PG_ENABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_AUTO_HANDLER		PGX_ENABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 		//------------------------------------------------------------------------
 		//		E X T E R N A L   I N T E R R U P T S
 		//------------------------------------------------------------------------
-		#define PG_EVENT_SET_INT0			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_INT1			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_INT2			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_RB0			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_INT0			PGX_ENABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_INT1			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_INT2			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_RB0			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 		//------------------------------------------------------------------------
 		//		I N T E R N A L   I N T E R R U P T S
 		//------------------------------------------------------------------------
-		#define PG_EVENT_SET_TMR0			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_TMR1			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_TMR2			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_AD				PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_USARTRC        PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_USARTTX        PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_SSP			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_CCP1			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_CCP2			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_OSCF			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_CM				PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_EE				PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PG_EVENT_SET_BCL			PG_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_TMR0			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_TMR1			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_TMR2			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_AD			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_USARTRC       PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_USARTTX       PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_SSP			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_CCP1			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_CCP2			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_OSCF			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_CM			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_EE			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_BCL			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 		//------------------------------------------------------------------------
 	#endif
 #endif /* _PGIMX_EVENT_SETUP_PUBLIC_H_ */

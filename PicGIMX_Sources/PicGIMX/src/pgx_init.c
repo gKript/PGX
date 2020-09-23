@@ -28,9 +28,9 @@ void pgx_initialize( void ) {
 		 pgx_timer_init( );
 	 #endif
 
-	// #if ( PGX_EVENTS == PGX_ENABLE )
-		// pgx_event_init( );
-	// #endif
+	 #if ( PGIMX_EVENT == PGX_ENABLE )
+		 pgx_event_init( );
+	 #endif
 
 	 #if ( PGIMX_CAL_DELAY == PGX_ENABLE ) //&& defined( __18CXX )
 		 pg_delay_ninstus_calc( );
