@@ -84,7 +84,13 @@
 	void	pgx_event_init( void ) {
 		//------------------------------------------------------------------------
 		RCONbits.IPEN = 0;
-		pgx_user_handler_callback = NULL;
+        #if ( PGX_EVENT_AUTO_HANDLER == PGX_ENABLE )
+            pgx_user_handler_callback = pgx_event_auto_handler;
+        #else
+            pgx_user_handler_callback = NULL;
+        #endif
+            
+            
 		pgx_event_name = PGX_EVENT_CLEAR;
 	}
 
@@ -259,8 +265,8 @@
 		#if ( PGX_EVENT_SET_INT0 == PGX_ENABLE )
 			case PGX_EVENT_INT0: {
 				PGX_INTERRUPT_INT0_ENABLE = int_state;
-//				INTCON2bits.RBPU = 0;				// Pull ups on Portb are enable
-//				INTCON2bits.INTEDG0 = 0;			// Activates on raising edge
+				INTCON2bits.RBPU = 0;				// Pull ups on Portb are enable
+				INTCON2bits.INTEDG0 = 0;			// Activates on raising edge
 				break;
 			}
 		#endif

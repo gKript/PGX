@@ -61,7 +61,7 @@
 		#define PGX_EVENT_SET_INT0			PGX_ENABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 		#define PGX_EVENT_SET_INT1			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 		#define PGX_EVENT_SET_INT2			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
-		#define PGX_EVENT_SET_RB0			PGX_DISABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
+		#define PGX_EVENT_SET_RB0			PGX_ENABLE			//!< Must be: PGX_ENABLE || PGX_DISABLE
 		//------------------------------------------------------------------------
 		//		I N T E R N A L   I N T E R R U P T S
 		//------------------------------------------------------------------------
