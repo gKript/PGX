@@ -49,7 +49,7 @@
 
 
 _pgx_Uint8 st = 0;
-
+_pgx_Uint8 tg = 0;
 
 void	led_toggle( void ) {
     st ^= 1;    
@@ -58,11 +58,25 @@ void	led_toggle( void ) {
 }
 
 
+void	led_activity( void ) {
+    tg ^= 1;    
+    pin_write( 23 , tg );
+    pgx_delay_msec( 250 );
+}
+
+
 void main( void ) {
 	pgx_initialize( );
     pin_mode( 20 , PGX_IN );
-    pgx_event_attach( PGX_EVENT_INT0 , led_toggle );
-    PGX_HALT;
-}
+    
+    pgx_event_set( PGX_EVENT_ANY , PGX_ENABLE );
 
+    pgx_event_attach( PGX_EVENT_INT0 , led_toggle );
+
+    pgx_event_set( PGX_EVENT_INT0 , PGX_ENABLE );
+
+    PGX_HALT
+        led_activity();
+    
+}
 

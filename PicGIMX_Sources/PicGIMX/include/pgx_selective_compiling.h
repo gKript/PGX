@@ -48,7 +48,7 @@
 
 #ifndef _PGIMX_SELECTIVE_COMPILING_H_
 	#define _PGIMX_SELECTIVE_COMPILING_H_
-
+	//------------------------------------------------------------------------
 	#if defined( PGX_DOXYGEN )
 		//========================================================================
 		//		LCD_HD44780  -  R e d e f i n i t i o n s
@@ -158,9 +158,6 @@
 			#undef	PGX_PWM_DC_RES_MAX								
 			#define	PGX_PWM_DC_RES_MAX								PGX_INCLUDE
 		#endif
-		
-		
-		
 	#elif ( ( PGX_ALL_MODULES_DISABLED == PGX_ENABLE ) && ( PGX_PROJECT_STATE == PGX_DEBUG ) )
 		//========================================================================
 		//		LCD_HD44780  -  R e d e f i n i t i o n s

@@ -82,14 +82,14 @@
 		_pgx_float		pgx_timer_1_nanosec;
 		_pgx_float		pgx_timer_1_nanosec_min;
 		_pgx_float		pgx_timer_1_nanosec_max;
-
+        //---
 		_pgx_Uint16		pgx_timer_1_prescaler;
 		_pgx_Uint8		pgx_timer_1_prescaler_mask;
 		_pgx_Uint16		pgx_timer_1_timer_counter;
 		_pgx_Uint16_VAL	pgx_timer_1_tmr_reg_set_value;
 		_pgx_Uint16_VAL	pgx_timer_1_tmr_reg_current_value;
 		_pgx_float		pgx_timer_1_period_with_prescaler;
-
+        //---
 		_pgx_Uint16_VAL	pgx_timer_1_tmr_reg_set_save;
 	#endif
 	//------------------------------------------------------------------------

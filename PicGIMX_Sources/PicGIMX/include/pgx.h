@@ -5,7 +5,6 @@
 		\brief		To correct initialize PGX environment
 	*/
 	void pgx_initialize( void );
-    
 	//-------------------------------------------------------------------------------
 	//    I N C L U S I O N S :     E N V I R O N M E N T
 	//-------------------------------------------------------------------------------

@@ -53,6 +53,7 @@
 	#define _PGIMX_EVENT_H_
 	//------------------------------------------------------------------------
 	#if ( PGIMX_EVENT == PGX_ENABLE )
+
 		//------------------------------------------------------------------------
 		/*!
 		 *	\brief	This is the initialization function of interrups handler module.
@@ -72,7 +73,7 @@
 		 *						example : \ref PGX_EVENT_TMR0
 			\return	Nothing.
 		 */
-		void pgx_event_clear_bit						( char int_event );
+		void pgx_event_clear_bit							( char int_event );
 		//------------------------------------------------------------------------
 		/*!
 		 *	\brief		This is the function to enable or disable the interrupt events. 
@@ -82,7 +83,7 @@
 			\return		Nothing.
 		 *	\warning	Only those listed as enabled in the public file : pgim_event_setup_public.h
 		 */
-		void pgx_event_set					( char int_event , char int_state );
+		void pgx_event_set									( char int_event , char int_state );
 		//------------------------------------------------------------------------
 		#if ( PGX_EVENT_AUTO_HANDLER == PGX_ENABLE )
 			/*!
@@ -91,7 +92,7 @@
 			 	\attention		Internal use only !
 			 	\deprecated	Do not call directly. \n
 			 */
-		    char pgx_event_auto_handler	    ( void );
+		    char pgx_event_auto_handler						( void );
 		#else
 			/*!
 				\brief			This is the call for the user interrupt handler. \n The code for this function must be placed in the relative function in this file : pgim_interrupt_callbacks.c
@@ -108,7 +109,7 @@
 			\attention		Internal use only !
 			\deprecated	Do not call directly. \n
 		*/
-		void	my_isr											( void );
+		void my_isr											( void );
 		//------------------------------------------------------------------------
 		/*!
 			\brief			This is the first and only one function called by my_isr(). Depending on the configuration, it calls pgx_event_auto_handler()  or  pgx_event_user_handler().
@@ -164,15 +165,15 @@
 		#define		PGX_INTERRUPT_TMR2_FLAG				PIR1bits.TMR2IF				//!< This is the internal definition of the interrupt flag bit TMR2
 		#define		PGX_INTERRUPT_TMR2_ENABLE			PIE1bits.TMR2IE			//!< This is the internal definition of the enable interrupt bit TMR2
 		#define		PGX_INTERRUPT_RB0_FLAG				INTCONbits.RBIF				//!< This is the internal definition of the interrupt flag bit RB
-		#define		PGX_INTERRUPT_RB0_ENABLE				INTCONbits.RBIE			//!< This is the internal definition of the enable interrupt bit RB
+		#define		PGX_INTERRUPT_RB0_ENABLE			INTCONbits.RBIE			//!< This is the internal definition of the enable interrupt bit RB
 		#define		PGX_INTERRUPT_AD_FLAG				PIR1bits.ADIF				//!< This is the internal definition of the interrupt flag bit AD
 		#define		PGX_INTERRUPT_AD_ENABLE				PIE1bits.ADIE			//!< This is the internal definition of the enable interrupt bit AD
 		#define		PGX_INTERRUPT_USARTRC_FLAG			PIR1bits.RCIF				//!< This is the internal definition of the interrupt flag bit RC
-		#define		PGX_INTERRUPT_USARTRC_ENABLE			PIE1bits.RCIE			//!< This is the internal definition of the enable interrupt bit RC
+		#define		PGX_INTERRUPT_USARTRC_ENABLE		PIE1bits.RCIE			//!< This is the internal definition of the enable interrupt bit RC
 		#define		PGX_INTERRUPT_USARTTX_FLAG			PIR1bits.TXIF				//!< This is the internal definition of the interrupt flag bit TX
-		#define		PGX_INTERRUPT_USARTTX_ENABLE			PIE1bits.TXIE			//!< This is the internal definition of the enable interrupt bit TX
+		#define		PGX_INTERRUPT_USARTTX_ENABLE		PIE1bits.TXIE			//!< This is the internal definition of the enable interrupt bit TX
 		#define		PGX_INTERRUPT_SSP_FLAG				PIR1bits.SSPIF				//!< This is the internal definition of the interrupt flag bit SSP
-		#define		PGX_INTERRUPT_SSP_ENABLE				PIE1bits.SSPIE			//!< This is the internal definition of the enable interrupt bit SSP
+		#define		PGX_INTERRUPT_SSP_ENABLE			PIE1bits.SSPIE			//!< This is the internal definition of the enable interrupt bit SSP
 		#define		PGX_INTERRUPT_CCP1_FLAG				PIR1bits.CCP1IF				//!< This is the internal definition of the interrupt flag bit CCP1
 		#define		PGX_INTERRUPT_CCP1_ENABLE			PIE1bits.CCP1IE			//!< This is the internal definition of the enable interrupt bit CCP1
 		#define		PGX_INTERRUPT_CCP2_FLAG				PIR2bits.CCP2IF				//!< This is the internal definition of the interrupt flag bit CCP2
@@ -184,7 +185,7 @@
 		#define		PGX_INTERRUPT_EE_FLAG				PIR2bits.EEIF				//!< This is the internal definition of the interrupt flag bit EE
 		#define		PGX_INTERRUPT_EE_ENABLE				PIE2bits.EEIE			//!< This is the internal definition of the enable interrupt bit EE
 		#define		PGX_INTERRUPT_BCL_FLAG				PIR2bits.BCLIF				//!< This is the internal definition of the interrupt flag bit BCL
-		#define		PGX_INTERRUPT_BCL_ENABLE				PIE2bits.BCLIE			//!< This is the internal definition of the enable interrupt bit BCL
+		#define		PGX_INTERRUPT_BCL_ENABLE			PIE2bits.BCLIE			//!< This is the internal definition of the enable interrupt bit BCL
 		//---
 		#define		PGX_INTERRUPT_GLOBAL_ENABLE			INTCONbits.GIE			//!< This is the internal definition of the GLOBAL enable interrupt bit
 		#define		PGX_INTERRUPT_PERIPHERAL_ENABLE  	INTCONbits.PEIE			//!< This is the internal definition of the PERIPHERAL enable interrupt bit

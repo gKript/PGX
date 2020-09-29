@@ -48,18 +48,19 @@
 
 #ifndef _PGIMX_SELECTIVE_COMPILING_SETUP_H_
 	#define _PGIMX_SELECTIVE_COMPILING_SETUP_H_
-	
 	//========================================================================
 	//		LCD_HD44780  -  S e l e c t i v e   c o m p i l i n g
 	//========================================================================
 	#if ( PGIMX_LCD_HD44780 == PGX_ENABLE )
-
 		//------------------------------------------------------------------------------------------------------------
 		//		THESE FUNCTIONS CAN BE DISABLED IF NOT USED ( manual )
 		//------------------------------------------------------------------------------------------------------------
 		//pg_lcd_hd44780_char_generator()
 		#define	PGX_LCD_HD44780_CHAR_GENERATOR					PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
+		//pg_lcd_hd44780_put_char()
+		#define	PGX_LCD_HD44780_PUT_CHAR						PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+
 		//pg_lcd_hd44780_put_p_char()
 		#define	PGX_LCD_HD44780_PUT_P_CHAR						PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
@@ -90,6 +91,9 @@
 		//pg_lcd_hd44780_write()
 		#define	PGX_LCD_HD44780_WRITE							PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
 		
+		//pgx_lcd_hd44780_print_delay()
+		#define	PGX_LCD_HD44780_PRINT_DELAY						PGX_INCLUDE	//!< Must be: PGX_INCLUDE || PGX_EXCLUDE
+
 		//------------------------------------------------------------------------------------------------------------
 		//		THESE FUNCTIONS CAN BE DISABLED IF NOT USED ( semi-automatic )
 		//------------------------------------------------------------------------------------------------------------

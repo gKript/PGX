@@ -49,7 +49,6 @@
 
 #ifndef _PGIMX_HARDWARE_SETUP_PUBLIC_H_
 	#define	_PGIMX_HARDWARE_SETUP_PUBLIC_H_
-
 	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   L E D - E R R O R
 	//========================================================================
@@ -208,7 +207,6 @@
 		#define PGX_DDS_AD9851_DATABUS				PGX_MISSING			//!< Must be: <port-lat-name> || PGX_MISSING if not used.	//Used in parallel data mode.
 	#endif
     //========================================================================
-
 #endif /* _PGIMX_HARDWARE_SETUP_PUBLIC_H_ */
 
 

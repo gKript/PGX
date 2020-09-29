@@ -1,26 +1,26 @@
 //
 #include "pgx.h"
 
-#if ( PGX_PROJECT_STATE == PGX_DEBUG )
-    #warning PGX >>> Message >>> This file is compiling...
-#endif
-
 #if ( PGIMX_LCD_HD44780 == PGX_ENABLE )
-	
-    //#if ( )
-        //global variable
-        _pgx_Uint16 pgx_lcd_hd780_print_speed_ms;
-    //#endif
+	//------------------------------------------------------------------------
+    #if ( PGX_PROJECT_STATE == PGX_DEBUG )
+        #warning PGX >>> Message >>> This file is compiling...
+    #endif
+    //------------------------------------------------------------------------
+
+    //---[Global Variable ]---
+    #if ( PGX_LCD_HD44780_PRINT_DELAY == PGX_INCLUDE )
+        _pgx_Uint16 pgx_lcd_hd780_print_delay_ms;
+    #endif
     
     //---[ HD44780 Print Delay ]---
-    //#if ( )
-	void pgx_lcd_hd44780_print_speed( _pgx_Uint16 PrintSpeed) {
+    #if ( PGX_LCD_HD44780_PRINT_DELAY == PGX_INCLUDE )
+	void pgx_lcd_hd44780_print_delay( _pgx_Uint16 PrintDelay) {
         //--------------------------------------------------------------------
         //Implemented only in put char function...
-        pgx_lcd_hd780_print_speed_ms = PrintSpeed;
+        pgx_lcd_hd780_print_delay_ms = PrintDelay;
     }
-    //#endif
-    //---[ END HD44780 Print Delay ]---
+    #endif
         
     //---[ HD44780 Init ]---
 	void pgx_lcd_hd44780_init( void ) {
@@ -62,7 +62,7 @@
 			#endif
 			PGX_LCD_HD44780_BL_3_TRIS = PGX_OUT;
 		#endif
-
+        //--------------------------------------------------------------------
 		//Lcd control tris
 		#if ( PGX_LCD_HD44780_EN_0_PRESENT == PGX_YES )
 			PGX_LCD_HD44780_EN_0 = PGX_DISABLE;
@@ -89,7 +89,7 @@
 		PGX_LCD_HD44780_DATA_1_TRIS  = PGX_OUT;
 		PGX_LCD_HD44780_DATA_2_TRIS  = PGX_OUT;
 		PGX_LCD_HD44780_DATA_3_TRIS  = PGX_OUT;
-		
+		//--------------------------------------------------------------------
 		//Initialize controllers
 		#if ( PGX_LCD_HD44780_EN_0_PRESENT == PGX_YES )
 			pgx_lcd_hd44780_init_routine( PGX_CONTROLLER_0 );
@@ -103,7 +103,7 @@
 		#if ( PGX_LCD_HD44780_EN_3_PRESENT == PGX_YES )
 			pgx_lcd_hd44780_init_routine( PGX_CONTROLLER_3 );
 		#endif
-		
+		//--------------------------------------------------------------------
 		//Backlight turn-on
 		#if ( ( PGX_LCD_HD44780_BL_0_PRESENT == PGX_YES ) && ( PGX_LCD_HD44780_BL_0_ENABLE == PGX_ENABLE ) )
 			#if ( PGX_LCD_HD44780_BL_0_ENABLE_LOGIC == PGX_POSITIVE )
@@ -137,7 +137,7 @@
 				PGX_LCD_HD44780_BL_3 = PGX_LOW;	//Active Low
 			#endif
 		#endif
-		
+		//--------------------------------------------------------------------
 		 //Splash screen FULL
 		 #if ( ( PGX_LCD_HD44780_EN_0_PRESENT == PGX_YES ) && ( PGX_LCD_HD44780_SPLASH_FULL_0_EN ) )
 			 pgx_lcd_hd44780_splash_full( PGX_CONTROLLER_0 );
@@ -151,7 +151,7 @@
 		 #if ( ( PGX_LCD_HD44780_EN_3_PRESENT == PGX_YES ) && ( PGX_LCD_HD44780_SPLASH_FULL_3_EN ) )
 			 pgx_lcd_hd44780_splash_full( PGX_CONTROLLER_3 );
 		 #endif
-		
+		//--------------------------------------------------------------------
 		 //Splash screen SLIDE
 		 #if ( ( PGX_LCD_HD44780_EN_0_PRESENT == PGX_YES ) && ( PGX_LCD_HD44780_SPLASH_SLIDE_0_EN ) )
 			 pgx_lcd_hd44780_splash_slide( PGX_CONTROLLER_0 );
@@ -166,7 +166,6 @@
 			 pgx_lcd_hd44780_splash_slide( PGX_CONTROLLER_3 );
 		 #endif
 	}
-    //---[ END HD44780 Init ]---
 
 	//---[ HD44780 Init Routine ]---
     void pgx_lcd_hd44780_init_routine( _pgx_int8 Controller ) {
@@ -216,7 +215,6 @@
 		//pgx_lcd_hd44780_goto( Controller , 0 , 0 );
 		pgx_delay_msec( 10 );
 	}
-	//---[ END HD44780 Init Routine ]---
 	
     //---[ HD44780 Splash Full ]---
 	 #if ( ( PGX_LCD_HD44780_SPLASH_FULL_0_EN == PGX_ENABLE ) || \
@@ -239,7 +237,6 @@
 			pgx_delay_msec( 500 );
 		}		
 	#endif
-    //---[ END HD44780 Splash Full ]---
 	
     //---[ HD44780 Splash Slide ]---
 	#if ( ( PGX_LCD_HD44780_SPLASH_SLIDE_0_EN == PGX_ENABLE ) || \
@@ -263,7 +260,6 @@
 			pgx_delay_msec( 500 );
 		}
 	#endif
-    //---[ END HD44780 Splash Slide ]---
 	
     //---[ HD44780 Busy Flag ]---
 	#if ( PGX_LCD_HD44780_BUSY_FLAG == PGX_ENABLE )
@@ -307,7 +303,6 @@
 			return Dat;
 		}
 	#endif 
-    //---[ END HD44780 Busy Flag ]---
 
     //---[ HD44780 Wait Busy ]---
 	void pgx_lcd_hd44780_wait_busy( _pgx_int8 Controller ) {
@@ -326,7 +321,6 @@
 			pgx_delay_usec( PGX_LCD_HD44780_BUSY_DELAY );
 		#endif
 	}
-    //---[ END HD44780 Wait Busy ]---
 
     //---[ HD44780 Write Nibble ]---
 	void pgx_ldc_hd44780_write_nibble( _pgx_int8 Controller , _pgx_Uint8 DataType , _pgx_Uint8 Dat ) {
@@ -353,7 +347,6 @@
 		pgx_lcd_hd44780_en_select( Controller , PGX_DISABLE );
 		pgx_delay_msec( 1 );
 	}
-    //---[ END HD44780 Write Nibble ]---
 
     //---[ HD44780 Write byte ]---
 	void pgx_lcd_hd44780_write_byte( _pgx_int8 Controller , _pgx_Uint8 DataType , _pgx_Uint8 Dat ) {
@@ -361,7 +354,6 @@
 		pgx_ldc_hd44780_write_nibble( Controller , DataType , Dat >> 4 );
 		pgx_ldc_hd44780_write_nibble( Controller , DataType , Dat );
 	}
-    //---[ END HD44780 Write Byte ]---
 
     //---[ HD44780 Enable Select ]---
 	void pgx_lcd_hd44780_en_select( _pgx_int8 Controller , _pgx_Uint8 EnState ) {
@@ -384,7 +376,6 @@
 				PGX_LCD_HD44780_EN_3 = EnState;
 		#endif
 	}
-    //---[ END HD44780 Enable Select ]---
     
     //---[ HD44780 Clear ]---
 	void pgx_lcd_hd44780_clear( _pgx_int8 Controller ) {
@@ -393,7 +384,6 @@
 		pgx_delay_msec( 100 );
 		pgx_lcd_hd44780_wait_busy( Controller );
 	}
-    //---[ END HD44780 Clear ]---
 
     //---[ HD44780 Goto ]---
 	void pgx_lcd_hd44780_goto( _pgx_int8 Controller , _pgx_Uint8 Ln , _pgx_Uint8 Pos ) {
@@ -431,10 +421,9 @@
 		//	2		10 11 12 ... 1F
 		//	3		50 51 52 ... 5F
 	}
-    //---[ END HD44780 Goto ]---
     
     //---[ HD44780 Goto ]---
-		#if ( PGX_LCD_HD44780_CHAR_GENERATOR == PGX_INCLUDE )
+	#if ( PGX_LCD_HD44780_CHAR_GENERATOR == PGX_INCLUDE )
 		void pgx_lcd_hd44780_char_generator( _pgx_int8 Controller ,char location , char * new_char ) {
             //--------------------------------------------------------------------
 			//	Location 0,1,2,...7
@@ -446,7 +435,6 @@
 				pgx_lcd_hd44780_write_byte( Controller , PGX_DATA , new_char[i] );
 		}
 	#endif
-    //---[ END HD44780 Goto ]---
 	
 	//---[ HD44780 Eeprom ]---
 	#if ( PGX_EE == PGX_ENABLE )
@@ -458,18 +446,20 @@
 				pgx_lcd_hd44780_write_byte( Controller , PGX_DATA , pgx_ee_read( ee_addy + i ) );
 		}
 	#endif
-	//---[ END HD44780 Eeprom ]---
 
 	//---[ HD44780 Put Char ]---
-	void pgx_lcd_hd44780_put_char( _pgx_int8 Controller , _pgx_Uint8 Data ) {
-        //--------------------------------------------------------------------
-		pgx_lcd_hd44780_write_byte( Controller , PGX_DATA , Data );
-		if( pgx_lcd_hd780_print_speed_ms ) {
-            pgx_delay_msec( pgx_lcd_hd780_print_speed_ms );
+    #if ( PGX_LCD_HD44780_PUT_CHAR == PGX_INCLUDE )
+        void pgx_lcd_hd44780_put_char( _pgx_int8 Controller , _pgx_Uint8 Data ) {
+            //--------------------------------------------------------------------
+            pgx_lcd_hd44780_write_byte( Controller , PGX_DATA , Data );
+            #if ( PGX_LCD_HD44780_PRINT_DELAY == PGX_INCLUDE )
+                if( pgx_lcd_hd780_print_delay_ms ) {
+                    pgx_delay_msec( pgx_lcd_hd780_print_delay_ms );
+            #endif
+            }
+            pgx_lcd_hd44780_wait_busy( Controller );
         }
-        pgx_lcd_hd44780_wait_busy( Controller );
-	}
-    //---[ END HD44780 Put Char ]---
+    #endif
 	
     //---[ HD44780 Put Position Char ]---
 	#if ( PGX_LCD_HD44780_PUT_P_CHAR == PGX_INCLUDE )
@@ -480,7 +470,6 @@
 			pgx_lcd_hd44780_wait_busy( Controller );
 		}
 	#endif
-    //---[ ENDHD44780 Put Position Char ]---
 	
     //---[ HD44780 Put Byte ]---
 	#if ( PGX_LCD_HD44780_PUT_BYTE == PGX_INCLUDE )
@@ -490,7 +479,6 @@
 			pgx_lcd_hd44780_put_char( Controller , Val % 10 + '0' );
 		}
 	#endif
-    //---[ END HD44780 Put Byte ]---
 	
 	//---[ HD44780 Put Position Byte ]---
 	#if ( PGX_LCD_HD44780_PUT_P_BYTE == PGX_INCLUDE )
@@ -501,7 +489,6 @@
 			pgx_lcd_hd44780_put_char( Controller , Val % 10 + '0' );
 		}
 	#endif
-	//---[ HD44780 Put Position Byte ]---
 
 	//---[ HD44780 Write String ]---
 	void pgx_lcd_hd44780_write_string( _pgx_int8 Controller , _pgx_int8  *Str ) {
@@ -510,7 +497,6 @@
 		while( Str[i] )
 			pgx_lcd_hd44780_put_char( Controller , Str[i++] );
 	}
-	//---[ END HD44780 Write String ]---
 
 	//---[ HD44780 Write String Rom ]---
 	#if ( PGX_LCD_HD44780_WRITE_STRING_ROM == PGX_INCLUDE )
@@ -522,7 +508,6 @@
 				pgx_lcd_hd44780_put_char( Controller , Str[ i++ ] );
 		}
 	#endif
-	//---[ END HD44780 Write String Rom ]---
 	
 	//---[ HD44780 Write Position String ]---
 	 #if ( PGX_LCD_HD44780_WRITE_P_STRING == PGX_INCLUDE 	)
@@ -534,7 +519,6 @@
 				pgx_lcd_hd44780_put_char( Controller , Str[i++] );
 		}
 	#endif
-	//---[ END HD44780 Write Position String ]---
 	
 	//---[ HD44780 Write Position String Flash ]---
 	#if ( PGX_LCD_HD44780_WRITE_P_STRING_FLASH == PGX_INCLUDE )
@@ -551,7 +535,6 @@
 				pgx_lcd_hd44780_put_char( Controller , ' ' );
 		}
 	#endif
-	//---[ END HD44780 Write Position String Flash ]---
 
 	//---[ HD44780 Write Position String Rom ]---
 	#if ( PGX_LCD_HD44780_WRITE_P_STRING_ROM == PGX_INCLUDE )
@@ -565,7 +548,6 @@
             }
 		}
 	#endif
-	//---[ END HD44780 Write Position String Rom ]---
 	
 	//---[ HD44780 Write Position Flash Rom ]---
 	#if ( PGX_LCD_HD44780_WRITE_P_STRING_FLASH_ROM == PGX_INCLUDE )
@@ -584,7 +566,6 @@
 				pgx_lcd_hd44780_put_char( Controller , ' ' );
 		}
 	#endif
-	//---[ END HD44780 Write Position Flash Rom ]---
 	
 	//---[ HD44780 Write Position Integer ]---
 	#if ( PGX_LCD_HD44780_WRITE_P_INT == PGX_INCLUDE )
@@ -597,7 +578,6 @@
 			pgx_lcd_hd44780_write_string( Controller , Str );
 		}	
 	#endif
-	//---[ END HD44780 Write Position Integer ]---
 	
 	//---[ HD44780 Write Position Float ]---
 	#if ( PGX_FTOA	== PGX_ENABLE )
@@ -608,7 +588,6 @@
 			pgx_lcd_hd44780_write_string( Controller , pgx_ftoa( Flt, Decimal_Digits ) );
 		}
 	#endif
-	//---[ END HD44780 Write Position Float ]---
 
 	//---[ HD44780 Write Position Char ]---
 	#if ( ( PGX_LCD_HD44780_SPLASH_FULL_0_EN == PGX_ENABLE ) || \
@@ -629,7 +608,6 @@
 			pgx_lcd_hd44780_write_string( Controller , Str );
 		}
 	#endif
-	//---[ END HD44780 Write Position Char ]---
 
 	//---[ HD44780 Write ]---
 //	 #if ( PGX_LCD_HD44780_WRITE == PGX_INCLUDE )
@@ -646,7 +624,6 @@
 //			 pgx_lcd_hd44780_write_string( Controller , Message );
 //		 }
 //	 #endif
-	//---[ END HD44780 Write ]---
 #endif
 
 

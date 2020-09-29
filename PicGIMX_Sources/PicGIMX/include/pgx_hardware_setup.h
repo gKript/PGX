@@ -1,7 +1,6 @@
 //
 #ifndef _PGIMX_HARDWARE_SETUP_H_
 	#define	_PGIMX_HARDWARE_SETUP_H_
-
 	//========================================================================
 	//	P R O J E C T   P O W E R   S U P P L Y   V O L T A G E   C H E C K   
 	//========================================================================

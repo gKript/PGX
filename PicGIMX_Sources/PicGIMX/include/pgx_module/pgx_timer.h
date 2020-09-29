@@ -51,30 +51,26 @@
 
 #ifndef _PGIMX_TIMER_H_
 	#define _PGIMX_TIMER_H_
-
+	//------------------------------------------------------------------------
 	#if ( PGIMX_TIMER == PGX_ENABLE )
 
 		//---[ Timer Mode ]---
 		#define	PGX_ENABLE_LOOP						100				//!< Timer continues to cycle.
 		#define	PGX_ENABLE_1_SHOT					101				//!< Timer cycles only once.
-		//---[ END Timer Mode ]---
 
 		//---[ Status ]---
 		#define	PGX_TIMER_ALREADY_STARTED			10				//!< Timer is already started.
 		#define	PGX_TIMER_ALREADY_STOPPED			11				//!< Timer is already stopped.
 		#define	PGX_TIMER_IS_RUNNING				12				//!< Timer is running.
-		//---[ END Status ]---
 		
 		//---[ Error ]---
 		#define	PGX_TIMER_ERROR						201				//!< Timer unknown error.
 		#define PGX_TIMER_ERROR_ID					202				//!< Timer identifier not enabled or wrong.
 		#define PGX_TIMER_ERROR_TIME_TOO_LONG		203				//!< Required time is too high!
 		#define PGX_TIMER_ERROR_TIME_TOO_SHORT		204				//!< Required time is too short!
-		//---[ END Error ]---
 		
 		//---[ Variables ]---
 		#define	PGX_TIMER_FOSC_DIVIDER				4.000			//!< Internal clock divider to drive timer.
-		//---[ END Variables ]---
 		
 		//---[ Prescaler Value ]---
 		#define	PGX_TIMER_0_PRESCALER_256			0b11111000        //!< Timer 0 1:256 prescaler value
@@ -91,7 +87,6 @@
 		#define	PGX_TIMER_1_PRESCALER_4				0b11111101        //!< Timer 1 1:4 prescaler value
 		#define	PGX_TIMER_1_PRESCALER_2				0b11111110        //!< Timer 1 1:2 prescaler value
 		#define	PGX_TIMER_1_PRESCALER_1				0b11111111        //!< Timer 1 1:1 NO prescaler
-        //---[ END Prescaler Value ]---
 
 		//---[ Counter Bits ]---
 		#define	PGX_TIMER_0_BIT_8					0b10111111        //!< Timer 0 8 bit counter
@@ -99,7 +94,6 @@
 		//---
 		#define	PGX_TIMER_1_BIT_8					0b11111111        //!< Timer 1 8 bit counter
         #define	PGX_TIMER_1_BIT_16					0b01111111		//!< Timer 1 16 bit counter
-		//---[ END Counter Bits ]---
 
 		//---[ Clock Source ]---
 		#define	PGX_TIMER_0_SOURCE_EXTERNAL			0b11011111        //!< Timer 0 external pin source (T0CKI))
@@ -107,24 +101,20 @@
 		//---
 		#define	PGX_TIMER_1_SOURCE_EXTERNAL			0b11111101        //!< Timer 1 external pin source (RC0/T1OSO/T13CKI)
         #define	PGX_TIMER_1_SOURCE_INTERNAL			0b11111111		//!< Timer 1 internal source (CLKO)
-		//---[ END Clock Source ]---
 
 		//---[ Clock EDGE ]---
 		#define	PGX_TIMER_0_EDGE_T0CKI_H_TO_L		0b11101111        //!< T0CKI edge High to Low
         #define	PGX_TIMER_0_EDGE_T0CKI_L_TO_H		0b11111111		//!< T0CKI edge Low to High
-		//---[ END Clock EDGE ]---
 		
 		//---[ Oscillator ]---
   		#define	PGX_TIMER_1_OSCILLATOR_ON			0b11110111        //!< Timer 1 oscillator on
         #define	PGX_TIMER_1_OSCILLATOR_OFF			0b11111111		//!< Timer 1 oscillator off
-		//---[ END Oscillator ]---
 
 		//---[ External Clock Sync ]---
   		#define	PGX_TIMER_1_SYNC_ON					0b11111111        //!< Timer 1 external clock synchronization on
         #define	PGX_TIMER_1_SYNC_OFF				0b11111011		//!< Timer 1 external clock synchronization off
-		//---[ END External Clock Sync ]---
   
-        //---[ Prototypes ]---------------------------------------------------	
+        //------------------------------------------------------------------------
 		/*!
 			\brief			This function properly initializes the TIMER module.
 			\attention		Internal use only !
@@ -213,23 +203,19 @@
 								Use \b PGX_TIMER_1 to select Timer 1
 		*/
 		_pgx_Uint16	pgx_timer_reg_current_value             ( _pgx_Uint8 timer_id );	
-		//---[ END Prototypes ]-----------------------------------------------
+		//------------------------------------------------------------------------
 		
 		//---[ Timer_0 ]---    
 		#if ( PGIMX_TIMER_0 != PGX_DISABLE )
-
 			#define PGX_TIMER_0						0				//!< Timer 0 identifier.
-			
 			#define PGX_TIMER_0_PRESCALER_MIN		1				//!< Min prescaler value (8bit). Set to 1 to disable prescaler, not to 0, it is used in a division with the clock value.
 			#define PGX_TIMER_0_PRESCALER_MAX		256				//!< Max prescaler value (8bit). Not 255, it is used in a division with the clock value.
-			
 			#define	PGX_TIMER_0_TMR_REG_MIN			1.000			//!< Timer register min value. Not 0.
 			#define PGX_TIMER_0_TMR_REG_MAX			65535.000		//!< Timer register max value (16bit).
-
 			#define PGX_TIMER_0_OFFSET_GUARD		500.000			//!< Guard offset in determination of the minimum possible time.
-
+			//------------------------------------------------------------------------
 			extern	_pgx_Uint16_VAL	pgx_timer_0_tmr_reg_set_save;	//!< Backup the 16-bit value of the timer 0 register.
-
+			//------------------------------------------------------------------------
 			#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
 				#if ( PGIMX_TIMER_0 == PGX_ENABLE_1_SHOT )
 					#warning	PGX >>> TIMER 0 module >>> Set 1-SHOT mode
@@ -240,30 +226,25 @@
 					#warning	PGX >>> TIMER 0 module >>> Hint >>> Max time available is PGX_TIMER_FOSC_DIVIDER * PGX_TIMER_0_TMR_REG_MAX * PGX_TIMER_0_PRESCALER_MAX / PGX_CLOCK [us]
 				#endif
 			#endif
-			
 			#if defined( _GIM_H_ ) && defined( __18CXX ) //&& ( PGX_VERBOSE == PGX_ENABLE )
 				#if ( PGX_CLOCK < 4 )
 					#warning	PGX >>> TIMER 0 module >>> Sorry, DOES NOT WORK correctly with a clock frequency below 4.000 [MHz]
 				#endif
 			#endif
-		#endif
-		//---[ END Timer_0 ]---				#define PGX_TIMER_1_TMR_REG_8BIT_MAX     256.000         //!< Timer register max value (8bit)
+		#endif			
 
 		//---[ Timer_1 ]---
 		#if ( PGIMX_TIMER_1 != PGX_DISABLE )
-
 			#define PGX_TIMER_1						1				//!< Timer 1 identifier.
-			
 			#define PGX_TIMER_1_PRESCALER_MIN		1               //!< Min prescaler value (2bit). Set to 1 to disable prescaler, not to 0, it is used in a division with the clock value.
 			#define PGX_TIMER_1_PRESCALER_MAX		8				//!< Max prescaler value (2bit). Not 7, it is used in a division with the clock value.
-			
 			#define	PGX_TIMER_1_TMR_REG_MIN			1.000			//!< Timer register min value.
 			#define PGX_TIMER_1_TMR_REG_MAX			65535.000       //!< Timer register max value (16bit).
-
 			#define PGX_TIMER_1_OFFSET_GUARD        500.000         //!< Guard offset in determination of the minimum possible time value.
-
+			//#define PGX_TIMER_1_TMR_REG_8BIT_MAX     256.000         //!< Timer register max value (8bit)
+			//------------------------------------------------------------------------
 			extern	_pgx_Uint16_VAL	pgx_timer_1_tmr_reg_set_save;	//!< Backup the 16-bit value of the timer 1 register.
-
+			//------------------------------------------------------------------------
 			#if defined( _GIM_H_ ) && ( PGX_VERBOSE == PGX_ENABLE )
 				#if ( PGIMX_TIMER_1 == PGX_ENABLE_1_SHOT )
 					#warning	PGX >>> TIMER 1 module >>> Set 1-SHOT mode
@@ -274,22 +255,18 @@
 					#warning	PGX >>> TIMER 1 module >>> Hint >>> Max time available is PGX_TIMER_FOSC_DIVIDER * PGX_TIMER_1_TMR_REG_MAX * PGX_TIMER_1_PRESCALER_MAX / PGX_CLOCK [us]
 				#endif
 			#endif
-			
 			#if defined( _GIM_H_ ) && defined( __18CXX ) //&& ( PGX_VERBOSE == PGX_ENABLE )
 				#if ( PGX_CLOCK < 4 )
 					#warning	PGX >>> TIMER 1 module >>> Sorry, DOES NOT WORK correctly with a clock frequency below 4.000 [MHz]
 				#endif
 			#endif
 		#endif
-		//---[ END Timer_1 ]---
-
 	#endif
 #endif /*_PGIMX_TIMER_H_ */
 
 //			\arg \b PGX_DISABLE : Timer is disabled. Only set the necessary parameters.
 //			\arg \b PGX_ENABLE_1_SHOT : When the timer starts, runs a loop and then stops.
 //			\arg \b PGX_ENABLE_LOOP : When the timer starts, it continues to run until it is stopped.
-
 
 /*!	
 	\page 		HWI_timer			Timer
