@@ -59,7 +59,7 @@
 	#include "pgim_event_setup_public.h"
 	#include "pgx_timer_setup_public.h"
 //	#include "pgim_pwm_setup_public.h"
-//	#include "pgim_serial_setup_public.h"
+	#include "pgx_serial_setup_public.h"
 //	#include "pgim_external_memory_setup_public.h"
 //	#include "pgim_amg88xx_setup_public.h"
 //	#include "pgim_sensor_setup_public.h"

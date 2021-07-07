@@ -32,9 +32,9 @@ void pgx_initialize( void ) {
 		 pgx_event_init( );
 	 #endif
 
-	 #if ( PGIMX_CAL_DELAY == PGX_ENABLE ) //&& defined( __18CXX )
-		 pg_delay_ninstus_calc( );
-	 #endif
+//	 #if ( PGIMX_CAL_DELAY == PGX_ENABLE ) //&& defined( __18CXX )
+//		 pg_delay_ninstus_calc( );
+//	 #endif
 
 	// #if ( PGX_I2C == PGX_ENABLE )
 		// pgx_i2c_init( );
@@ -58,18 +58,18 @@ void pgx_initialize( void ) {
 
 	#if ( PGIMX_LCD_HD44780 == PGX_ENABLE )
 		pgx_lcd_hd44780_init( );
-        #if ( PGX_LCD_HD44780_PRINT_DELAY == PGX_INCLUDE )
-            pgx_lcd_hd44780_print_delay( 0 );
-        #endif
+//        #if ( PGX_LCD_HD44780_PRINT_DELAY == PGX_INCLUDE )
+//            pgx_lcd_hd44780_print_delay( 0 );
+//        #endif
 	#endif
 
 	// #if ( PGX_LCD_PCD8544 == PGX_ENABLE )
 		// pgx_lcd_pcd8544_init( );
     // #endif
 
-	// #if ( PGX_SERIAL == PGX_ENABLE )			//To init after lcd-pcd8544 and lcd-char
-		// pgx_serial_init();
-	// #endif
+	 #if ( PGIMX_SERIAL == PGX_ENABLE )			//To init after lcd-pcd8544 and lcd-char
+		 pgx_serial_init();
+	 #endif
 	
 	// #if ( PGX_EXTERNAL_MEMORY == PGX_ENABLE )
 		// pgx_delay( 10 , PGX_MSEC );				// Delay to wait memory becomes ready; no chip-select allowed
