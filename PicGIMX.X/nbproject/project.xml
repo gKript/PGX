@@ -18,6 +18,7 @@
                 <sourceRootElem>../PicGIMX_Sources/PicGIMX/src</sourceRootElem>
                 <sourceRootElem>../PicGIMX_Sources/PicGIMX/lkr</sourceRootElem>
                 <sourceRootElem>../PicGIMX_Sources/PicGIMX/include/pgim_mcu</sourceRootElem>
+                <sourceRootElem>../../../PicDownloader_2021/GIT/gkDL18F/ControlPic</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
