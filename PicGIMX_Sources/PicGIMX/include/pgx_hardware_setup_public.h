@@ -125,6 +125,27 @@
 		#define PGX_LCD_PCD8544_RST_TRIS			T_C1
 		#define PGX_LCD_PCD8544_CE_TRIS				T_C2
 	#endif
+	
+	//========================================================================
+	//		H A R D W A R E   C O N F I G   |   F L A S H   L V P
+	//========================================================================
+	#if ( PGIMX_FLASH_LVP == PGX_ENABLE )
+		// LAT
+		#define	PGX_FLASH_LVP_PGD_LAT	L_B5				//!< Must be: <pin-lat-name>
+		#define	PGX_FLASH_LVP_PGC_LAT	L_B4				//!< Must be: <pin-lat-name>
+		#define	PGX_FLASH_LVP_PGM_LAT	L_B3				//!< Must be: <pin-lat-name>
+		#define	PGX_FLASH_LVP_RST_LAT	L_B2				//!< Must be: <pin-lat-name>
+		//TRIS
+		#define	PGX_FLASH_LVP_PGD_TRIS	T_B5				//!< Must be: <pin-tris-name>
+		#define	PGX_FLASH_LVP_PGC_TRIS	T_B4				//!< Must be: <pin-tris-name>
+		#define	PGX_FLASH_LVP_PGM_TRIS	T_B3				//!< Must be: <pin-tris-name>
+		#define	PGX_FLASH_LVP_RST_TRIS	T_B2				//!< Must be: <pin-tris-name>
+		//PORT
+		#define	PGX_FLASH_LVP_PGD_PORT	P_B5				//!< Must be: <pin-port-name>
+		#define	PGX_FLASH_LVP_PGC_PORT	P_B4				//!< Must be: <pin-port-name>
+		#define	PGX_FLASH_LVP_PGM_PORT	P_B3				//!< Must be: <pin-port-name>
+		#define	PGX_FLASH_LVP_RST_PORT	P_B2				//!< Must be: <pin-port-name>
+#endif
 	//========================================================================
 	//		H A R D W A R E   C O N F I G   |   B U Z Z E R
 	//========================================================================
