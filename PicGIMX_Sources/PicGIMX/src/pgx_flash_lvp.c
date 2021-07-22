@@ -10,12 +10,17 @@
 	//--------------------------------------------------------------------------
 	// DS39643B - Flash Microcontroller Programming Specification
 	// For 18F8722 (Enhanced)
+	//--------------------------------------------------------------------------
 	// P1 && P17 timing with acceptable MAX value!!!
 	//--------------------------------------------------------------------------
-	// !!! NOT all parameters are under define, check them if mcu is changed !!!
+	// NOT all parameters are under define, check them if mcu is changed
 	//--------------------------------------------------------------------------
+	// #1 row = #1 block = 64[Byte]
+	//--------------------------------------------------------------------------
+	// PGM must be set and can be set only by high voltage ICSP
+    //--------------------------------------------------------------------------
 	
-	//---[ Init ]---
+    //---[ Init ]---
 	void pgx_flash_lvp_init( void ) {
 		//--------------------------------------------------------------------------
 		PGX_FLASH_LVP_PGD_TRIS	= PGX_IN;
@@ -38,9 +43,9 @@
 		PGX_FLASH_LVP_RST_TRIS	= PGX_OUT;
 		
 		PGX_FLASH_LVP_PGM_LAT	= PGX_HIGH;
-		pgx_delay_usec( 5 );					//Delay P15=[2us] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P15 );					//Delay P15=[2us] min.
 		PGX_FLASH_LVP_RST_LAT	= PGX_HIGH;
-		pgx_delay_usec( 5 );					//Delay P12=[2us] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P12 );					//Delay P12=[2us] min.
 		//exiting clean: low on clk && data & pgm && rst
 	}
 	
@@ -49,13 +54,13 @@
 		//--------------------------------------------------------------------------
 		PGX_FLASH_LVP_PGD_LAT	= PGX_LOW;
 		PGX_FLASH_LVP_PGC_LAT	= PGX_LOW;
-		pgx_delay_usec( 1 );					//Delay P16=[0s] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P16 );					//Delay P16=[0s] min.
 		PGX_FLASH_LVP_RST_LAT	= PGX_LOW;
-		pgx_delay_usec( 1 );					//Delay P18=[0s] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P18 );					//Delay P18=[0s] min.
 		PGX_FLASH_LVP_PGM_LAT	= PGX_LOW;
-		pgx_delay_msec( 1 );					//added out delay
-		PGX_FLASH_LVP_PGD_TRIS	= PGX_IN;	//release programming pin
-		PGX_FLASH_LVP_PGC_TRIS	= PGX_IN;	//release programming pin
+		pgx_delay_msec( 1 );                                    //added out delay
+		PGX_FLASH_LVP_PGD_TRIS	= PGX_IN;                       //release programming pin
+		PGX_FLASH_LVP_PGC_TRIS	= PGX_IN;                       //release programming pin
 		//PGX_FLASH_LVP_RST_TRIS	left low and exits keeping target in reset
 	}
 	
@@ -67,22 +72,22 @@
 		for( n = 0 ; n < 4 ; n++ ) {
 			PGX_FLASH_LVP_PGD_LAT = ( ( pgx_command >> n ) & 0b00000001 );		//Least Significant bit (LSb) first
 			PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-			pgx_delay_usec( 1 );				//wait P3=15[ns] min.
+			pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
 			PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-			pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+			pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 			
 		}
-		pgx_delay_usec( 1 );					//wait P5=40[ns] min.
-		//PGX_FLASH_LVP_PGD_LAT = PGX_LOW;	//clean data
+		pgx_delay( PGX_FLASH_LVP_TIMING_P5 );					//wait P5=40[ns] min.
+		//PGX_FLASH_LVP_PGD_LAT = PGX_LOW;                      //clean data
 		for( n = 0 ; n < 16 ; n++ ) {
 			PGX_FLASH_LVP_PGD_LAT = ( ( pgx_payload >> n ) & 0x0001);
 			PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-			pgx_delay_usec( 1 );				//wait P3=15[ns] min.
+			pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
 			PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-			pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+			pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 		}
-		PGX_FLASH_LVP_PGD_LAT = PGX_LOW;		//exit low as clk, clean to default!
-		pgx_delay_usec( 1 );					//wait P5A=40[ns] min.
+		PGX_FLASH_LVP_PGD_LAT = PGX_LOW;                        //exit low as clk, clean to default!
+		pgx_delay( PGX_FLASH_LVP_TIMING_P5A );					//wait P5A=40[ns] min.
 		//exiting clean: low on clk && data
 	}
 	
@@ -96,31 +101,31 @@
 		for( n = 0 ; n < 4 ; n++ ) {
 			PGX_FLASH_LVP_PGD_LAT = ( ( PGX_FLASH_LVP_COMMAND_SHIFT_OUT >> n ) & 0b00000001 );
 			PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-			pgx_delay_usec( 1 );				//wait P3=15[ns] min.
+			pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
 			PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-			pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+			pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 		}
-		pgx_delay_usec( 1 );					//wait P5=40[ns] min.
-		PGX_FLASH_LVP_PGD_LAT = PGX_LOW;		//clean data
-		for( n = 0 ; n < 8 ; n++ ) {		//skip MSB
+		pgx_delay( PGX_FLASH_LVP_TIMING_P5 );					//wait P5=40[ns] min.
+		PGX_FLASH_LVP_PGD_LAT = PGX_LOW;                        //clean data
+		for( n = 0 ; n < 8 ; n++ ) {                            //skip MSB
 			PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-			pgx_delay_usec( 1 );				//wait P3=15[ns] min.
+			pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
 			PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-			pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+			pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 		}
-		pgx_delay_usec( 1 );					//wait P6=20[ns] min.
-		PGX_FLASH_LVP_PGD_TRIS = PGX_IN;		//ready to read data from target
-		for( n = 0 ; n < 8 ; n++ ) {		//read LSB (LSb first)
+		pgx_delay( PGX_FLASH_LVP_TIMING_P6 );                   //wait P6=20[ns] min.
+		PGX_FLASH_LVP_PGD_TRIS = PGX_IN;                        //ready to read data from target
+		for( n = 0 ; n < 8 ; n++ ) {                            //read LSB (LSb first)
 			PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;	
-			pgx_delay_usec( 1 );				//wait P14=10[ns] min.
+			pgx_delay( PGX_FLASH_LVP_TIMING_P14 );				//wait P14=10[ns] min.
 			if( PGX_FLASH_LVP_PGD_PORT ) {
 				data_out |= 0b10000000;
 			}
 			data_out >>= 1;
 			PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-			pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+			pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 		}
-		pgx_delay_usec( 1 );					//wait P5A=40[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P5A );					//wait P5A=40[ns] min.
 		PGX_FLASH_LVP_PGD_TRIS = PGX_OUT;		
 		return( data_out );
 		//exiting clean: low on clk && data
@@ -130,7 +135,6 @@
 	void pgx_flash_lvp_bulk_erase( _pgx_Uint8 pgx_memory_area_id ) {
 		//--------------------------------------------------------------------------
 		_pgx_Uint32_VAL	address;
-		
 		address.val =	pgx_memory_area_id;
 		//--------------------------------------------------------------------------
 		// Step 1: Write control register high byte
@@ -144,11 +148,11 @@
 		// 1100	FF FF				Write FFh to 3C0005h to erase entire device (PGX_FLASH_LVP_BULK_ERASE_CHIP)
 		//--------------------------------------------------------------------------
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0E3C );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF8 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_U );
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0E00 );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF7 );		
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_H );		
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0E05 );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF6 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_L );
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_TBLWR , ( ( (_pgx_Uint16)address.byte.HB << 8 ) & address.byte.HB ) );
 		//--------------------------------------------------------------------------
 		// Step 2: Write control register low byte
@@ -162,11 +166,11 @@
 		// 1100	87 87				Write 87h TO 3C0004h to erase entire device (PGX_FLASH_LVP_BULK_ERASE_CHIP)
 		//--------------------------------------------------------------------------
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0E3C );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF8 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_U );
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0E00 );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF7 );		
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_H );		
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0E04 );	
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF6 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_L );
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_TBLWR , ( ( (_pgx_Uint16)address.byte.LB << 8 ) & address.byte.LB ) );
 		//--------------------------------------------------------------------------
 		// Step 3: Start erasing
@@ -180,9 +184,83 @@
 	}
 
 	//---[ Write Program Memory ]---
+	void pgx_flash_lvp_erase_program_memory_block( _pgx_Uint32 pgx_table_ptr_address , _pgx_Uint16 pgx_block_quantity ) {
+		//--------------------------------------------------------------------------
+		// program memory must be cleared before programming
+		//--------------------------------------------------------------------------
+        _pgx_Uint16	n;
+        _pgx_Uint16	b;
+		_pgx_Uint32_VAL	address;
+		address.val = pgx_table_ptr_address;
+        for( b = 0 ; b < pgx_block_quantity ; b++ ) {
+            //--------------------------------------------------------------------------
+            // Step 1: Direct access to code memory and enable writes.
+            //--------------------------------------------------------------------------
+            // 0000	8E A6				BSF   EECON1, EEPGD
+            // 0000	9C A6				BCF   EECON1, CFGS
+            // 0000	84 A6				BSF   EECON1, WREN
+            //--------------------------------------------------------------------------
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x8EA6 );
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x9CA6 );
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x84A6 );
+            //--------------------------------------------------------------------------
+            // Step 2: Point to first row in code memory.
+            //--------------------------------------------------------------------------
+            // 0000	0E <Addr[21:16]>	MOVLW <Addr[21:16]>
+            // 0000	6E F8				MOVWF TBLPTRU
+            // 0000	0E <Addr[15:8]>		MOVLW <Addr[15:8]>
+            // 0000	6E F7				MOVWF TBLPTRH
+            // 0000	0E <Addr[7:0]>		MOVLW <Addr[7:0]>
+            // 0000	6E F6				MOVWF TBLPTRL
+            // 1101	<MSB><LSB>			Write 2 bytes and post-increment address by 2.. 
+            // ....	...					Repeat 28 times.									//??? #31(con incremento) + 1(senza incremento)!
+            // 1111	<MSB><LSB>			Write 2 bytes and start programming
+            // 0000	00 00				NOP - hold SCLK high for time P9, low for time P10
+            //--------------------------------------------------------------------------
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.UB );
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_U );
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.HB );
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_H );
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.LB );
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_L );
+            //--------------------------------------------------------------------------
+            // Step 3: Enable erase and erase single row.
+            //--------------------------------------------------------------------------
+            // 0000	88 A6				BSF   EECON1, FREE
+            // 0000	82 A6				BSF   EECON1, WR
+            // 0000	00 00				NOP ? hold PGC high for time P9 and low for time P10.
+            //--------------------------------------------------------------------------
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x88A6 );
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x82A6 );
+            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0000 );
+            //--------------------------------------------------------------------------
+            PGX_FLASH_LVP_PGD_LAT = PGX_LOW;	//ensure data is low
+            PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
+            pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
+            PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
+            pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
+            PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
+            pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
+            PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
+            pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
+            PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
+            pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
+            PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
+            pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
+            PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
+            pgx_delay( PGX_FLASH_LVP_TIMING_P9 );               //wait P9=1[ms] min.		(programming time!)
+            PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
+            pgx_delay( PGX_FLASH_LVP_TIMING_P10 );				//wait P10=100[us] min. 	(discharge time!)
+            //exiting clean: low on clk && data
+        }
+	}	
+
+	//---[ Write Program Memory ]---
 	void pgx_flash_lvp_write_program_memory_block( _pgx_Uint32 pgx_table_ptr_address , _pgx_Uint16 * pgx_code_word ) {
 		//--------------------------------------------------------------------------
-		_pgx_Uint16	n;
+		// program memory must be cleared before programming
+		//--------------------------------------------------------------------------
+        _pgx_Uint16	n;
 		_pgx_Uint32_VAL	address;
 		
 		address.val = pgx_table_ptr_address;
@@ -219,35 +297,35 @@
 		// 0000	00 00				NOP - hold SCLK high for time P9, low for time P10
 		//--------------------------------------------------------------------------
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.UB );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF8 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_U );
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.HB );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF7 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_H );
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.LB );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF6 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_L );
 		for( n = 0 ; n < ( PGX_FLASH_LVP_CODEBLOCK_SIZE_WORD - 1 ) ; n++ ) {
 			pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_TBLWR_POSTINC_2B , *( pgx_code_word + n ) );
 		}
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_TBLWR_START , *( pgx_code_word + n ) );	//last word without increment
-		PGX_FLASH_LVP_PGD_LAT = PGX_LOW;	//ensure data is low
+		PGX_FLASH_LVP_PGD_LAT = PGX_LOW;                    //ensure data is low
 		PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-		pgx_delay_usec( 1 );				//wait P3=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P15 );				//wait P3=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-		pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-		pgx_delay_usec( 1 );				//wait P3=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-		pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-		pgx_delay_usec( 1 );				//wait P3=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-		pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-		pgx_delay_msec( 10 );			//wait P9=1[ms] min.		(programming time!)
+		pgx_delay( PGX_FLASH_LVP_TIMING_P9 );               //wait P9=1[ms] min.		(programming time!)
 		PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-		pgx_delay_msec( 1 );				//wait P10=100[us] min. 	(discharge time!)
+		pgx_delay( PGX_FLASH_LVP_TIMING_P10 );				//wait P10=100[us] min. 	(discharge time!)
 		//exiting clean: low on clk && data
 	}	
-
+    
 	//---[ Write EE Memory ]---
 	void pgx_flash_lvp_write_ee_memory_byte( _pgx_Uint16 pgx_ee_address , _pgx_Uint8 pgx_ee_data ) {
 		//--------------------------------------------------------------------------
@@ -296,7 +374,6 @@
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x82A6 );
 		//--------------------------------------------------------------------------
 		// Step 6: Poll WR bit, repeat until the bit is clear.
-		// [EECON1] = <7-EEPGD ><6-CFGS ><5-— ><4-FREE ><3-WRERR ><2-WREN ><1-WR ><0-RD>
 		//--------------------------------------------------------------------------
 		// 0000	50 A6				MOVF   EECON1, W, 0
 		// 0000	6E F5				MOVWF  TABLAT
@@ -311,7 +388,7 @@
 		// Step 7: Hold PGC low for time P10.
 		//--------------------------------------------------------------------------
 		// clk is already low...
-		pgx_delay_msec( 1 );				//wait P10=100[us] min.
+		pgx_delay_msec( 1 );                                //wait P10=100[us] min.
 		//--------------------------------------------------------------------------
 		// Step 8: Disable writes.
 		//--------------------------------------------------------------------------
@@ -323,6 +400,9 @@
 	//---[ Write ID Location ]---
 	void pgx_flash_lvp_write_id_location( _pgx_Uint8  * pgx_id_data ) {
 		//--------------------------------------------------------------------------
+		// pgx_id_data length is 8[byte]
+        // must be erased before programmed
+        //--------------------------------------------------------------------------
 		_pgx_Uint8	n;
 		_pgx_Uint16_VAL	data;
 		
@@ -350,12 +430,12 @@
 		// 0000	00 00			NOP - hold PGC high for time P9 and low for time P10.
 		//--------------------------------------------------------------------------
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0E20 );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF8 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_U );
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0E00 );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF7 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_H );
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0E00 );
-		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF6 );
-		for( n = 0 ; n < 6 ; n + 2 ) {
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_L );
+		for( n = 0 ; n < 6 ; n = n + 2 ) {
 			data.byte.HB = *( pgx_id_data + n );
 			data.byte.LB = *( pgx_id_data + n + 1);
 			pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_TBLWR_POSTINC_2B , data.val );
@@ -364,26 +444,93 @@
 		data.byte.LB = *( pgx_id_data + n + 1);
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_TBLWR_START , data.val );	//last word without increment
 		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x0000 );	
-		PGX_FLASH_LVP_PGD_LAT = PGX_LOW;	//ensure data is low
+		PGX_FLASH_LVP_PGD_LAT = PGX_LOW;                    //ensure data is low
 		PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-		pgx_delay_usec( 1 );				//wait P3=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P15 );				//wait P3=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-		pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-		pgx_delay_usec( 1 );				//wait P3=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-		pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-		pgx_delay_usec( 1 );				//wait P3=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P3 );				//wait P3=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-		pgx_delay_usec( 1 );				//wait P4=15[ns] min.
+		pgx_delay( PGX_FLASH_LVP_TIMING_P4 );				//wait P4=15[ns] min.
 		PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
-		pgx_delay_msec( 10 );			//wait P9=1[ms] min.		(programming time!)
+		pgx_delay( PGX_FLASH_LVP_TIMING_P9 );               //wait P9=1[ms] min.		(programming time!)
 		PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
-		pgx_delay_msec( 1 );				//wait P10=100[us] min. 	(discharge time!)
+		pgx_delay( PGX_FLASH_LVP_TIMING_P10 );				//wait P10=100[us] min. 	(discharge time!)
 		//exiting clean: low on clk && data
 	}
-	
+
+//---[ Write Configuration Bits ( Fuses ) ]---
+void pgx_flash_lvp_write_fuses( _pgx_Uint32 pgx_table_ptr_address , _pgx_Uint8 * pgx_fuses , _pgx_Uint8 pgx_fuses_size ) {
+	//--------------------------------------------------------------------------
+	// LSB -> Even addresses;		MSB -> Odd addresses;
+	// Enabling the write protection of configuration bits (WRTC = 0 in CONFIG6H)
+	// will prevent further writing of configuration bits. Always write all the
+	// configuration bits before enabling write protection for configuration bits.
+	//--------------------------------------------------------------------------
+	_pgx_Uint16 n;
+	_pgx_Uint16_VAL word;
+	_pgx_Uint32_VAL address;
+	address.val = pgx_table_ptr_address;
+	//--------------------------------------------------------------------------
+	// Step 1: Enable writes and direct access to configuration memory.
+	//--------------------------------------------------------------------------
+	// 0000 8E A6    BSF   EECON1, EEPGD
+	// 0000 8C A6    BSF   EECON1, CFGS
+	//--------------------------------------------------------------------------
+	pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x8EA6 );
+	pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x8CA6 );
+	//--------------------------------------------------------------------------
+	// Step 2: Set Table Pointer. Write even/odd addresses.
+	//--------------------------------------------------------------------------
+	// 0000 0E 30				MOVLW 30h
+	// 0000 6E F8				MOVWF TBLPTRU
+	// 0000 0E 30				MOVLW 00h
+	// 0000 6E F7				MOVWF TBLPTRH
+	// 0000 0E 30				MOVLW 00h
+	// 0000 6E F6				MOVWF TBLPTRL
+	// 1111 <MSB ignored><LSB>	Load 2 bytes and start programming.
+	// 0000 00 00				NOP - hold PGC high for time P9 and low for time P10.
+	// 0000 0E 01				MOVLW 01h
+	// 0000 6E F6				MOVWF TBLPTRL
+	// 1111 <MSB><LSB ignored>	Load 2 bytes and start programming.
+	// 0000 00 00    			NOP - hold PGC high for time P9 and low for time P10.
+	//--------------------------------------------------------------------------
+	pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.UB );
+	pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_U );
+	pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.HB );
+	pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_H );
+	for( n = 0 ; n < pgx_fuses_size ; n += 2 ) {
+		//Load #2 sequential bytes and switch their position
+		// word = *( pgx_fuses + n + 1);
+		// word = ( word << 8 ) + *( pgx_fuses + n );
+		word.byte.LB = *( pgx_fuses + n );
+		word.byte.HB = *( pgx_fuses + n + 1 );
+		//Write LSB
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.LB + n );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , PGX_FLASH_LVP_TBLPTR_ADDRESS_L );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_TBLWR_START , word.val );
+		PGX_FLASH_LVP_PGD_LAT = PGX_LOW;                    //ensure data is low
+		PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
+		pgx_delay( PGX_FLASH_LVP_TIMING_P9 );               //wait P9=1[ms] min.   (programming time!)
+		PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
+		pgx_delay( PGX_FLASH_LVP_TIMING_P10 );              //wait P10=100[us] min.  (discharge time!)
+		//Write MSB
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.LB + n + 1 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF6 );
+		pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_TBLWR_START , word.val );
+		PGX_FLASH_LVP_PGD_LAT = PGX_LOW;                    //ensure data is low
+		PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
+		pgx_delay( PGX_FLASH_LVP_TIMING_P9 );               //wait P9=1[ms] min.   (programming time!)
+		PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
+		pgx_delay( PGX_FLASH_LVP_TIMING_P10 );              //wait P10=100[us] min.  (discharge time!)
+		//exiting clean: low on clk && data
+	}
+}
 #endif
 
 	
@@ -397,3 +544,75 @@
 	// 1 =  Access Configuration registers
 	// 0 =  Access Flash program or data EEPROM memory
 	
+
+//    //---[ Write Configuration Bits ]---
+//    void pgx_flash_lvp_write_fuses( _pgx_Uint32 pgx_table_ptr_address , _pgx_Uint16 * pgx_fuses , _pgx_Uint8 pgx_fuses_size) {
+//        //--------------------------------------------------------------------------
+//        // LSB -> Even addresses;		MSB -> Odd addresses;
+//        //--------------------------------------------------------------------------
+//        // Enabling the write protection of configuration bits (WRTC = 0 in CONFIG6H)
+//        // will prevent further writing of configuration bits. Always write all the
+//        // configuration bits before enabling write protection for configuration bits.
+//        //--------------------------------------------------------------------------
+//        // Only 8 bits of the following 16-bit payload will be written. The
+//        // LSB of the payload will be written to even addresses and
+//        // the MSB will be written to odd addresses.
+//        //--------------------------------------------------------------------------
+//        _pgx_Uint16 n;
+//        _pgx_Uint32_VAL address;
+//        address.val= pgx_table_ptr_address;
+//        //--------------------------------------------------------------------------
+//        // Step 1: Enable writes and direct access to configuration memory.
+//        //--------------------------------------------------------------------------
+//        // 0000 8E A6    BSF   EECON1, EEPGD
+//        // 0000 8C A6    BSF   EECON1, CFGS
+//        //--------------------------------------------------------------------------
+//        pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x8EA6 );
+//        pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x8CA6 );
+//        //--------------------------------------------------------------------------
+//        // Step 2: Set Table Pointer. Write even/odd addresses.
+//        //--------------------------------------------------------------------------
+//        // 0000 0E 30				MOVLW 30h
+//        // 0000 6E F8				MOVWF TBLPTRU
+//        // 0000 0E 30				MOVLW 30h
+//        // 0000 6E F7				MOVWF TBLPTRH
+//        // 0000 0E 30				MOVLW 30h
+//        // 0000 6E F6				MOVWF TBLPTRL
+//        // 1111 <MSB ignored><LSB>	Load 2 bytes and start programming.
+//        // 0000 00 00				NOP - hold PGC high for time P9 and low for time P10.
+//        // 0000 0E 01				MOVLW 01h
+//        // 0000 6E F6				MOVWF TBLPTRL
+//        // 1111 <MSB><LSB ignored>	Load 2 bytes and start programming.
+//        // 0000 00 00    			NOP - hold PGC high for time P9 and low for time P10.
+//        //--------------------------------------------------------------------------
+//        pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.UB );
+//        pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF8 );
+//        pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.HB );
+//        pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF7 );
+//        for( n = 0 ; n < ( pgx_fuses_size ) ; n += 2 ) {
+//            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.LB + n );
+//            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF6 );
+//            
+//            //Load EVEN -> Program LSB
+//            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_TBLWR_START , *( pgx_fuses + n ) );       //???            
+//            PGX_FLASH_LVP_PGD_LAT = PGX_LOW; //ensure data is low
+//            PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
+//            pgx_delay_msec( 10 );   //wait P9=1[ms] min.  (programming time!)
+//            PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
+//            pgx_delay_msec( 1 );    //wait P10=100[us] min.  (discharge time!)
+//            //exiting clean: low on clk && data
+//        }  
+//        for( n = 1 ; n < ( pgx_fuses_size ) ; n += 2 ) {
+//            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , address.byte.LB + n );
+//            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_CORE , 0x6EF6 );
+//
+//            //Load ODD -> Program MSB
+//            pgx_flash_lvp_send_command( PGX_FLASH_LVP_COMMAND_TBLWR_START , *( pgx_fuses + n ) );        //???
+//            PGX_FLASH_LVP_PGD_LAT = PGX_LOW; //ensure data is low
+//            PGX_FLASH_LVP_PGC_LAT = PGX_HIGH;
+//            pgx_delay_msec( 10 );   //wait P9=1[ms] min.  (programming time!)
+//            PGX_FLASH_LVP_PGC_LAT = PGX_LOW;
+//            pgx_delay_msec( 1 );    //wait P10=100[us] min.  (discharge time!)
+//            //exiting clean: low on clk && data
+//        }
+//    }

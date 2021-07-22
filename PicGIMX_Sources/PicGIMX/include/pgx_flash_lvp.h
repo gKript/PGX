@@ -16,13 +16,14 @@
 		void		pgx_flash_lvp_mode_enter					( void );
 		void		pgx_flash_lvp_mode_exit						( void );
 		void		pgx_flash_lvp_send_command					( _pgx_Uint8 pgx_command , _pgx_Uint16 pgx_payload );
-		void		pgx_flash_lvp_bulk_erase					( _pgx_Uint8 pgx_memory_area );
 		_pgx_Uint8	pgx_flash_lvp_shift_out_data				( void );
+		void		pgx_flash_lvp_bulk_erase					( _pgx_Uint8 pgx_memory_area );
+		void		pgx_flash_lvp_erase_program_memory_block	( _pgx_Uint32 pgx_table_ptr_address , _pgx_Uint16 pgx_block_quantity );
 		void		pgx_flash_lvp_write_program_memory_block	( _pgx_Uint32 pgx_table_ptr_address , _pgx_Uint16 * pgx_code_word );
 		void		pgx_flash_lvp_write_ee_memory_byte			( _pgx_Uint16 pgx_ee_address , _pgx_Uint8 pgx_ee_data );
 		void		pgx_flash_lvp_write_id_location				( _pgx_Uint8  * pgx_id_data );
 		
-		//---[ Writing Code Block Size ]---
+		//---[ Writing Block Size ]---
 		#define	PGX_FLASH_LVP_CODEBLOCK_SIZE_BYTE			64
 		#define	PGX_FLASH_LVP_CODEBLOCK_SIZE_WORD			32
 		#define	PGX_FLASH_LVP_ID_LOCATION_SIZE_BYTE			8
@@ -30,10 +31,10 @@
 		#define	PGX_FLASH_LVP_EEPROM_SIZE_BYTE				1024
 		
 		//---[ Address Memory Area ]---
-		#define	PGX_FLASH_LVP_ADDRESS_FUSES					0x300000	//<!   14 byte area size
-		#define	PGX_FLASH_LVP_ADDRESS_EEPROM					0x0000	 	//<! 1024 bytes (00h to 3FFh)
-		#define	PGX_FLASH_LVP_ADDRESS_ID_LOCATION			0x200000	//<!    8 byte area size
-		#define	PGX_FLASH_LVP_ADDRESS_DEVICE_ID				0x3FFFFE	//<!    2 byte area size
+		#define	PGX_FLASH_LVP_ADDRESS_FUSES					0x300000	//<!   14 byte area size (0x300000-0x30000D)
+		#define	PGX_FLASH_LVP_ADDRESS_EEPROM				0xF00000	//<! 1024 bytes (00h to 3FFh)
+		#define	PGX_FLASH_LVP_ADDRESS_ID_LOCATION			0x200000	//<!    8 byte area size (0x200000-0x200007)
+		#define	PGX_FLASH_LVP_ADDRESS_DEVICE_ID				0x3FFFFE	//<!    2 byte area size (0x3FFFFE-0x3FFFFF)
 		
 		//---[ 4bit Command ]---
 		#define	PGX_FLASH_LVP_COMMAND_CORE					0b00000000
@@ -46,6 +47,11 @@
 		#define	PGX_FLASH_LVP_COMMAND_TBLWR_POSTINC_2B		0b00001101
 		#define	PGX_FLASH_LVP_COMMAND_TBLWR_START_POSTINC2	0b00001110
 		#define	PGX_FLASH_LVP_COMMAND_TBLWR_START			0b00001111
+
+		//---[ Tblptr Addresses ]---
+		#define PGX_FLASH_LVP_TBLPTR_ADDRESS_U				0x6EF8		//<! Upper byte tblptr
+		#define PGX_FLASH_LVP_TBLPTR_ADDRESS_H				0x6EF7		//<! High byte tblptr
+		#define PGX_FLASH_LVP_TBLPTR_ADDRESS_L				0x6EF6		//<! Low byte tblptr
 
 		//---[ Bulk Erase Area Memory IDentifier ]---
 		#define PGX_FLASH_LVP_BULK_ERASE_CHIP				0xFF87		//<! High byte bulk erase identifier data
@@ -62,16 +68,18 @@
 		#define PGX_FLASH_LVP_BULK_ERASE_CODE_7				0x8080		//<! High byte bulk erase identifier data
 		
 		//---[ Timing ]---									//not yet implemented (waiting accurate deley function)
-		#define PGX_FLASH_LVP_TIMING_P3						1			//<!  15[ns] min.
-		#define PGX_FLASH_LVP_TIMING_P4						1			//<!  15[ns] min.
-		#define PGX_FLASH_LVP_TIMING_P5						1			//<!  40[ns] min.
-		#define PGX_FLASH_LVP_TIMING_P5A						1			//<!  40[ns] min.
-		#define PGX_FLASH_LVP_TIMING_P6						1			//<!  20[ns] min.
-		#define PGX_FLASH_LVP_TIMING_P9						1			//<!   1[ms] min.
-		#define PGX_FLASH_LVP_TIMING_P10						1			//<! 100[us] min.
-		#define PGX_FLASH_LVP_TIMING_P14						1			//<!  10[ns] min.
-		#define PGX_FLASH_LVP_TIMING_P16						1			//<!  15[ns] min.
-		#define PGX_FLASH_LVP_TIMING_P18						1			//<!  15[ns] min.
+		#define PGX_FLASH_LVP_TIMING_P3						1 , PGX_USEC	//<!  15[ns] min.
+		#define PGX_FLASH_LVP_TIMING_P4						1 , PGX_USEC	//<!  15[ns] min.
+		#define PGX_FLASH_LVP_TIMING_P5						1 , PGX_USEC	//<!  40[ns] min.
+		#define PGX_FLASH_LVP_TIMING_P5A					1 , PGX_USEC	//<!  40[ns] min.
+		#define PGX_FLASH_LVP_TIMING_P6						1 , PGX_USEC	//<!  20[ns] min.
+		#define PGX_FLASH_LVP_TIMING_P9						2 , PGX_MSEC	//<!   1[ms] min.
+		#define PGX_FLASH_LVP_TIMING_P10				  200 , PGX_USEC	//<! 100[us] min.
+		#define PGX_FLASH_LVP_TIMING_P12					4 , PGX_USEC	//<!   2[us] min.
+		#define PGX_FLASH_LVP_TIMING_P14					1 , PGX_USEC	//<!  10[ns] min.
+		#define PGX_FLASH_LVP_TIMING_P15					4 , PGX_USEC	//<!   2[us] min.
+		#define PGX_FLASH_LVP_TIMING_P16				  100 , PGX_USEC	//<!   0[s] min.
+		#define PGX_FLASH_LVP_TIMING_P18				  100 , PGX_USEC	//<!   0[s] min.
 		
 	#endif
 #endif
@@ -86,8 +94,8 @@
 		// #define PGX_FLASH_LVP_BULK_ERASE_EEPROM_LB			0x84		//<! Low  byte bulk erase identifier data
 		// #define PGX_FLASH_LVP_BULK_ERASE_BOOT_HB				0x00		//<! High byte bulk erase identifier data
 		// #define PGX_FLASH_LVP_BULK_ERASE_BOOT_LB				0x81		//<! Low  byte bulk erase identifier data
-		// #define PGX_FLASH_LVP_BULK_ERASE_FUSES_HB				0x00		//<! High byte bulk erase identifier data
-		// #define PGX_FLASH_LVP_BULK_ERASE_FUSES_LB				0x82		//<! Low  byte bulk erase identifier data
+		// #define PGX_FLASH_LVP_BULK_ERASE_FUSES_HB			0x00		//<! High byte bulk erase identifier data
+		// #define PGX_FLASH_LVP_BULK_ERASE_FUSES_LB			0x82		//<! Low  byte bulk erase identifier data
 		// #define PGX_FLASH_LVP_BULK_ERASE_CODE_0_HB			0x01		//<! High byte bulk erase identifier data
 		// #define PGX_FLASH_LVP_BULK_ERASE_CODE_0_LB			0x80		//<! Low  byte bulk erase identifier data
 		// #define PGX_FLASH_LVP_BULK_ERASE_CODE_1_HB			0x02		//<! High byte bulk erase identifier data

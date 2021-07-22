@@ -24,13 +24,21 @@ void pgx_initialize( void ) {
 
 	//ADCON1 = 0x0f;
 
-	 #if ( PGIMX_TIMER == PGX_ENABLE )
-		 pgx_timer_init( );
-	 #endif
+    #if ( PGIMX_TIMER == PGX_ENABLE )
+        pgx_timer_init( );
+    #endif
 
-	 #if ( PGIMX_EVENT == PGX_ENABLE )
-		 pgx_event_init( );
-	 #endif
+    #if ( PGIMX_EVENT == PGX_ENABLE )
+        pgx_event_init( );
+    #endif
+
+    #if ( PGIMX_FLASH == PGX_ENABLE )
+        ;
+    #endif
+
+    #if ( PGIMX_FLASH_LVP == PGX_ENABLE )
+        pgx_flash_lvp_init( );
+    #endif
 
 //	 #if ( PGIMX_CAL_DELAY == PGX_ENABLE ) //&& defined( __18CXX )
 //		 pg_delay_ninstus_calc( );

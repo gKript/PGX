@@ -53,7 +53,7 @@
 	#if ( PGIM_SERIAL == PG_ENABLE )
 
 		// 		C O N F I G   M O D E	(SEMI_AUTOMATIC ONLY)
-		#define PGIMX_SERIAL_BAUDRATE					9600					//!< The possible values are: 300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200
+		#define PGIMX_SERIAL_BAUDRATE					115200					//!< The possible values are: 300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200
 		#define PGIMX_SERIAL_BAUDRATE_ACCURACY			1.00					//!< Percentage baudrate error value. \n It is the reference for the calculation of the automatic configuration.
 		
 		//		R X   M O D E
